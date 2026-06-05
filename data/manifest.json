@@ -1,0 +1,555 @@
+﻿{
+    "generated_at_utc":  "2026-06-05T14:49:51Z",
+    "source_url":  "https://esoterisme.revolunions.com/Musique/Hemi-Sync/",
+    "root":  "data",
+    "file_count":  91,
+    "total_size_bytes":  6846681251,
+    "files":  [
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+                      "size_bytes":  1847821,
+                      "sha256":  "9b4f33d95bf60629e6eae0eefc8fc81e789a1e983953a11f07a9fcc3686aed9e",
+                      "modified_utc":  "2026-06-05T14:45:07Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/HemiSync - Gateway Experience - Wave II Threshold.pdf",
+                      "size_bytes":  1325910,
+                      "sha256":  "92315133044f2b3dbdff8dd82451cf69b66726c17c12e6d72d2d8792358508f7",
+                      "modified_utc":  "2026-06-05T14:45:07Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/HemiSync - Gateway Experience - Wave III Freedom.pdf",
+                      "size_bytes":  1424621,
+                      "sha256":  "2d215b04e1cbe04be705a41ab40ff6b2acaa8fe7120f050ad624047d78823792",
+                      "modified_utc":  "2026-06-05T14:45:07Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/HemiSync - Gateway Experience - Wave IV Adventure.pdf",
+                      "size_bytes":  1095551,
+                      "sha256":  "b00a847cd0f984d4ec6c393153fcfc33b439f8da45f4366eae0813b539d0fbeb",
+                      "modified_utc":  "2026-06-05T14:45:08Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/HemiSync - Gateway Experience - Wave V Exploring.pdf",
+                      "size_bytes":  1059478,
+                      "sha256":  "bfe0c3cead284c35522fce83442162ab2bdcdbe9141e3b932f719a8f6444250a",
+                      "modified_utc":  "2026-06-05T14:45:08Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/HemiSync - Gateway Experience - Wave VI Odyssey.pdf",
+                      "size_bytes":  1180179,
+                      "sha256":  "dacfca2b758223bb46f2e327aa581fe8a85b29716267b543833cb9c7900a96bb",
+                      "modified_utc":  "2026-06-05T14:45:08Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience.nfo",
+                      "size_bytes":  3488,
+                      "sha256":  "ec0a0242b1852726806d08313ca8f1953bf5e53cfc4aaea6e24010de8399a40c",
+                      "modified_utc":  "2026-06-05T14:45:08Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD1 - 1 - Orientation.flac",
+                      "size_bytes":  163792785,
+                      "sha256":  "bac7a1e255def01021fdaf90ee927ec0dfe3501a5c88e75d707150ec8377f61e",
+                      "modified_utc":  "2026-06-05T14:45:12Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD1 - 2 - Introduction to Focus 10.flac",
+                      "size_bytes":  179736450,
+                      "sha256":  "df913697d369f633216f6ff63e37a6e0ece3f57dfedd4a12f72abcd90308a116",
+                      "modified_utc":  "2026-06-05T14:45:16Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD2 - 3 - Advanced Focus 10.flac",
+                      "size_bytes":  171830223,
+                      "sha256":  "a516c34f2e4de5eaf66864ecbaf4ca263fd3976010d800b858e4e3bc8e32e997",
+                      "modified_utc":  "2026-06-05T14:45:20Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD2 - 4 - Release and Recharge.flac",
+                      "size_bytes":  188187209,
+                      "sha256":  "2e26fc00fcbb3ddffba45aef6c67c0e9d04d6962ea296eea77bf04e1dcf56708",
+                      "modified_utc":  "2026-06-05T14:45:25Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD3 - 5 - Exploration, Sleep.flac",
+                      "size_bytes":  196732645,
+                      "sha256":  "a89e3bc252eeb7650ab663fa02e35bd05ee240caccea66025ca991f948d4ab14",
+                      "modified_utc":  "2026-06-05T14:45:32Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD3 - 6 - Free Flow 10.flac",
+                      "size_bytes":  162509202,
+                      "sha256":  "cb128536c31347bcb6f61cf5128b9015924ce915f7a648a89dab00e834838150",
+                      "modified_utc":  "2026-06-05T14:45:36Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+                      "size_bytes":  1847821,
+                      "sha256":  "9b4f33d95bf60629e6eae0eefc8fc81e789a1e983953a11f07a9fcc3686aed9e",
+                      "modified_utc":  "2026-06-05T14:45:37Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD1 - 1 - Introduction to Focus 12.flac",
+                      "size_bytes":  155558367,
+                      "sha256":  "2ca1f85ce34eac5ba591172cab22ac8acedf4a732fda95ba5b19a85a07769000",
+                      "modified_utc":  "2026-06-05T14:45:41Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD1 - 2 - Problem Solving.flac",
+                      "size_bytes":  168537882,
+                      "sha256":  "bcf849c66033bef75f3dd4faefddb9d4934ba6142b6307e9b9b3557c73a52d5e",
+                      "modified_utc":  "2026-06-05T14:45:45Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD2 - 3 - One-Month Patterning.flac",
+                      "size_bytes":  228371271,
+                      "sha256":  "53148aef39107729dc7ce8bc0780e2288fe503d71204ffb632e4c1f9a6489740",
+                      "modified_utc":  "2026-06-05T14:45:54Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD2 - 4 - Color Breathing.flac",
+                      "size_bytes":  156637425,
+                      "sha256":  "4f8f55b0e5c57b7545fb4697a586334f6f4fb4ac10b7af173af49200089155e0",
+                      "modified_utc":  "2026-06-05T14:46:01Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD3 - 5 - Energy Bar Tool.flac",
+                      "size_bytes":  156894525,
+                      "sha256":  "763352f3b140a9903003c27c11409d881d9f6b07cd8a0cb65a9729b995642b90",
+                      "modified_utc":  "2026-06-05T14:46:07Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD3 - 6 - Living Body Map.flac",
+                      "size_bytes":  181634564,
+                      "sha256":  "06104e6ee41b6320ae4f653fdc30ad8b2833c46519c894cc5edaa16c70c9dd47",
+                      "modified_utc":  "2026-06-05T14:46:12Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD1 - 1 - Lift Off.flac",
+                      "size_bytes":  138755432,
+                      "sha256":  "38c325f5b56bc0eddcd5fdcf64437357ef196aa1a068fb600288abb73fe9ba99",
+                      "modified_utc":  "2026-06-05T14:46:16Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD1 - 2 - Remote Viewing.flac",
+                      "size_bytes":  150256284,
+                      "sha256":  "e1e17ea2ee1ca089cc13f242a631c8f80f0de0c8acd37925027440100144bd6e",
+                      "modified_utc":  "2026-06-05T14:46:22Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD2 - 3 - Vectors.flac",
+                      "size_bytes":  122681305,
+                      "sha256":  "9586760c19e93430bdde5f86f471d9ea8ff7bf1ce1154f4634900ec732e1aab6",
+                      "modified_utc":  "2026-06-05T14:46:25Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD2 - 4 - Five Questions.flac",
+                      "size_bytes":  143203369,
+                      "sha256":  "117f21637c67c98dcd5b0800a1c41d54d9111d0d9f08d59c1d452c0924975f04",
+                      "modified_utc":  "2026-06-05T14:46:29Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD3 - 5 - Energy Food.flac",
+                      "size_bytes":  146611998,
+                      "sha256":  "1b3be03dcbd4ce66eadf377661466937468ee63e76a858099aa1bf649f24a8cb",
+                      "modified_utc":  "2026-06-05T14:46:32Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD3 - 6 - First Stage Separation.flac",
+                      "size_bytes":  178623331,
+                      "sha256":  "3068215244bff795dd2d9b6747d42480edff0e3f82141eaad707aca4eed625f2",
+                      "modified_utc":  "2026-06-05T14:46:40Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD1 - 1 - One Year Patterning.flac",
+                      "size_bytes":  154946429,
+                      "sha256":  "7efb21ce77e8b224cb0c2582a14112386ceeaaddf362ba4da5b6f2a6602dc078",
+                      "modified_utc":  "2026-06-05T14:46:44Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD1 - 2 - Five Messages.flac",
+                      "size_bytes":  178238025,
+                      "sha256":  "af7d823b8c330aa4815c03b578f80f3cc2023c6f0700b117eacb59112a276282",
+                      "modified_utc":  "2026-06-05T14:46:48Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD2 - 3 - Free Flow 12.flac",
+                      "size_bytes":  160845564,
+                      "sha256":  "464c02ca41ceb95998c08b245037bb046fe280454b2de6ebde342fd388c27f19",
+                      "modified_utc":  "2026-06-05T14:46:53Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD2 - 4 - NVC I.flac",
+                      "size_bytes":  164420850,
+                      "sha256":  "cf1d9e0d0d2fdd763649b8c857125d2a526d916bd25087502504faa6db412f25",
+                      "modified_utc":  "2026-06-05T14:46:57Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD3 - 5 - NVC II.flac",
+                      "size_bytes":  188896610,
+                      "sha256":  "5075b7fb7a95de343438b3a3adfd20db79205e5cb1759cf50dd4ca984e107ebf",
+                      "modified_utc":  "2026-06-05T14:47:04Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD3 - 6 - Compoint.flac",
+                      "size_bytes":  139647808,
+                      "sha256":  "2fa53fcfd93934b9aba37deed103d201ec820e393f228e9a50a01a32229268e2",
+                      "modified_utc":  "2026-06-05T14:47:09Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD1 - 1 - Exploring Intuition.flac",
+                      "size_bytes":  118897153,
+                      "sha256":  "52c1afc3a7c98df75b3286dbbb5ddf5b4b6b5505d8994f7bf20327e03e0cb701",
+                      "modified_utc":  "2026-06-05T14:47:11Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD1 - 2 - Intro to Focus 15.flac",
+                      "size_bytes":  123058896,
+                      "sha256":  "4cf35de4fcbc510177165de833c66573d417464846311fc648d2964981962dcd",
+                      "modified_utc":  "2026-06-05T14:47:16Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD2 - 3 - Exploring Intuition.flac",
+                      "size_bytes":  118897153,
+                      "sha256":  "14e31e023b6a4841818260383b3172163ee1ff3a6a0f78e41c62784a8a2540d8",
+                      "modified_utc":  "2026-06-05T14:47:19Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD2 - 4 - Intro to Focus 15.flac",
+                      "size_bytes":  123058896,
+                      "sha256":  "61ddd785811039dc0f857c805c9fb583f056c957ca3445ab3933159bf0b8e183",
+                      "modified_utc":  "2026-06-05T14:47:24Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD3 - 5 - Mission 15 Creation and Manifestation.flac",
+                      "size_bytes":  119954157,
+                      "sha256":  "4060a19932e1a3bfcdbaacc689c9a9d27b5d4e0e29abec8fdbb6c43fd88461b7",
+                      "modified_utc":  "2026-06-05T14:47:27Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD3 - 6 - Exploring Focus 15.flac",
+                      "size_bytes":  132454322,
+                      "sha256":  "2caa29bf88eabe98ef20965c96400f02e5a989386f560a4a049a50e85bc34cd1",
+                      "modified_utc":  "2026-06-05T14:47:30Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD1 - 1 - Sensing Locale 1.flac",
+                      "size_bytes":  144468506,
+                      "sha256":  "1fb686ec6f37ca7f43fda01c1f3ae302169d9179e4960a98079a1c487922ba1b",
+                      "modified_utc":  "2026-06-05T14:47:39Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD1 - 2 - Expansion in Locale 1.flac",
+                      "size_bytes":  138931084,
+                      "sha256":  "894c07127bdb2cc6f747d0cc3c5c5b2a0d65f7ebdb96d15e82db2f50ef3edceb",
+                      "modified_utc":  "2026-06-05T14:47:42Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD2 - 3 - Point of Departure.flac",
+                      "size_bytes":  147112251,
+                      "sha256":  "a29c816d3f317eb5297432be4e7a75316cc32e315d4d8437fc288c9fc6bbacc3",
+                      "modified_utc":  "2026-06-05T14:47:46Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD2 - 4 - Nonphysical friends.flac",
+                      "size_bytes":  160074248,
+                      "sha256":  "2fe86aaa8e23a25629a813d78e5d01610b1caae2bdb9fa966a87e73d2492b2e4",
+                      "modified_utc":  "2026-06-05T14:47:51Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD3 - 5 - Movement to Locale 2 - Intro Focus 21.flac",
+                      "size_bytes":  135895391,
+                      "sha256":  "7ed86fc96f2713de346dc044695e1cc1357a0d764e33984a72f01317e412d215",
+                      "modified_utc":  "2026-06-05T14:47:54Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD3 - 6 - Free Flow Journey in Focus 21.flac",
+                      "size_bytes":  161167703,
+                      "sha256":  "436005dc0466764eda309229a82bd516b80c30d083d12950c9c0f2ab14e3fe61",
+                      "modified_utc":  "2026-06-05T14:47:59Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync - The Gateway Experience/Hemi-Sync.The_Gateway_Experience.flac.nfo",
+                      "size_bytes":  0,
+                      "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                      "modified_utc":  "2026-06-05T14:48:46Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/00._Monroe Institute_-_Hemi-Sync Cours 1 \u0026 2.nfo",
+                      "size_bytes":  4820,
+                      "sha256":  "8497b3c4bb19f79472c9aa5ebd3cfae6c6152712c9c94a5ef9abc7c6fdbb8eee",
+                      "modified_utc":  "2026-06-05T14:48:46Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/00._Monroe Institute_-_Hemi-Sync Cours 1.nfo",
+                      "size_bytes":  2532,
+                      "sha256":  "a992b61b6415e8efd543fe86ab12823d057ec58df6cbcad6c719bfd9fa736ed3",
+                      "modified_utc":  "2026-06-05T14:48:00Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Découverte 01 - Orientation (focus 3) - Wave I.mp3",
+                      "size_bytes":  33049589,
+                      "sha256":  "ce5fed1694e28f4831f51031bfbf7060ffd98718a55e97caeacda65afabdeb83",
+                      "modified_utc":  "2026-06-05T14:48:01Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Découverte 02 - Introduction (focus 10)Découverte 02 - Wave I.mp3",
+                      "size_bytes":  41746484,
+                      "sha256":  "ea901e54459f5fd6b555a694e83e1fdfc355dfbd563332e2335e548e59c78eb9",
+                      "modified_utc":  "2026-06-05T14:48:02Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Découverte 03 - Focus 10 avancé - Wave I.mp3",
+                      "size_bytes":  44100848,
+                      "sha256":  "fed43013269b3b04eb6fc894602eca89d82b99993adb4457d86d041609a36d84",
+                      "modified_utc":  "2026-06-05T14:48:03Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Découverte 04 - Libération et Revitalisation - Wave I.mp3",
+                      "size_bytes":  36060985,
+                      "sha256":  "d795f1a8652afb399789600c855f37d6742d9162d642ade97b5a8d76bd231deb",
+                      "modified_utc":  "2026-06-05T14:48:04Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Découverte 05 - Exploration , Sommeil - Wave I.mp3",
+                      "size_bytes":  36981749,
+                      "sha256":  "16f72c7de5bd150b766fbacc17e606a43dcc67941be14e6a300fcbb8bf71e43a",
+                      "modified_utc":  "2026-06-05T14:48:05Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Découverte 06 - Evolution Libre Focus 10 - Wave I.mp3",
+                      "size_bytes":  35923477,
+                      "sha256":  "567872e748c105959a7ce4bd42db136e8870b39da797741577aee86b8204709a",
+                      "modified_utc":  "2026-06-05T14:48:06Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Manuel Découverte 1\u00262 ( k7 wave 1\u00262)/IMG.jpg",
+                      "size_bytes":  1086958,
+                      "sha256":  "b5b7cf0c9937c37b89ea1a28a26fc7bcbc458c227eaa1eed394aad84ce1e6558",
+                      "modified_utc":  "2026-06-05T14:48:44Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Manuel Découverte 1\u00262 ( k7 wave 1\u00262)/IMG_0001.jpg",
+                      "size_bytes":  2004639,
+                      "sha256":  "2b8a3abd0b9f032619150433dd3d890697229c9ca6d1802fa31b8af5de6cc2ba",
+                      "modified_utc":  "2026-06-05T14:48:44Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Manuel Découverte 1\u00262 ( k7 wave 1\u00262)/IMG_0002.jpg",
+                      "size_bytes":  2106196,
+                      "sha256":  "48865cdc66cb833d93ba717d37061127ef206de56c1b3106cc57f6281b7a4997",
+                      "modified_utc":  "2026-06-05T14:48:45Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Manuel Découverte 1\u00262 ( k7 wave 1\u00262)/IMG_0003.jpg",
+                      "size_bytes":  1786940,
+                      "sha256":  "7275c41a03949d7ce9fb2961439be39cd438ab091198eba325edd934c550ce87",
+                      "modified_utc":  "2026-06-05T14:48:45Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Manuel Découverte 1\u00262 ( k7 wave 1\u00262)/IMG_0004.jpg",
+                      "size_bytes":  934232,
+                      "sha256":  "eb5bc7b0392df34f3d4c6902654fc8f8806e08194fa36c525190dbbf114c1a41",
+                      "modified_utc":  "2026-06-05T14:48:45Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Manuel Découverte 1\u00262 ( k7 wave 1\u00262)/IMG_0005.jpg",
+                      "size_bytes":  1054391,
+                      "sha256":  "43d69ae67d5bfecf08a6ee1a76de1448298dbb544cd0e5fb28dce2e7a5d4e154",
+                      "modified_utc":  "2026-06-05T14:48:45Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Manuel Découverte 1\u00262 ( k7 wave 1\u00262)/IMG_0006.jpg",
+                      "size_bytes":  1980722,
+                      "sha256":  "e4b1df323f24301158b90f7d45e8bfd32bf583dc63babc2c65b4ccd0108c1587",
+                      "modified_utc":  "2026-06-05T14:48:46Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Manuel Découverte 1\u00262 ( k7 wave 1\u00262)/IMG_0007.jpg",
+                      "size_bytes":  1715605,
+                      "sha256":  "af28362316e9dd0f1c5ac9d026bb4e3b08e07e8901deffbe64a3c4ee3be589e3",
+                      "modified_utc":  "2026-06-05T14:48:46Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Manuel Découverte 1\u00262 ( k7 wave 1\u00262)/IMG_0008.jpg",
+                      "size_bytes":  1958904,
+                      "sha256":  "f3ba4084f83ddd194f88ebcf09f3e70a60a8393a5c75cc6c3d77d5a1a6c12d9d",
+                      "modified_utc":  "2026-06-05T14:48:46Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Manuel Découverte 1\u00262 ( k7 wave 1\u00262)/IMG_0009.jpg",
+                      "size_bytes":  550472,
+                      "sha256":  "963d3cfffb8a732b01d215233463c82d3c9997b6e2f8fcf00be0fc39939d0cc3",
+                      "modified_utc":  "2026-06-05T14:48:46Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Mind Food - Le Sommeil Profond - 01.mp3",
+                      "size_bytes":  38254895,
+                      "sha256":  "166b55608e16ff7866aba8e207bcbd5bcaabf3d7c2a7954d024d79f518bf4472",
+                      "modified_utc":  "2026-06-05T14:48:08Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Mind Food - Le Sommeil Profond - 02.mp3",
+                      "size_bytes":  32756642,
+                      "sha256":  "8bf049de54474db963814d0cf5abe67f9529baea72f83a35c68eaef773e267d3",
+                      "modified_utc":  "2026-06-05T14:48:09Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Mind Food - Profonde Relaxation - 01.mp3",
+                      "size_bytes":  41670457,
+                      "sha256":  "5b0179851eacd69398a100c87c8eb543cd9ae62473afb9bfcf5967557da078d9",
+                      "modified_utc":  "2026-06-05T14:48:10Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Mind Food - Profonde Relaxation - 02.mp3",
+                      "size_bytes":  29341497,
+                      "sha256":  "fb97716cff41015c2c1fc1b2f02f2dca699885c5cf711166fd08b72838cc3065",
+                      "modified_utc":  "2026-06-05T14:48:11Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Seuil 07 Introduction a Focus 12 - Wave II.mp3",
+                      "size_bytes":  38013272,
+                      "sha256":  "afd242c97ac9d723ff130ae2b1a82a73e642929f7a48f70232b82a8164cf9b40",
+                      "modified_utc":  "2026-06-05T14:48:12Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Seuil 08 - Résolution de Problèmes - Wave II.mp3",
+                      "size_bytes":  40542343,
+                      "sha256":  "d935ffe3d28016d7b46b45fc95f9019e586bfabbd147fdd98491548b08997ddf",
+                      "modified_utc":  "2026-06-05T14:48:13Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Seuil 09 - Programation - Wave II.mp3",
+                      "size_bytes":  40019477,
+                      "sha256":  "a1674d2bff336b8903cd4b4579f30060915738ec2be76f03414f7406e1e60ea8",
+                      "modified_utc":  "2026-06-05T14:48:14Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Seuil 10 - La Barre d\u0027Energie - Wave II.mp3",
+                      "size_bytes":  36846330,
+                      "sha256":  "5a22dabf7d6dd1507e99eb110b3aa35e50e1ceb327e7b883447b079e993e89bf",
+                      "modified_utc":  "2026-06-05T14:48:15Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Seuil 11 - La Carte Vivante - Wave II.mp3",
+                      "size_bytes":  44904166,
+                      "sha256":  "c6f32d77d4072a218572a9925ddd62ffbac5e994f0435a91eb2d8582525ac834",
+                      "modified_utc":  "2026-06-05T14:48:16Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 1/Seuil 12 - Evolution Libre 12 - Wave II.mp3",
+                      "size_bytes":  40047480,
+                      "sha256":  "4fa2124ab79317f3c181c194fc759bf46cf32df6191f56af00b8f6c48e955bf3",
+                      "modified_utc":  "2026-06-05T14:48:17Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/00._Monroe Institute_-_Hemi-Sync Cours 2.nfo",
+                      "size_bytes":  2420,
+                      "sha256":  "119f1fbeb6db5a21f6fb00cbe2305acd21ad41d8c128e6c8c8aa139a09969096",
+                      "modified_utc":  "2026-06-05T14:48:17Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/A consulter en 1er (Humain plus).jpg",
+                      "size_bytes":  1923078,
+                      "sha256":  "d43dbccbba37d6b3ea2198872ef0535dfc4ce58455bc6d1cf20278fcfabe3a44",
+                      "modified_utc":  "2026-06-05T14:48:18Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Avant tout - PREPARATION.mp3",
+                      "size_bytes":  40078827,
+                      "sha256":  "ff1ae7637c0f7065c508b605c1ca12065b67e1da7812926985bd8f640988ef13",
+                      "modified_utc":  "2026-06-05T14:48:19Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Cerveau , reparation et Entretien.mp3",
+                      "size_bytes":  37642961,
+                      "sha256":  "d6b850e1e5791592e48b68fb9aaa2ec570504c444ad054f8f4810e722ff88f9e",
+                      "modified_utc":  "2026-06-05T14:48:20Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Dormir, Decider.mp3",
+                      "size_bytes":  37428966,
+                      "sha256":  "515675749b128140982c264223c9a0df720761a045aca6cd643cbaaabed0f2c8",
+                      "modified_utc":  "2026-06-05T14:48:21Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Effacer.mp3",
+                      "size_bytes":  37537635,
+                      "sha256":  "eb5c979baedc6259b433ae3af01593ba5bfb75048c160f0c0dfedb75f5e3efb4",
+                      "modified_utc":  "2026-06-05T14:48:22Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Liberation.mp3",
+                      "size_bytes":  37082895,
+                      "sha256":  "6e1191e438e9a7c904fb1593805b24ac253d3d3ea3cd62a916929ba424c4f848",
+                      "modified_utc":  "2026-06-05T14:48:23Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Options.mp3",
+                      "size_bytes":  37704401,
+                      "sha256":  "6cb5595a2221d181f17a219abdd890d33400c1b54fd068fef63e1c9b4f5f957c",
+                      "modified_utc":  "2026-06-05T14:48:24Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Penser vite.mp3",
+                      "size_bytes":  37644632,
+                      "sha256":  "6943756b3e747a25f6f567f9d598e2d0fc827389eb2ff67ff75fcb27d393f87b",
+                      "modified_utc":  "2026-06-05T14:48:26Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Pleins Pouvoirs.mp3",
+                      "size_bytes":  37608688,
+                      "sha256":  "41a7585bd63162bca3041d6873c25b86044dc73d98df4a4161420b4e2bd30a1b",
+                      "modified_utc":  "2026-06-05T14:48:27Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Retablissement.mp3",
+                      "size_bytes":  37964789,
+                      "sha256":  "19e35a647d925f8956d972fcbf8b4e47eaa25db20a3952153c7357803f0e0d0e",
+                      "modified_utc":  "2026-06-05T14:48:28Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Se Revigorer.mp3",
+                      "size_bytes":  37623734,
+                      "sha256":  "dd4da4cc03decf49635dacd26b2cc81ad51ae76f463ba414f4143ba3cdecd5a6",
+                      "modified_utc":  "2026-06-05T14:48:29Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Se Transformer.mp3",
+                      "size_bytes":  37548084,
+                      "sha256":  "25fea685fc28206bc12f5f1205a6b40b8b43c479525c0d77b0d383b3cb83c4bf",
+                      "modified_utc":  "2026-06-05T14:48:30Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - S\u0027immuniser.mp3",
+                      "size_bytes":  37573161,
+                      "sha256":  "42674b9b7a24b8e8454b51c2a8edf26613b98cbd7ec14fe662db8bfc572b7d7c",
+                      "modified_utc":  "2026-06-05T14:48:31Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Urgences  blessure.mp3",
+                      "size_bytes":  37902931,
+                      "sha256":  "627f512609ac00b59c14253daaa91736ce699db9bc7f83980da53e93211badaa",
+                      "modified_utc":  "2026-06-05T14:48:32Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Mind Food - Controle de la Douleur.mp3",
+                      "size_bytes":  39522523,
+                      "sha256":  "1c1dce3f5009290a502d95bc2f2ce47994b17b4a62c75e2bab262f7b4874f754",
+                      "modified_utc":  "2026-06-05T14:48:33Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Mind Food - Memoriser,se Rappeler,se Liberer.mp3",
+                      "size_bytes":  41696329,
+                      "sha256":  "c1f2af745b91dfb34ebf84e0fb6afb314c18e08990f2858c40a886269ef4359a",
+                      "modified_utc":  "2026-06-05T14:48:35Z"
+                  },
+                  {
+                      "path":  "Hemi-Sync/Hemi-sync COURS 2/Mind Food - Moment de revelation.mp3",
+                      "size_bytes":  35444913,
+                      "sha256":  "7d85c79a23dacb0e10886c666d7fbc3d1ea9b587854e343fd15ab7587d167030",
+                      "modified_utc":  "2026-06-05T14:48:36Z"
+                  }
+              ]
+}

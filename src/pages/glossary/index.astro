@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t, localePrefix } from '../../i18n';
+import { loadCurriculum } from '../../lib/curriculum';
+
+const locale = 'fr';
+const p = localePrefix(locale);
+const { glossary } = loadCurriculum();
+---
+
+<BaseLayout title={t(locale, 'glossary.title')} locale={locale}>
+  <header class="hero">
+    <h1>{t(locale, 'glossary.title')}</h1>
+    <p class="lede">{t(locale, 'glossary.intro')}</p>
+  </header>
+
+  <div class="grid-waves">
+    {glossary.map((entry) => (
+      <article class="card">
+        <p class="wave-meta">Focus {entry.focus}</p>
+        <h2>{entry.title.fr}</h2>
+        <p class="muted">{entry.desc.fr}</p>
+      </article>
+    ))}
+  </div>
+</BaseLayout>

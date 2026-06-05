@@ -1,0 +1,19 @@
+{
+  "name": "gateway-process",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "node scripts/ensure-media-link.mjs && astro dev",
+    "build": "node scripts/build-curriculum.mjs && astro build && node scripts/copy-media.mjs",
+    "build-curriculum": "node scripts/build-curriculum.mjs",
+    "extract-manuals-md": "python scripts/extract-manuals-md.py",
+    "preview": "node scripts/copy-media.mjs && astro preview",
+    "copy-media": "node scripts/copy-media.mjs"
+  },
+  "dependencies": {
+    "astro": "^6.2.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}

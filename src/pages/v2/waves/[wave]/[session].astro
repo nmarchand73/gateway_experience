@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SessionWorkspace from '../../../../components/SessionWorkspace.astro';
+import { t, localePrefix } from '../../../../i18n';
+import {
+  getWave,
+  getSession,
+  sessionTitle,
+  pickAudio,
+  progressKey,
+  getEdition,
+  editionLabel,
+} from '../../../../lib/curriculum';
+import { resolveMediaUrl, resolvePdfUrl } from '../../../../lib/media';
+import { getManualForSession } from '../../../../lib/manuals';
+
+export function getStaticPaths() {
+  const edition = getEdition('v2');
+  return edition.sessions.map((s) => ({
+    params: { wave: s.waveSlug, session: s.id },
+  }));
+}
+
+const locale = 'fr';
+const p = localePrefix(locale);
+const { wave: waveSlug, session: sessionId } = Astro.params;
+const wave = getWave(waveSlug!, 'v2');
+const session = getSession(sessionId!, 'v2');
+if (!wave || !session) throw new Error(`Invalid v2 session route: ${waveSlug}/${sessionId}`);
+
+const audio = pickAudio(session, locale, 'v2');
+const audioUrl = audio ? resolveMediaUrl(audio.path) : '';
+const bandLabel = session.frequencies.bandLabel.fr;
+const pdfUrl = resolvePdfUrl(session.manualPdf ?? wave.manualPdf);
+const hasSourceManual = Boolean(session.manualPdf ?? wave.manualPdf) || wave.slug === 'wave-vii';
+const manualText = getManualForSession(session.id, wave.slug, hasSourceManual);
+const edition = getEdition('v2');
+const pKey = progressKey(session.id, 'v2');
+---
+
+<BaseLayout title={`v2 · ${sessionTitle(session, locale)}`} locale={locale}>
+  <SessionWorkspace
+    locale={locale}
+    wave={wave}
+    session={session}
+    edition="v2"
+    audioUrl={audioUrl}
+    bandLabel={bandLabel}
+    manualText={manualText}
+    pdfUrl={pdfUrl}
+    progressKey={pKey}
+    headerNote={t(locale, 'waves.audioEnMp3')}
+    crumbs={[
+      { href: `${p}/v2/waves/`, label: editionLabel(edition, locale) },
+      { href: `${p}/v2/waves/${wave.slug}/`, label: `Wave ${wave.roman}` },
+    ]}
+  />
+</BaseLayout>

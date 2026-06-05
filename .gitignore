@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+public/media
+.DS_Store
+content/raw-ocr/
+
+# Local media (~6 GB). Not tracked: Git LFS needs extra disk during add, and GitHub
+# free LFS (1 GB) + Pages artifacts (~1 GB) cannot host full audio builds.
+data/**
+!data/manifest.json

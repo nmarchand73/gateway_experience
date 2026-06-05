@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t, localePrefix } from '../i18n';
+import { loadCurriculum, getEdition, editionDescription, hasEdition } from '../lib/curriculum';
+
+const locale = 'fr';
+const p = localePrefix(locale);
+const curriculum = loadCurriculum();
+const v2 = hasEdition('v2') ? getEdition('v2') : null;
+const supplementCount =
+  curriculum.supplements.mindFood.length + curriculum.supplements.humainPlus.length;
+---
+
+<BaseLayout title={t(locale, 'home.title')} locale={locale}>
+  <header class="hero">
+    <p class="eyebrow">{t(locale, 'home.eyebrow')}</p>
+    <h1>{t(locale, 'home.title')}</h1>
+    <p class="lede">{t(locale, 'home.subtitle')}</p>
+    <div class="btn-row">
+      <a class="btn-primary" href={`${p}/waves/wave-i/`}>{t(locale, 'home.startWaveI')}</a>
+      {v2 && (
+        <a class="btn-primary" href={`${p}/v2/waves/wave-i/`}>{t(locale, 'home.startV2')}</a>
+      )}
+      <a class="btn-secondary" href={`${p}/start/`}>{t(locale, 'home.readGuide')}</a>
+      <a class="btn-secondary" href={`${p}/waves/`}>{t(locale, 'home.browseWaves')}</a>
+    </div>
+  </header>
+
+  <section class="card">
+    <p class="mono muted">
+      {t(locale, 'home.statsWaves')} · {t(locale, 'home.statsSessions', { count: curriculum.sessions.length })}
+      {v2 && ` · v2: ${v2.sessions.length}`}
+      · {t(locale, 'home.statsSupplements', { count: supplementCount })}
+    </p>
+  </section>
+
+  {v2 && (
+    <section style="margin-bottom: 2rem;">
+      <h2>{t(locale, 'home.editionsTitle')}</h2>
+      <p class="muted">{t(locale, 'home.editionsIntro')}</p>
+      <div class="grid-waves" style="margin-top: 1rem;">
+        <a href={`${p}/waves/`} class="card wave-card">
+          <h2>{t(locale, 'waves.classicTitle')}</h2>
+          <p class="muted">{t(locale, 'waves.intro')}</p>
+        </a>
+        <a href={`${p}/v2/waves/`} class="card wave-card">
+          <h2>{t(locale, 'waves.v2Title')}</h2>
+          <p class="muted">{editionDescription(v2, locale)}</p>
+        </a>
+      </div>
+    </section>
+  )}
+
+  <section>
+    <h2>{t(locale, 'waves.classicTitle')}</h2>
+    <p class="muted">{t(locale, 'waves.intro')}</p>
+    <div class="grid-waves" style="margin-top: 1rem;">
+      {curriculum.waves.map((wave) => (
+        <a href={`${p}/waves/${wave.slug}/`} class="card wave-card">
+          <p class="wave-meta">Wave {wave.roman} · Focus {wave.focusLevel}</p>
+          <h2>{wave.title.fr}</h2>
+          <p class="muted">{t(locale, 'waves.sessionCount', { count: wave.sessions.length })}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  {v2 && (
+    <section style="margin-top: 2.5rem;">
+      <h2>{t(locale, 'waves.v2Title')}</h2>
+      <p class="muted">{t(locale, 'waves.v2Intro')}</p>
+      <div class="grid-waves" style="margin-top: 1rem;">
+        {v2.waves.map((wave) => (
+          <a href={`${p}/v2/waves/${wave.slug}/`} class="card wave-card">
+            <p class="wave-meta">Wave {wave.roman} · Focus {wave.focusLevel}</p>
+            <h2>{wave.title.fr}</h2>
+            <p class="muted">{t(locale, 'waves.sessionCount', { count: wave.sessions.length })}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>

@@ -1,0 +1,131 @@
+{
+  "site": {
+    "title": "Gateway Experience",
+    "tagline": "Parcours d'apprentissage Hemi-Sync — 6 vagues, sessions guidées, journal de progression."
+  },
+  "nav": {
+    "skipLink": "Aller au contenu",
+    "navLabel": "Navigation principale",
+    "home": "Accueil",
+    "start": "Guide",
+    "waves": "Vagues",
+    "supplements": "Suppléments",
+    "glossary": "Glossaire Focus",
+    "progress": "Progression",
+    "chooseLanguage": "Choisir la langue",
+    "menuOpen": "Ouvrir le menu"
+  },
+  "home": {
+    "eyebrow": "Monroe Institute · Hemi-Sync",
+    "title": "Gateway Experience",
+    "subtitle": "Explorez les six vagues du parcours Gateway avec lecteur stéréo, fréquences L/R/Beat et suivi de progression local.",
+    "startWaveI": "Commencer la Vague I",
+    "browseWaves": "Voir toutes les vagues",
+    "readGuide": "Guide de démarrage",
+    "statsSessions": "{count} sessions",
+    "statsWaves": "6 vagues",
+    "statsSupplements": "{count} suppléments",
+    "editionsTitle": "Choisir une édition",
+    "editionsIntro": "Version classique (FLAC, 6 vagues) ou Gateway Experience v2 (MP3 anglais, 7 vagues incl. Prospection et Odyssée).",
+    "startV2": "Commencer v2 — Vague I"
+  },
+  "start": {
+    "eyebrow": "Parcours pas à pas",
+    "title": "Guide de démarrage",
+    "intro": "Vous découvrez le Gateway Experience ? Suivez ces étapes et lisez les ressources suggérées avant de poser les mêmes questions que tout le monde — la plupart des réponses s’y trouvent déjà.",
+    "stepsTitle": "Cinq étapes",
+    "tipsTitle": "À éviter",
+    "tipsIntro": "Conseils pratiques de la communauté pour ne pas saboter vos premières sessions.",
+    "faqTitle": "FAQ fréquentes",
+    "faqIntro": "Liens vers les discussions les plus utiles (wiki r/gatewaytapes).",
+    "faqMore": "Plus de FAQ sur Reddit",
+    "faqGlossary": "Glossaire Focus sur ce site",
+    "source": "Guide adapté de la communauté r/Sbreggo / r/gatewaytapes — ressources externes non affiliées au Monroe Institute."
+  },
+  "waves": {
+    "title": "Les six vagues",
+    "intro": "Chaque vague introduit un niveau de Focus et des exercices progressifs. Les vagues I et II disposent d'audio en français ; les vagues III à VI sont en anglais (FLAC).",
+    "sessions": "Sessions",
+    "focusLevel": "Focus {level}",
+    "manual": "Manuel PDF",
+    "sessionCount": "{count} sessions",
+    "classicTitle": "Version classique",
+    "v2Title": "Gateway Experience v2",
+    "v2Intro": "Sept vagues en MP3 anglais — Prospection (VI) et Odyssée (VII) en plus du parcours classique.",
+    "audioEnMp3": "Audio anglais (MP3)"
+  },
+  "session": {
+    "breadcrumbWaves": "Vagues",
+    "audio": "Session audio",
+    "download": "Télécharger",
+    "playerHint": "Lecteur sans traitement du signal — analyse spectrale L/R (20–500 Hz) et affichage des fréquences documentées.",
+    "frequencies": "Fréquences Hemi-Sync",
+    "left": "Gauche (L)",
+    "right": "Droit (R)",
+    "beat": "Beat",
+    "focus": "Focus",
+    "band": "Bande",
+    "unreviewed": "Valeurs par défaut (OCR manuel à venir)",
+    "transcript": "Script guidé",
+    "transcriptPlaceholder": "Le script pédagogique sera extrait des manuels scannés (OCR). En attendant, suivez les instructions du manuel PDF de la vague.",
+    "journal": "Journal de session",
+    "journalPlaceholder": "Notes personnelles (stockées localement dans votre navigateur).",
+    "journalSave": "Enregistrer",
+    "journalSaved": "Enregistré",
+    "markComplete": "Marquer comme terminée",
+    "completed": "Terminée",
+    "manualEmbed": "Manuel de la vague",
+    "phaseRead": "Lire",
+    "phaseListen": "Écouter",
+    "phaseReflect": "Noter",
+    "instructionsTitle": "Avant d'écouter",
+    "instructionsLead": "Notes extraites du manuel de la vague — ce que l'exercice vous demande de faire.",
+    "listenTitle": "Audio de la session",
+    "listenLead": "Casque, endroit calme. Suivez la voix sur la piste ; revenez aux instructions si besoin.",
+    "reflectTitle": "Après la session",
+    "reflectLead": "Notez vos impressions tant qu'elles sont fraîches, puis marquez la session comme terminée.",
+    "prepTips": "Endroit calme · Posture confortable · Prévoir 45–60 min · Ne pas conduire en écoutant",
+    "technicalDetails": "Détails techniques (fréquences, spectre)",
+    "prevSession": "Précédente",
+    "nextSession": "Suivante",
+    "focusBadge": "Focus {level}",
+    "manualPdfLink": "Manuel PDF original",
+    "jumpToListen": "Prêt ? Passer à l'audio"
+  },
+  "player": {
+    "play": "Lecture / Pause",
+    "seek": "Position de lecture",
+    "skipBack": "Reculer 10 secondes",
+    "skipForward": "Avancer 10 secondes",
+    "speed": "Vitesse",
+    "spectrumL": "Canal gauche",
+    "spectrumR": "Canal droit",
+    "spectrumRange": "20–500 Hz",
+    "ciaReportTitle": "Pourquoi L / R / Beat ? — rapport CIA Gateway (1983)",
+    "ciaReportBody": "Le rapport Analysis and Assessment of Gateway Process (Lt. Col. Wayne M. McDonnell, US Army, 1983) explique l’Hemi-Sync : deux fréquences légèrement différentes dans chaque oreille produisent un battement binaural (|L − R|). Ce battement vise à entraîner l’activité cérébrale vers les états associés aux niveaux de Focus (10, 12, 15, 21…).",
+    "ciaReportSpectrum": "Les deux spectres ci-dessous montrent l’énergie 20–500 Hz par canal stéréo — la bande où Hemi-Sync place ses porteurs. La ligne violette marque une fréquence documentée quand elle est connue.",
+    "ciaReportLink": "Lire le rapport CIA (PDF local)",
+    "noFlac": "Votre navigateur ne lit peut‑être pas le FLAC. Téléchargez le fichier pour une lecture locale."
+  },
+  "supplements": {
+    "title": "Suppléments",
+    "intro": "Mind Food et Humain Plus — pistes complémentaires du corpus français.",
+    "mindFood": "Mind Food",
+    "humainPlus": "Humain Plus"
+  },
+  "glossary": {
+    "title": "Glossaire Focus",
+    "intro": "Les états de conscience numérotés utilisés dans le Gateway Experience."
+  },
+  "progress": {
+    "title": "Ma progression",
+    "intro": "Suivi local (localStorage) — aucune donnée n'est envoyée au serveur.",
+    "completed": "Sessions terminées",
+    "none": "Aucune session marquée pour l'instant.",
+    "reset": "Réinitialiser la progression"
+  },
+  "footer": {
+    "tagline": "Contenu éducatif personnel — Hemi-Sync / Monroe Institute.",
+    "navLabel": "Pied de page"
+  }
+}

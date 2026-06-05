@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t, localePrefix } from '../../i18n';
+import { getWave, getSessionsForWave, waveTitle, sessionTitle } from '../../lib/curriculum';
+import { resolvePdfUrl } from '../../lib/media';
+
+export function getStaticPaths() {
+  const waves = ['wave-i', 'wave-ii', 'wave-iii', 'wave-iv', 'wave-v', 'wave-vi'];
+  return waves.map((wave) => ({ params: { wave } }));
+}
+
+const locale = 'fr';
+const p = localePrefix(locale);
+const { wave: waveSlug } = Astro.params;
+const wave = getWave(waveSlug!);
+if (!wave) throw new Error(`Unknown wave: ${waveSlug}`);
+const sessions = getSessionsForWave(wave.slug);
+const pdfUrl = resolvePdfUrl(wave.manualPdf);
+---
+
+<BaseLayout title={`Wave ${wave.roman} — ${waveTitle(wave, locale)}`} locale={locale}>
+  <nav class="crumbs">
+    <a href={`${p}/waves/`}>← {t(locale, 'nav.waves')}</a>
+  </nav>
+
+  <header class="hero">
+    <p class="eyebrow">Wave {wave.roman} · {t(locale, 'waves.focusLevel', { level: wave.focusLevel })}</p>
+    <h1>{waveTitle(wave, locale)}</h1>
+    {pdfUrl && (
+      <p><a class="chip" href={pdfUrl} target="_blank" rel="noopener">{t(locale, 'waves.manual')}</a></p>
+    )}
+  </header>
+
+  <section class="card">
+    <h2>{t(locale, 'waves.sessions')}</h2>
+    <ul class="session-list">
+      {sessions.map((s) => (
+        <li>
+          <a href={`${p}/waves/${wave.slug}/${s.id}/`}>
+            <span class="session-idx">{String(s.index).padStart(2, '0')}</span>
+            <span>{sessionTitle(s, locale)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

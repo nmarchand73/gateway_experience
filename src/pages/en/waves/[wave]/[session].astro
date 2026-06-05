@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import SessionWorkspace from '../../../../components/SessionWorkspace.astro';
+import { t, localePrefix } from '../../../../i18n';
+import {
+  getWave,
+  getSession,
+  sessionTitle,
+  pickAudio,
+  progressKey,
+  loadCurriculum,
+} from '../../../../lib/curriculum';
+import { resolveMediaUrl, resolvePdfUrl } from '../../../../lib/media';
+import { getManualForSession } from '../../../../lib/manuals';
+
+export function getStaticPaths() {
+  const curriculum = loadCurriculum();
+  return curriculum.sessions.map((s) => ({
+    params: { wave: s.waveSlug, session: s.id },
+  }));
+}
+
+const locale = 'en';
+const p = localePrefix(locale);
+const { wave: waveSlug, session: sessionId } = Astro.params;
+const wave = getWave(waveSlug!);
+const session = getSession(sessionId!);
+if (!wave || !session) throw new Error(`Invalid session route: ${waveSlug}/${sessionId}`);
+
+const audio = pickAudio(session, locale);
+const audioUrl = audio ? resolveMediaUrl(audio.path) : '';
+const bandLabel = session.frequencies.bandLabel.en;
+const pdfUrl = resolvePdfUrl(session.manualPdf ?? wave.manualPdf);
+const manualText = getManualForSession(session.id, wave.slug, Boolean(session.manualPdf ?? wave.manualPdf));
+---
+
+<BaseLayout title={sessionTitle(session, locale)} locale={locale}>
+  <SessionWorkspace
+    locale={locale}
+    wave={wave}
+    session={session}
+    audioUrl={audioUrl}
+    bandLabel={bandLabel}
+    manualText={manualText}
+    pdfUrl={pdfUrl}
+    progressKey={progressKey(session.id)}
+    crumbs={[
+      { href: `${p}/waves/`, label: t(locale, 'session.breadcrumbWaves') },
+      { href: `${p}/waves/${wave.slug}/`, label: `Wave ${wave.roman}` },
+    ]}
+  />
+</BaseLayout>

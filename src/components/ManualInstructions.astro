@@ -1,0 +1,58 @@
+---
+import { t } from '../i18n';
+import type { Locale } from '../i18n';
+import { formatManualParagraphs } from '../lib/manuals';
+
+interface Props {
+  locale: Locale;
+  manualText: string | null;
+}
+
+const { locale, manualText } = Astro.props;
+const formatted = manualText ? formatManualParagraphs(manualText) : null;
+const placeholder = t(locale, 'session.transcriptPlaceholder');
+---
+
+<div class="manual-instructions">
+  {formatted && formatted.paragraphs.length > 0 ? (
+    <>
+      {formatted.title && <h3 class="manual-title">{formatted.title}</h3>}
+      <div class="manual-body">
+        {formatted.paragraphs.map((para) => (
+          <p>{para}</p>
+        ))}
+      </div>
+    </>
+  ) : (
+    <p class="muted manual-placeholder">{placeholder}</p>
+  )}
+</div>
+
+<style>
+  .manual-instructions {
+    font-size: 1.02rem;
+    line-height: 1.75;
+    max-width: 68ch;
+  }
+
+  .manual-title {
+    margin: 0 0 1rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+  }
+
+  .manual-body p {
+    margin: 0 0 1rem;
+  }
+
+  .manual-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .manual-placeholder {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+</style>

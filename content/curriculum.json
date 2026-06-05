@@ -1,0 +1,4115 @@
+{
+  "generatedAt": "2026-06-05T16:49:05.717Z",
+  "sourceManifest": "data/manifest.json",
+  "defaultEdition": "classic",
+  "editions": {
+    "classic": {
+      "id": "classic",
+      "label": {
+        "en": "Classic release (FLAC)",
+        "fr": "Version classique (FLAC)"
+      },
+      "description": {
+        "en": "Original six-wave FLAC set; Waves I–II also available in French MP3.",
+        "fr": "Six vagues en FLAC ; vagues I–II aussi en MP3 français."
+      },
+      "audioLang": "mixed",
+      "waves": [
+        {
+          "roman": "I",
+          "slug": "wave-i",
+          "focusLevel": 10,
+          "title": {
+            "en": "Discovery",
+            "fr": "Découverte"
+          },
+          "beatHz": 10,
+          "bandLabel": {
+            "en": "Alpha/Theta",
+            "fr": "Alpha/Thêta"
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "sessions": [
+            "wave-i-01",
+            "wave-i-02",
+            "wave-i-03",
+            "wave-i-04",
+            "wave-i-05",
+            "wave-i-06"
+          ]
+        },
+        {
+          "roman": "II",
+          "slug": "wave-ii",
+          "focusLevel": 12,
+          "title": {
+            "en": "Threshold",
+            "fr": "Seuil"
+          },
+          "beatHz": 12,
+          "bandLabel": {
+            "en": "Theta",
+            "fr": "Thêta"
+          },
+          "manualPdf": null,
+          "sessions": [
+            "wave-ii-01",
+            "wave-ii-02",
+            "wave-ii-03",
+            "wave-ii-04",
+            "wave-ii-05",
+            "wave-ii-06"
+          ]
+        },
+        {
+          "roman": "III",
+          "slug": "wave-iii",
+          "focusLevel": 12,
+          "title": {
+            "en": "Freedom",
+            "fr": "Liberté"
+          },
+          "beatHz": 12,
+          "bandLabel": {
+            "en": "Theta",
+            "fr": "Thêta"
+          },
+          "manualPdf": null,
+          "sessions": [
+            "wave-iii-01",
+            "wave-iii-02",
+            "wave-iii-03",
+            "wave-iii-04",
+            "wave-iii-05",
+            "wave-iii-06"
+          ]
+        },
+        {
+          "roman": "IV",
+          "slug": "wave-iv",
+          "focusLevel": 15,
+          "title": {
+            "en": "Adventure",
+            "fr": "Aventure"
+          },
+          "beatHz": 15,
+          "bandLabel": {
+            "en": "Beta/Alpha",
+            "fr": "Beta/Alpha"
+          },
+          "manualPdf": null,
+          "sessions": [
+            "wave-iv-01",
+            "wave-iv-02",
+            "wave-iv-03",
+            "wave-iv-04",
+            "wave-iv-05",
+            "wave-iv-06"
+          ]
+        },
+        {
+          "roman": "V",
+          "slug": "wave-v",
+          "focusLevel": 15,
+          "title": {
+            "en": "Exploring Focus 15",
+            "fr": "Exploration Focus 15"
+          },
+          "beatHz": 15,
+          "bandLabel": {
+            "en": "Beta/Alpha",
+            "fr": "Beta/Alpha"
+          },
+          "manualPdf": null,
+          "sessions": [
+            "wave-v-01",
+            "wave-v-02",
+            "wave-v-03",
+            "wave-v-04",
+            "wave-v-05",
+            "wave-v-06"
+          ]
+        },
+        {
+          "roman": "VI",
+          "slug": "wave-vi",
+          "focusLevel": 21,
+          "title": {
+            "en": "Odyssey",
+            "fr": "Odyssée"
+          },
+          "beatHz": 21,
+          "bandLabel": {
+            "en": "Beta",
+            "fr": "Beta"
+          },
+          "manualPdf": null,
+          "sessions": [
+            "wave-vi-01",
+            "wave-vi-02",
+            "wave-vi-03",
+            "wave-vi-04",
+            "wave-vi-05",
+            "wave-vi-06"
+          ]
+        }
+      ],
+      "sessions": [
+        {
+          "id": "wave-i-01",
+          "waveSlug": "wave-i",
+          "index": 1,
+          "title": {
+            "en": "Orientation",
+            "fr": "Orientation (Focus 3)"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD1 - 1 - Orientation.flac",
+              "sha256": "bac7a1e255def01021fdaf90ee927ec0dfe3501a5c88e75d707150ec8377f61e",
+              "format": "flac"
+            },
+            "fr": {
+              "path": "Hemi-Sync/Hemi-sync COURS 1/Découverte 01 - Orientation (focus 3) - Wave I.mp3",
+              "sha256": "ce5fed1694e28f4831f51031bfbf7060ffd98718a55e97caeacda65afabdeb83",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "frequencies": {
+            "focusLevel": 10,
+            "beatHz": 10,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Alpha/Theta",
+              "fr": "Alpha/Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-i-02",
+          "waveSlug": "wave-i",
+          "index": 2,
+          "title": {
+            "en": "Introduction to Focus 10",
+            "fr": "Introduction (Focus 10)"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD1 - 2 - Introduction to Focus 10.flac",
+              "sha256": "df913697d369f633216f6ff63e37a6e0ece3f57dfedd4a12f72abcd90308a116",
+              "format": "flac"
+            },
+            "fr": {
+              "path": "Hemi-Sync/Hemi-sync COURS 1/Découverte 02 - Introduction (focus 10)Découverte 02 - Wave I.mp3",
+              "sha256": "ea901e54459f5fd6b555a694e83e1fdfc355dfbd563332e2335e548e59c78eb9",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "frequencies": {
+            "focusLevel": 10,
+            "beatHz": 10,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Alpha/Theta",
+              "fr": "Alpha/Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-i-03",
+          "waveSlug": "wave-i",
+          "index": 3,
+          "title": {
+            "en": "Advanced Focus 10",
+            "fr": "Focus 10 avancé"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD2 - 3 - Advanced Focus 10.flac",
+              "sha256": "a516c34f2e4de5eaf66864ecbaf4ca263fd3976010d800b858e4e3bc8e32e997",
+              "format": "flac"
+            },
+            "fr": {
+              "path": "Hemi-Sync/Hemi-sync COURS 1/Découverte 03 - Focus 10 avancé - Wave I.mp3",
+              "sha256": "fed43013269b3b04eb6fc894602eca89d82b99993adb4457d86d041609a36d84",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "frequencies": {
+            "focusLevel": 10,
+            "beatHz": 10,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Alpha/Theta",
+              "fr": "Alpha/Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-i-04",
+          "waveSlug": "wave-i",
+          "index": 4,
+          "title": {
+            "en": "Release and Recharge",
+            "fr": "Libération et Revitalisation"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD2 - 4 - Release and Recharge.flac",
+              "sha256": "2e26fc00fcbb3ddffba45aef6c67c0e9d04d6962ea296eea77bf04e1dcf56708",
+              "format": "flac"
+            },
+            "fr": {
+              "path": "Hemi-Sync/Hemi-sync COURS 1/Découverte 04 - Libération et Revitalisation - Wave I.mp3",
+              "sha256": "d795f1a8652afb399789600c855f37d6742d9162d642ade97b5a8d76bd231deb",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "frequencies": {
+            "focusLevel": 10,
+            "beatHz": 10,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Alpha/Theta",
+              "fr": "Alpha/Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-i-05",
+          "waveSlug": "wave-i",
+          "index": 5,
+          "title": {
+            "en": "Exploration, Sleep",
+            "fr": "Exploration, Sommeil"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD3 - 5 - Exploration, Sleep.flac",
+              "sha256": "a89e3bc252eeb7650ab663fa02e35bd05ee240caccea66025ca991f948d4ab14",
+              "format": "flac"
+            },
+            "fr": {
+              "path": "Hemi-Sync/Hemi-sync COURS 1/Découverte 05 - Exploration , Sommeil - Wave I.mp3",
+              "sha256": "16f72c7de5bd150b766fbacc17e606a43dcc67941be14e6a300fcbb8bf71e43a",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "frequencies": {
+            "focusLevel": 10,
+            "beatHz": 10,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Alpha/Theta",
+              "fr": "Alpha/Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-i-06",
+          "waveSlug": "wave-i",
+          "index": 6,
+          "title": {
+            "en": "Free Flow 10",
+            "fr": "Évolution libre Focus 10"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD3 - 6 - Free Flow 10.flac",
+              "sha256": "cb128536c31347bcb6f61cf5128b9015924ce915f7a648a89dab00e834838150",
+              "format": "flac"
+            },
+            "fr": {
+              "path": "Hemi-Sync/Hemi-sync COURS 1/Découverte 06 - Evolution Libre Focus 10 - Wave I.mp3",
+              "sha256": "567872e748c105959a7ce4bd42db136e8870b39da797741577aee86b8204709a",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "frequencies": {
+            "focusLevel": 10,
+            "beatHz": 10,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Alpha/Theta",
+              "fr": "Alpha/Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-ii-01",
+          "waveSlug": "wave-ii",
+          "index": 1,
+          "title": {
+            "en": "Introduction to Focus 12",
+            "fr": "Introduction à Focus 12"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD1 - 1 - Introduction to Focus 12.flac",
+              "sha256": "2ca1f85ce34eac5ba591172cab22ac8acedf4a732fda95ba5b19a85a07769000",
+              "format": "flac"
+            },
+            "fr": {
+              "path": "Hemi-Sync/Hemi-sync COURS 1/Seuil 07 Introduction a Focus 12 - Wave II.mp3",
+              "sha256": "afd242c97ac9d723ff130ae2b1a82a73e642929f7a48f70232b82a8164cf9b40",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-ii-02",
+          "waveSlug": "wave-ii",
+          "index": 2,
+          "title": {
+            "en": "Problem Solving",
+            "fr": "Résolution de problèmes"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD1 - 2 - Problem Solving.flac",
+              "sha256": "bcf849c66033bef75f3dd4faefddb9d4934ba6142b6307e9b9b3557c73a52d5e",
+              "format": "flac"
+            },
+            "fr": {
+              "path": "Hemi-Sync/Hemi-sync COURS 1/Seuil 08 - Résolution de Problèmes - Wave II.mp3",
+              "sha256": "d935ffe3d28016d7b46b45fc95f9019e586bfabbd147fdd98491548b08997ddf",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-ii-03",
+          "waveSlug": "wave-ii",
+          "index": 3,
+          "title": {
+            "en": "One-Month Patterning",
+            "fr": "Programmation"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD2 - 3 - One-Month Patterning.flac",
+              "sha256": "53148aef39107729dc7ce8bc0780e2288fe503d71204ffb632e4c1f9a6489740",
+              "format": "flac"
+            },
+            "fr": {
+              "path": "Hemi-Sync/Hemi-sync COURS 1/Seuil 09 - Programation - Wave II.mp3",
+              "sha256": "a1674d2bff336b8903cd4b4579f30060915738ec2be76f03414f7406e1e60ea8",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-ii-04",
+          "waveSlug": "wave-ii",
+          "index": 4,
+          "title": {
+            "en": "Color Breathing",
+            "fr": "La barre d'énergie"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD2 - 4 - Color Breathing.flac",
+              "sha256": "4f8f55b0e5c57b7545fb4697a586334f6f4fb4ac10b7af173af49200089155e0",
+              "format": "flac"
+            },
+            "fr": {
+              "path": "Hemi-Sync/Hemi-sync COURS 1/Seuil 10 - La Barre d'Energie - Wave II.mp3",
+              "sha256": "5a22dabf7d6dd1507e99eb110b3aa35e50e1ceb327e7b883447b079e993e89bf",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-ii-05",
+          "waveSlug": "wave-ii",
+          "index": 5,
+          "title": {
+            "en": "Energy Bar Tool",
+            "fr": "La carte vivante"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD3 - 5 - Energy Bar Tool.flac",
+              "sha256": "763352f3b140a9903003c27c11409d881d9f6b07cd8a0cb65a9729b995642b90",
+              "format": "flac"
+            },
+            "fr": {
+              "path": "Hemi-Sync/Hemi-sync COURS 1/Seuil 11 - La Carte Vivante - Wave II.mp3",
+              "sha256": "c6f32d77d4072a218572a9925ddd62ffbac5e994f0435a91eb2d8582525ac834",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-ii-06",
+          "waveSlug": "wave-ii",
+          "index": 6,
+          "title": {
+            "en": "Living Body Map",
+            "fr": "Évolution libre 12"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD3 - 6 - Living Body Map.flac",
+              "sha256": "06104e6ee41b6320ae4f653fdc30ad8b2833c46519c894cc5edaa16c70c9dd47",
+              "format": "flac"
+            },
+            "fr": {
+              "path": "Hemi-Sync/Hemi-sync COURS 1/Seuil 12 - Evolution Libre 12 - Wave II.mp3",
+              "sha256": "4fa2124ab79317f3c181c194fc759bf46cf32df6191f56af00b8f6c48e955bf3",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iii-01",
+          "waveSlug": "wave-iii",
+          "index": 1,
+          "title": {
+            "en": "Lift Off",
+            "fr": "Lift Off"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD1 - 1 - Lift Off.flac",
+              "sha256": "38c325f5b56bc0eddcd5fdcf64437357ef196aa1a068fb600288abb73fe9ba99",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iii-02",
+          "waveSlug": "wave-iii",
+          "index": 2,
+          "title": {
+            "en": "Remote Viewing",
+            "fr": "Remote Viewing"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD1 - 2 - Remote Viewing.flac",
+              "sha256": "e1e17ea2ee1ca089cc13f242a631c8f80f0de0c8acd37925027440100144bd6e",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iii-03",
+          "waveSlug": "wave-iii",
+          "index": 3,
+          "title": {
+            "en": "Vectors",
+            "fr": "Vectors"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD2 - 3 - Vectors.flac",
+              "sha256": "9586760c19e93430bdde5f86f471d9ea8ff7bf1ce1154f4634900ec732e1aab6",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iii-04",
+          "waveSlug": "wave-iii",
+          "index": 4,
+          "title": {
+            "en": "Five Questions",
+            "fr": "Five Questions"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD2 - 4 - Five Questions.flac",
+              "sha256": "117f21637c67c98dcd5b0800a1c41d54d9111d0d9f08d59c1d452c0924975f04",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iii-05",
+          "waveSlug": "wave-iii",
+          "index": 5,
+          "title": {
+            "en": "Energy Food",
+            "fr": "Energy Food"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD3 - 5 - Energy Food.flac",
+              "sha256": "1b3be03dcbd4ce66eadf377661466937468ee63e76a858099aa1bf649f24a8cb",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iii-06",
+          "waveSlug": "wave-iii",
+          "index": 6,
+          "title": {
+            "en": "First Stage Separation",
+            "fr": "First Stage Separation"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD3 - 6 - First Stage Separation.flac",
+              "sha256": "3068215244bff795dd2d9b6747d42480edff0e3f82141eaad707aca4eed625f2",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iv-01",
+          "waveSlug": "wave-iv",
+          "index": 1,
+          "title": {
+            "en": "One Year Patterning",
+            "fr": "One Year Patterning"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD1 - 1 - One Year Patterning.flac",
+              "sha256": "7efb21ce77e8b224cb0c2582a14112386ceeaaddf362ba4da5b6f2a6602dc078",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iv-02",
+          "waveSlug": "wave-iv",
+          "index": 2,
+          "title": {
+            "en": "Five Messages",
+            "fr": "Five Messages"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD1 - 2 - Five Messages.flac",
+              "sha256": "af7d823b8c330aa4815c03b578f80f3cc2023c6f0700b117eacb59112a276282",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iv-03",
+          "waveSlug": "wave-iv",
+          "index": 3,
+          "title": {
+            "en": "Free Flow 12",
+            "fr": "Free Flow 12"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD2 - 3 - Free Flow 12.flac",
+              "sha256": "464c02ca41ceb95998c08b245037bb046fe280454b2de6ebde342fd388c27f19",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iv-04",
+          "waveSlug": "wave-iv",
+          "index": 4,
+          "title": {
+            "en": "NVC I",
+            "fr": "NVC I"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD2 - 4 - NVC I.flac",
+              "sha256": "cf1d9e0d0d2fdd763649b8c857125d2a526d916bd25087502504faa6db412f25",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iv-05",
+          "waveSlug": "wave-iv",
+          "index": 5,
+          "title": {
+            "en": "NVC II",
+            "fr": "NVC II"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD3 - 5 - NVC II.flac",
+              "sha256": "5075b7fb7a95de343438b3a3adfd20db79205e5cb1759cf50dd4ca984e107ebf",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iv-06",
+          "waveSlug": "wave-iv",
+          "index": 6,
+          "title": {
+            "en": "Compoint",
+            "fr": "Compoint"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD3 - 6 - Compoint.flac",
+              "sha256": "2fa53fcfd93934b9aba37deed103d201ec820e393f228e9a50a01a32229268e2",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-v-01",
+          "waveSlug": "wave-v",
+          "index": 1,
+          "title": {
+            "en": "Exploring Intuition",
+            "fr": "Exploring Intuition"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD1 - 1 - Exploring Intuition.flac",
+              "sha256": "52c1afc3a7c98df75b3286dbbb5ddf5b4b6b5505d8994f7bf20327e03e0cb701",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-v-02",
+          "waveSlug": "wave-v",
+          "index": 2,
+          "title": {
+            "en": "Intro to Focus 15",
+            "fr": "Intro to Focus 15"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD1 - 2 - Intro to Focus 15.flac",
+              "sha256": "4cf35de4fcbc510177165de833c66573d417464846311fc648d2964981962dcd",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-v-03",
+          "waveSlug": "wave-v",
+          "index": 3,
+          "title": {
+            "en": "Exploring Intuition",
+            "fr": "Exploring Intuition"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD2 - 3 - Exploring Intuition.flac",
+              "sha256": "14e31e023b6a4841818260383b3172163ee1ff3a6a0f78e41c62784a8a2540d8",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-v-04",
+          "waveSlug": "wave-v",
+          "index": 4,
+          "title": {
+            "en": "Intro to Focus 15",
+            "fr": "Intro to Focus 15"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD2 - 4 - Intro to Focus 15.flac",
+              "sha256": "61ddd785811039dc0f857c805c9fb583f056c957ca3445ab3933159bf0b8e183",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-v-05",
+          "waveSlug": "wave-v",
+          "index": 5,
+          "title": {
+            "en": "Mission 15 Creation and Manifestation",
+            "fr": "Mission 15 Creation and Manifestation"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD3 - 5 - Mission 15 Creation and Manifestation.flac",
+              "sha256": "4060a19932e1a3bfcdbaacc689c9a9d27b5d4e0e29abec8fdbb6c43fd88461b7",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-v-06",
+          "waveSlug": "wave-v",
+          "index": 6,
+          "title": {
+            "en": "Exploring Focus 15",
+            "fr": "Exploring Focus 15"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD3 - 6 - Exploring Focus 15.flac",
+              "sha256": "2caa29bf88eabe98ef20965c96400f02e5a989386f560a4a049a50e85bc34cd1",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vi-01",
+          "waveSlug": "wave-vi",
+          "index": 1,
+          "title": {
+            "en": "Sensing Locale 1",
+            "fr": "Sensing Locale 1"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD1 - 1 - Sensing Locale 1.flac",
+              "sha256": "1fb686ec6f37ca7f43fda01c1f3ae302169d9179e4960a98079a1c487922ba1b",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vi-02",
+          "waveSlug": "wave-vi",
+          "index": 2,
+          "title": {
+            "en": "Expansion in Locale 1",
+            "fr": "Expansion in Locale 1"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD1 - 2 - Expansion in Locale 1.flac",
+              "sha256": "894c07127bdb2cc6f747d0cc3c5c5b2a0d65f7ebdb96d15e82db2f50ef3edceb",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vi-03",
+          "waveSlug": "wave-vi",
+          "index": 3,
+          "title": {
+            "en": "Point of Departure",
+            "fr": "Point of Departure"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD2 - 3 - Point of Departure.flac",
+              "sha256": "a29c816d3f317eb5297432be4e7a75316cc32e315d4d8437fc288c9fc6bbacc3",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vi-04",
+          "waveSlug": "wave-vi",
+          "index": 4,
+          "title": {
+            "en": "Nonphysical friends",
+            "fr": "Nonphysical friends"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD2 - 4 - Nonphysical friends.flac",
+              "sha256": "2fe86aaa8e23a25629a813d78e5d01610b1caae2bdb9fa966a87e73d2492b2e4",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vi-05",
+          "waveSlug": "wave-vi",
+          "index": 5,
+          "title": {
+            "en": "Movement to Locale 2 - Intro Focus 21",
+            "fr": "Movement to Locale 2 - Intro Focus 21"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD3 - 5 - Movement to Locale 2 - Intro Focus 21.flac",
+              "sha256": "7ed86fc96f2713de346dc044695e1cc1357a0d764e33984a72f01317e412d215",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vi-06",
+          "waveSlug": "wave-vi",
+          "index": 6,
+          "title": {
+            "en": "Free Flow Journey in Focus 21",
+            "fr": "Free Flow Journey in Focus 21"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD3 - 6 - Free Flow Journey in Focus 21.flac",
+              "sha256": "436005dc0466764eda309229a82bd516b80c30d083d12950c9c0f2ab14e3fe61",
+              "format": "flac"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        }
+      ]
+    },
+    "v2": {
+      "id": "v2",
+      "label": {
+        "en": "Gateway Experience v2 (MP3)",
+        "fr": "Gateway Experience v2 (MP3)"
+      },
+      "description": {
+        "en": "Seven-wave English MP3 release — includes Prospecting (VI) and Odyssey (VII).",
+        "fr": "Parcours anglais en MP3, sept vagues — inclut Prospection (VI) et Odyssée (VII)."
+      },
+      "audioLang": "en",
+      "waves": [
+        {
+          "roman": "I",
+          "slug": "wave-i",
+          "focusLevel": 10,
+          "title": {
+            "en": "Discovery",
+            "fr": "Découverte"
+          },
+          "beatHz": 10,
+          "bandLabel": {
+            "en": "Alpha/Theta",
+            "fr": "Alpha/Thêta"
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "sessions": [
+            "wave-i-01",
+            "wave-i-02",
+            "wave-i-03",
+            "wave-i-04",
+            "wave-i-05",
+            "wave-i-06"
+          ]
+        },
+        {
+          "roman": "II",
+          "slug": "wave-ii",
+          "focusLevel": 12,
+          "title": {
+            "en": "Threshold",
+            "fr": "Seuil"
+          },
+          "beatHz": 12,
+          "bandLabel": {
+            "en": "Theta",
+            "fr": "Thêta"
+          },
+          "manualPdf": null,
+          "sessions": [
+            "wave-ii-01",
+            "wave-ii-02",
+            "wave-ii-03",
+            "wave-ii-04",
+            "wave-ii-05",
+            "wave-ii-06"
+          ]
+        },
+        {
+          "roman": "III",
+          "slug": "wave-iii",
+          "focusLevel": 12,
+          "title": {
+            "en": "Freedom",
+            "fr": "Liberté"
+          },
+          "beatHz": 12,
+          "bandLabel": {
+            "en": "Theta",
+            "fr": "Thêta"
+          },
+          "manualPdf": null,
+          "sessions": [
+            "wave-iii-01",
+            "wave-iii-02",
+            "wave-iii-03",
+            "wave-iii-04",
+            "wave-iii-05",
+            "wave-iii-06"
+          ]
+        },
+        {
+          "roman": "IV",
+          "slug": "wave-iv",
+          "focusLevel": 15,
+          "title": {
+            "en": "Adventure",
+            "fr": "Aventure"
+          },
+          "beatHz": 15,
+          "bandLabel": {
+            "en": "Beta/Alpha",
+            "fr": "Beta/Alpha"
+          },
+          "manualPdf": null,
+          "sessions": [
+            "wave-iv-01",
+            "wave-iv-02",
+            "wave-iv-03",
+            "wave-iv-04",
+            "wave-iv-05",
+            "wave-iv-06"
+          ]
+        },
+        {
+          "roman": "V",
+          "slug": "wave-v",
+          "focusLevel": 15,
+          "title": {
+            "en": "Exploring Focus 15",
+            "fr": "Exploration Focus 15"
+          },
+          "beatHz": 15,
+          "bandLabel": {
+            "en": "Beta/Alpha",
+            "fr": "Beta/Alpha"
+          },
+          "manualPdf": null,
+          "sessions": [
+            "wave-v-01",
+            "wave-v-02",
+            "wave-v-03",
+            "wave-v-04",
+            "wave-v-05",
+            "wave-v-06"
+          ]
+        },
+        {
+          "roman": "VI",
+          "slug": "wave-vi",
+          "focusLevel": 21,
+          "title": {
+            "en": "Prospecting",
+            "fr": "Prospection"
+          },
+          "beatHz": 21,
+          "bandLabel": {
+            "en": "Beta",
+            "fr": "Beta"
+          },
+          "manualPdf": null,
+          "sessions": [
+            "wave-vi-01",
+            "wave-vi-02",
+            "wave-vi-03",
+            "wave-vi-04",
+            "wave-vi-05",
+            "wave-vi-06"
+          ]
+        },
+        {
+          "roman": "VII",
+          "slug": "wave-vii",
+          "focusLevel": 21,
+          "title": {
+            "en": "Odyssey",
+            "fr": "Odyssée"
+          },
+          "beatHz": 21,
+          "bandLabel": {
+            "en": "Beta",
+            "fr": "Beta"
+          },
+          "manualPdf": null,
+          "sessions": [
+            "wave-vii-01",
+            "wave-vii-02",
+            "wave-vii-03",
+            "wave-vii-04",
+            "wave-vii-05",
+            "wave-vii-06"
+          ]
+        }
+      ],
+      "sessions": [
+        {
+          "id": "wave-i-01",
+          "waveSlug": "wave-i",
+          "index": 1,
+          "title": {
+            "en": "Orientation - 1",
+            "fr": "Orientation - 1"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave I - Discovery/01 - Orientation - 1.mp3",
+              "sha256": "39909cbafad9fcff415979e7d58eb97e01dcd17a97942238377df6aee5bd8e37",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "frequencies": {
+            "focusLevel": 10,
+            "beatHz": 10,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Alpha/Theta",
+              "fr": "Alpha/Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-i-02",
+          "waveSlug": "wave-i",
+          "index": 2,
+          "title": {
+            "en": "2-Intro to Focus 10",
+            "fr": "2-Intro to Focus 10"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave I - Discovery/02 - 2-Intro to Focus 10.mp3",
+              "sha256": "33e69bbceb28029e8f5ff90e407c2ff73df4ffa5eae9e207b1a98bb69c0d643f",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "frequencies": {
+            "focusLevel": 10,
+            "beatHz": 10,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Alpha/Theta",
+              "fr": "Alpha/Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-i-03",
+          "waveSlug": "wave-i",
+          "index": 3,
+          "title": {
+            "en": "Discovery #3 — Advanced Focus 10",
+            "fr": "Discovery #3 — Advanced Focus 10"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave I - Discovery/03 - Discovery #3 — Advanced Focus 10.mp3",
+              "sha256": "b196533516b15971a52c5ee670bee24788c3bacdb9eedbea8635f2f081987eec",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "frequencies": {
+            "focusLevel": 10,
+            "beatHz": 10,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Alpha/Theta",
+              "fr": "Alpha/Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-i-04",
+          "waveSlug": "wave-i",
+          "index": 4,
+          "title": {
+            "en": "Discovery #4 — Release & Recharge",
+            "fr": "Discovery #4 — Release & Recharge"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave I - Discovery/04 - Discovery #4 — Release & Recharge.mp3",
+              "sha256": "e9378e02c2ddd2dfdd9c6bfee760077eec296cdd36d43fd7dd56d38607decdc4",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "frequencies": {
+            "focusLevel": 10,
+            "beatHz": 10,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Alpha/Theta",
+              "fr": "Alpha/Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-i-05",
+          "waveSlug": "wave-i",
+          "index": 5,
+          "title": {
+            "en": "Discovery 5 (Exploration, Sleep)",
+            "fr": "Discovery 5 (Exploration, Sleep)"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave I - Discovery/05 - Discovery 5 (Exploration, Sleep).mp3",
+              "sha256": "263e4711cbeb33ebab99203ea6d8ce22c73ad0f7cbc5207b7496aeaa512fe493",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "frequencies": {
+            "focusLevel": 10,
+            "beatHz": 10,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Alpha/Theta",
+              "fr": "Alpha/Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-i-06",
+          "waveSlug": "wave-i",
+          "index": 6,
+          "title": {
+            "en": "Discovery 6 (Freeflow 10",
+            "fr": "Discovery 6 (Freeflow 10"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave I - Discovery/06 - Discovery 6 (Freeflow 10.mp3",
+              "sha256": "afc9437e3d50021ad532feb3ecef297191d56c244b7634fe786cbc7c1c889703",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+          "frequencies": {
+            "focusLevel": 10,
+            "beatHz": 10,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Alpha/Theta",
+              "fr": "Alpha/Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-ii-01",
+          "waveSlug": "wave-ii",
+          "index": 1,
+          "title": {
+            "en": "Threshold #1 — Intro to Focus 12",
+            "fr": "Threshold #1 — Intro to Focus 12"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave II - Threshold/01 - Threshold #1 — Intro to Focus 12.mp3",
+              "sha256": "060d2e0e2e497b87a3ae919f06be2720d64923357c50fad88a1a489506fdbbda",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-ii-02",
+          "waveSlug": "wave-ii",
+          "index": 2,
+          "title": {
+            "en": "Threshold #2 — Problem Solving",
+            "fr": "Threshold #2 — Problem Solving"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave II - Threshold/02 - Threshold #2 — Problem Solving.mp3",
+              "sha256": "bdff796943f739382100f97a48a36ae16c8b94a85b01a0ea9aa493621e576777",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-ii-03",
+          "waveSlug": "wave-ii",
+          "index": 3,
+          "title": {
+            "en": "Threshold 3 (One Month Patterning)",
+            "fr": "Threshold 3 (One Month Patterning)"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave II - Threshold/03 - Threshold 3 (One Month Patterning).mp3",
+              "sha256": "f2e3ddaf4428f9fed50a90f47a83615afcf0cf3440517e197efd686ec55a8e69",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-ii-04",
+          "waveSlug": "wave-ii",
+          "index": 4,
+          "title": {
+            "en": "Threshold 4 (Color Breathing)",
+            "fr": "Threshold 4 (Color Breathing)"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave II - Threshold/04 - Threshold 4 (Color Breathing).mp3",
+              "sha256": "ef07cfd758ef0eb5aca87b446d07ef3eecd7e36856690346edb4106aac46da98",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-ii-05",
+          "waveSlug": "wave-ii",
+          "index": 5,
+          "title": {
+            "en": "Threshold 5 Energy Bar Tool",
+            "fr": "Threshold 5 Energy Bar Tool"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave II - Threshold/05 - Threshold 5 Energy Bar Tool.mp3",
+              "sha256": "8a7a21d1a1367ac339b0baec2d28e1d760ef5e96a7c5bcd19c960fdd3dd31d60",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-ii-06",
+          "waveSlug": "wave-ii",
+          "index": 6,
+          "title": {
+            "en": "Threshold 6 Living Body Map",
+            "fr": "Threshold 6 Living Body Map"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave II - Threshold/06 - Threshold 6 Living Body Map.mp3",
+              "sha256": "50b3742e07249f805474324d46879ff4615f9e97969f7a27135fbf091384c31c",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iii-01",
+          "waveSlug": "wave-iii",
+          "index": 1,
+          "title": {
+            "en": "1 Lift Off",
+            "fr": "1 Lift Off"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave III - Freedom/01 - 1 Lift Off.mp3",
+              "sha256": "81d9b90489a4a5a3baf4efe47098543b9632049d9b9774ede9baeb5608d1c6f4",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iii-02",
+          "waveSlug": "wave-iii",
+          "index": 2,
+          "title": {
+            "en": "2 Remote Viewing",
+            "fr": "2 Remote Viewing"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave III - Freedom/02 - 2 Remote Viewing.mp3",
+              "sha256": "470059a34c34d8d0eb1a1ae6f94a02edfa1f85cd9590b0b53a33d62d492c7569",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iii-03",
+          "waveSlug": "wave-iii",
+          "index": 3,
+          "title": {
+            "en": "3 Vectors",
+            "fr": "3 Vectors"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave III - Freedom/03 - 3 Vectors.mp3",
+              "sha256": "7fc42f3cb665707245aeaae32d53c822abd78523e02690fc7d4306a4449fec6e",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iii-04",
+          "waveSlug": "wave-iii",
+          "index": 4,
+          "title": {
+            "en": "4 Five Questions",
+            "fr": "4 Five Questions"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave III - Freedom/04 - 4 Five Questions.mp3",
+              "sha256": "c647e306ce2edd2604d0129f23f84217143136e984a1f4bf62c27b3d6f01007b",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iii-05",
+          "waveSlug": "wave-iii",
+          "index": 5,
+          "title": {
+            "en": "5 Energy Food",
+            "fr": "5 Energy Food"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave III - Freedom/05 - 5 Energy Food.mp3",
+              "sha256": "02709024813d53126b35aba5a8c54dff2655682ed5f81133655ff47a91de2295",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iii-06",
+          "waveSlug": "wave-iii",
+          "index": 6,
+          "title": {
+            "en": "6 1st Stage Separation",
+            "fr": "6 1st Stage Separation"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave III - Freedom/06 - 6 1st Stage Separation.mp3",
+              "sha256": "f47c361dfdb547f04287f4e3b1687afafdc74cb3628cf2a120d89828c9620927",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 12,
+            "beatHz": 12,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Theta",
+              "fr": "Thêta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iv-01",
+          "waveSlug": "wave-iv",
+          "index": 1,
+          "title": {
+            "en": "One Year Patterning",
+            "fr": "One Year Patterning"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave IV - Adventure/01 - One Year Patterning.mp3",
+              "sha256": "45ccfe6edbd803b479c4057e005047b920fb195ed07136c2370d192d46329d9b",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iv-02",
+          "waveSlug": "wave-iv",
+          "index": 2,
+          "title": {
+            "en": "Five Messages",
+            "fr": "Five Messages"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave IV - Adventure/02 - Five Messages.mp3",
+              "sha256": "0922bd9293473d6c783cb2bef565ec7d808495a019efab3debcef2d277a457bc",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iv-03",
+          "waveSlug": "wave-iv",
+          "index": 3,
+          "title": {
+            "en": "Adventure 3 (Freeflow 12)",
+            "fr": "Adventure 3 (Freeflow 12)"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave IV - Adventure/03 - Adventure 3 (Freeflow 12).mp3",
+              "sha256": "67f8ca7be312f560ec18e95c74b83beb6c71c15d2bba5db0ff720b06d64e1bee",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iv-04",
+          "waveSlug": "wave-iv",
+          "index": 4,
+          "title": {
+            "en": "Adventure 4 (NVC 1)",
+            "fr": "Adventure 4 (NVC 1)"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave IV - Adventure/04 - Adventure 4 (NVC 1).mp3",
+              "sha256": "1f4b142a317106fa1f1873f85a721bb0ba219e4117f23d01e5475d31da1c37c4",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iv-05",
+          "waveSlug": "wave-iv",
+          "index": 5,
+          "title": {
+            "en": "Adventure 5 (NVC 2)",
+            "fr": "Adventure 5 (NVC 2)"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave IV - Adventure/05 - Adventure 5 (NVC 2).mp3",
+              "sha256": "94edc1077bbc8b19db0e5c32ca85e2f78afc4a5a725fd77637a631a98098f7bd",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-iv-06",
+          "waveSlug": "wave-iv",
+          "index": 6,
+          "title": {
+            "en": "Adventure 6 (Compoint 12)",
+            "fr": "Adventure 6 (Compoint 12)"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave IV - Adventure/06 - Adventure 6 (Compoint 12).mp3",
+              "sha256": "1e9c79ebafc67ff50a76ae8fd5bfc86141fd9fafb401023ba74bb5a252fc0ed4",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-v-01",
+          "waveSlug": "wave-v",
+          "index": 1,
+          "title": {
+            "en": "Exploring #1 Mission 10",
+            "fr": "Exploring #1 Mission 10"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave V - Exploring/01 - Exploring #1 Mission 10.mp3",
+              "sha256": "b0d06a78c0dba0a2951329c9965c9101aaa141ebb6a59eaba6447b8b74f6e420",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-v-02",
+          "waveSlug": "wave-v",
+          "index": 2,
+          "title": {
+            "en": "Exrloring #2 Mission 12",
+            "fr": "Exrloring #2 Mission 12"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave V - Exploring/02 - Exrloring #2 Mission 12.mp3",
+              "sha256": "f56afaf35c464102898543cd23a8991568e4914c403217797f92d518450ab245",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-v-03",
+          "waveSlug": "wave-v",
+          "index": 3,
+          "title": {
+            "en": "Exploring #3_ Mission Day",
+            "fr": "Exploring #3_ Mission Day"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave V - Exploring/03 - Exploring #3_ Mission Day.mp3",
+              "sha256": "55a9b06b1eb96492d3be69afaf9ace06d4b9b858e48c8146f8c3ebc3e8b66cc0",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-v-04",
+          "waveSlug": "wave-v",
+          "index": 4,
+          "title": {
+            "en": "Exploring #4_ Mission Night",
+            "fr": "Exploring #4_ Mission Night"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave V - Exploring/04 - Exploring #4_ Mission Night.mp3",
+              "sha256": "4af5ec9d070a168f8f61fe8947954046c0fddead79184484f3de031736903367",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-v-05",
+          "waveSlug": "wave-v",
+          "index": 5,
+          "title": {
+            "en": "Exploring #5_ Horizons",
+            "fr": "Exploring #5_ Horizons"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave V - Exploring/05 - Exploring #5_ Horizons.mp3",
+              "sha256": "163bad5f4c98e71e2007715b058c279da2ca4c597c636a96e74b7c470f606c51",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-v-06",
+          "waveSlug": "wave-v",
+          "index": 6,
+          "title": {
+            "en": "Exploring #6_ Pathways",
+            "fr": "Exploring #6_ Pathways"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave V - Exploring/06 - Exploring #6_ Pathways.mp3",
+              "sha256": "6c66b39afefeff8cd9779d55b698ecf807c93c70069811d60f5a55c15f8fe29c",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 15,
+            "beatHz": 15,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta/Alpha",
+              "fr": "Beta/Alpha"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vi-01",
+          "waveSlug": "wave-vi",
+          "index": 1,
+          "title": {
+            "en": "Prospecting #1_ Metamorphosite",
+            "fr": "Prospecting #1_ Metamorphosite"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave VI - Prospecting/01 - Prospecting #1_ Metamorphosite.mp3",
+              "sha256": "bdb14466add5c27bad20243422c689ce50d1ea9b8cbd2563d01008af2349e1d2",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vi-02",
+          "waveSlug": "wave-vi",
+          "index": 2,
+          "title": {
+            "en": "Prospecting #2_ Bio-Body",
+            "fr": "Prospecting #2_ Bio-Body"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave VI - Prospecting/02 - Prospecting #2_ Bio-Body.mp3",
+              "sha256": "b09a9a25f036ee1fe39e7f1f39cb0752e16641f07d298ebdc21ffc126a99d1b5",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vi-03",
+          "waveSlug": "wave-vi",
+          "index": 3,
+          "title": {
+            "en": "Prospecting #3_ Null Point",
+            "fr": "Prospecting #3_ Null Point"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave VI - Prospecting/03 - Prospecting #3_ Null Point.mp3",
+              "sha256": "270456fe884648d98d1f7365a44752e7929a1dc6fb351e7cb49394908d3db39d",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vi-04",
+          "waveSlug": "wave-vi",
+          "index": 4,
+          "title": {
+            "en": "Prospecting #4_ Plus Polarity",
+            "fr": "Prospecting #4_ Plus Polarity"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave VI - Prospecting/04 - Prospecting #4_ Plus Polarity.mp3",
+              "sha256": "73c79114df4b7fe9754a8fd4c2c1f49e70257cb866961779b01f85c68caef875",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vi-05",
+          "waveSlug": "wave-vi",
+          "index": 5,
+          "title": {
+            "en": "Prospecting #5 Near Reaches",
+            "fr": "Prospecting #5 Near Reaches"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave VI - Prospecting/05 - Prospecting #5 Near Reaches.mp3",
+              "sha256": "03c555deb4088337c8fcc6a7f82118cba36c3f8ca069a893de91ec5a9717e748",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vi-06",
+          "waveSlug": "wave-vi",
+          "index": 6,
+          "title": {
+            "en": "Prospecting #6 Far Reaches",
+            "fr": "Prospecting #6 Far Reaches"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave VI - Prospecting/06 - Prospecting #6 Far Reaches.mp3",
+              "sha256": "dbcd7cbc4f3ff44d7d02187a8347ba52d2f189f74c77f77084e8c8db65e8d561",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vii-01",
+          "waveSlug": "wave-vii",
+          "index": 1,
+          "title": {
+            "en": "Odyssey #1 Sensing Locale 1",
+            "fr": "Odyssey #1 Sensing Locale 1"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave VII - Odyssey/01 - Odyssey #1 Sensing Locale 1.mp3",
+              "sha256": "37386fa16ad282eef1f49feea72ec042e845ae5b0d2efbd39f225deb7f814a03",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vii-02",
+          "waveSlug": "wave-vii",
+          "index": 2,
+          "title": {
+            "en": "Odyssey #2 Expansion in Locale 1",
+            "fr": "Odyssey #2 Expansion in Locale 1"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave VII - Odyssey/02 - Odyssey #2 Expansion in Locale 1.mp3",
+              "sha256": "357c61dcf5fa1296dbf0475b28d1220e6608cf4487853f7e4ed48cbb228fa7f9",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vii-03",
+          "waveSlug": "wave-vii",
+          "index": 3,
+          "title": {
+            "en": "Odyssey 3 (Point of Departure)",
+            "fr": "Odyssey 3 (Point of Departure)"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave VII - Odyssey/03 - Odyssey 3 (Point of Departure).mp3",
+              "sha256": "7d1087ceb5eaaad775d246b02391ebb7b41a3decb4adefc6f56af808bef3d173",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vii-04",
+          "waveSlug": "wave-vii",
+          "index": 4,
+          "title": {
+            "en": "Odyssey 4 (Non-Physical Friends)",
+            "fr": "Odyssey 4 (Non-Physical Friends)"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave VII - Odyssey/04 - Odyssey 4 (Non-Physical Friends).mp3",
+              "sha256": "2122acb904ab3b203b99ba44c5782460d98bf5f0d6a95002f3a7409f4b177e94",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vii-05",
+          "waveSlug": "wave-vii",
+          "index": 5,
+          "title": {
+            "en": "Odyssey 5 (Movement to Locale 2 - Intro to Focus 21)",
+            "fr": "Odyssey 5 (Movement to Locale 2 - Intro to Focus 21)"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave VII - Odyssey/05 - Odyssey 5 (Movement to Locale 2 - Intro to Focus 21).mp3",
+              "sha256": "dc0403d673758980f980154ab186c7dff7cd5a7eea9e4997d2df85206251d937",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        },
+        {
+          "id": "wave-vii-06",
+          "waveSlug": "wave-vii",
+          "index": 6,
+          "title": {
+            "en": "Odyssey 6 (Freeflow Journey in Focus 21)",
+            "fr": "Odyssey 6 (Freeflow Journey in Focus 21)"
+          },
+          "audio": {
+            "en": {
+              "path": "Hemi-Sync Gateway Experience - v2/Wave VII - Odyssey/06 - Odyssey 6 (Freeflow Journey in Focus 21).mp3",
+              "sha256": "ceacda4ad9d7214f5169f302de4e193b99fee9a761f556a8e5d7d3c746904c2b",
+              "format": "mp3"
+            }
+          },
+          "manualPdf": null,
+          "frequencies": {
+            "focusLevel": 21,
+            "beatHz": 21,
+            "leftHz": null,
+            "rightHz": null,
+            "bandLabel": {
+              "en": "Beta",
+              "fr": "Beta"
+            },
+            "reviewed": false
+          }
+        }
+      ]
+    }
+  },
+  "waves": [
+    {
+      "roman": "I",
+      "slug": "wave-i",
+      "focusLevel": 10,
+      "title": {
+        "en": "Discovery",
+        "fr": "Découverte"
+      },
+      "beatHz": 10,
+      "bandLabel": {
+        "en": "Alpha/Theta",
+        "fr": "Alpha/Thêta"
+      },
+      "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+      "sessions": [
+        "wave-i-01",
+        "wave-i-02",
+        "wave-i-03",
+        "wave-i-04",
+        "wave-i-05",
+        "wave-i-06"
+      ]
+    },
+    {
+      "roman": "II",
+      "slug": "wave-ii",
+      "focusLevel": 12,
+      "title": {
+        "en": "Threshold",
+        "fr": "Seuil"
+      },
+      "beatHz": 12,
+      "bandLabel": {
+        "en": "Theta",
+        "fr": "Thêta"
+      },
+      "manualPdf": null,
+      "sessions": [
+        "wave-ii-01",
+        "wave-ii-02",
+        "wave-ii-03",
+        "wave-ii-04",
+        "wave-ii-05",
+        "wave-ii-06"
+      ]
+    },
+    {
+      "roman": "III",
+      "slug": "wave-iii",
+      "focusLevel": 12,
+      "title": {
+        "en": "Freedom",
+        "fr": "Liberté"
+      },
+      "beatHz": 12,
+      "bandLabel": {
+        "en": "Theta",
+        "fr": "Thêta"
+      },
+      "manualPdf": null,
+      "sessions": [
+        "wave-iii-01",
+        "wave-iii-02",
+        "wave-iii-03",
+        "wave-iii-04",
+        "wave-iii-05",
+        "wave-iii-06"
+      ]
+    },
+    {
+      "roman": "IV",
+      "slug": "wave-iv",
+      "focusLevel": 15,
+      "title": {
+        "en": "Adventure",
+        "fr": "Aventure"
+      },
+      "beatHz": 15,
+      "bandLabel": {
+        "en": "Beta/Alpha",
+        "fr": "Beta/Alpha"
+      },
+      "manualPdf": null,
+      "sessions": [
+        "wave-iv-01",
+        "wave-iv-02",
+        "wave-iv-03",
+        "wave-iv-04",
+        "wave-iv-05",
+        "wave-iv-06"
+      ]
+    },
+    {
+      "roman": "V",
+      "slug": "wave-v",
+      "focusLevel": 15,
+      "title": {
+        "en": "Exploring Focus 15",
+        "fr": "Exploration Focus 15"
+      },
+      "beatHz": 15,
+      "bandLabel": {
+        "en": "Beta/Alpha",
+        "fr": "Beta/Alpha"
+      },
+      "manualPdf": null,
+      "sessions": [
+        "wave-v-01",
+        "wave-v-02",
+        "wave-v-03",
+        "wave-v-04",
+        "wave-v-05",
+        "wave-v-06"
+      ]
+    },
+    {
+      "roman": "VI",
+      "slug": "wave-vi",
+      "focusLevel": 21,
+      "title": {
+        "en": "Odyssey",
+        "fr": "Odyssée"
+      },
+      "beatHz": 21,
+      "bandLabel": {
+        "en": "Beta",
+        "fr": "Beta"
+      },
+      "manualPdf": null,
+      "sessions": [
+        "wave-vi-01",
+        "wave-vi-02",
+        "wave-vi-03",
+        "wave-vi-04",
+        "wave-vi-05",
+        "wave-vi-06"
+      ]
+    }
+  ],
+  "sessions": [
+    {
+      "id": "wave-i-01",
+      "waveSlug": "wave-i",
+      "index": 1,
+      "title": {
+        "en": "Orientation",
+        "fr": "Orientation (Focus 3)"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD1 - 1 - Orientation.flac",
+          "sha256": "bac7a1e255def01021fdaf90ee927ec0dfe3501a5c88e75d707150ec8377f61e",
+          "format": "flac"
+        },
+        "fr": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Découverte 01 - Orientation (focus 3) - Wave I.mp3",
+          "sha256": "ce5fed1694e28f4831f51031bfbf7060ffd98718a55e97caeacda65afabdeb83",
+          "format": "mp3"
+        }
+      },
+      "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+      "frequencies": {
+        "focusLevel": 10,
+        "beatHz": 10,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Alpha/Theta",
+          "fr": "Alpha/Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-i-02",
+      "waveSlug": "wave-i",
+      "index": 2,
+      "title": {
+        "en": "Introduction to Focus 10",
+        "fr": "Introduction (Focus 10)"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD1 - 2 - Introduction to Focus 10.flac",
+          "sha256": "df913697d369f633216f6ff63e37a6e0ece3f57dfedd4a12f72abcd90308a116",
+          "format": "flac"
+        },
+        "fr": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Découverte 02 - Introduction (focus 10)Découverte 02 - Wave I.mp3",
+          "sha256": "ea901e54459f5fd6b555a694e83e1fdfc355dfbd563332e2335e548e59c78eb9",
+          "format": "mp3"
+        }
+      },
+      "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+      "frequencies": {
+        "focusLevel": 10,
+        "beatHz": 10,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Alpha/Theta",
+          "fr": "Alpha/Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-i-03",
+      "waveSlug": "wave-i",
+      "index": 3,
+      "title": {
+        "en": "Advanced Focus 10",
+        "fr": "Focus 10 avancé"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD2 - 3 - Advanced Focus 10.flac",
+          "sha256": "a516c34f2e4de5eaf66864ecbaf4ca263fd3976010d800b858e4e3bc8e32e997",
+          "format": "flac"
+        },
+        "fr": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Découverte 03 - Focus 10 avancé - Wave I.mp3",
+          "sha256": "fed43013269b3b04eb6fc894602eca89d82b99993adb4457d86d041609a36d84",
+          "format": "mp3"
+        }
+      },
+      "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+      "frequencies": {
+        "focusLevel": 10,
+        "beatHz": 10,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Alpha/Theta",
+          "fr": "Alpha/Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-i-04",
+      "waveSlug": "wave-i",
+      "index": 4,
+      "title": {
+        "en": "Release and Recharge",
+        "fr": "Libération et Revitalisation"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD2 - 4 - Release and Recharge.flac",
+          "sha256": "2e26fc00fcbb3ddffba45aef6c67c0e9d04d6962ea296eea77bf04e1dcf56708",
+          "format": "flac"
+        },
+        "fr": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Découverte 04 - Libération et Revitalisation - Wave I.mp3",
+          "sha256": "d795f1a8652afb399789600c855f37d6742d9162d642ade97b5a8d76bd231deb",
+          "format": "mp3"
+        }
+      },
+      "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+      "frequencies": {
+        "focusLevel": 10,
+        "beatHz": 10,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Alpha/Theta",
+          "fr": "Alpha/Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-i-05",
+      "waveSlug": "wave-i",
+      "index": 5,
+      "title": {
+        "en": "Exploration, Sleep",
+        "fr": "Exploration, Sommeil"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD3 - 5 - Exploration, Sleep.flac",
+          "sha256": "a89e3bc252eeb7650ab663fa02e35bd05ee240caccea66025ca991f948d4ab14",
+          "format": "flac"
+        },
+        "fr": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Découverte 05 - Exploration , Sommeil - Wave I.mp3",
+          "sha256": "16f72c7de5bd150b766fbacc17e606a43dcc67941be14e6a300fcbb8bf71e43a",
+          "format": "mp3"
+        }
+      },
+      "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+      "frequencies": {
+        "focusLevel": 10,
+        "beatHz": 10,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Alpha/Theta",
+          "fr": "Alpha/Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-i-06",
+      "waveSlug": "wave-i",
+      "index": 6,
+      "title": {
+        "en": "Free Flow 10",
+        "fr": "Évolution libre Focus 10"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/CD3 - 6 - Free Flow 10.flac",
+          "sha256": "cb128536c31347bcb6f61cf5128b9015924ce915f7a648a89dab00e834838150",
+          "format": "flac"
+        },
+        "fr": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Découverte 06 - Evolution Libre Focus 10 - Wave I.mp3",
+          "sha256": "567872e748c105959a7ce4bd42db136e8870b39da797741577aee86b8204709a",
+          "format": "mp3"
+        }
+      },
+      "manualPdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave I - Discovery/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+      "frequencies": {
+        "focusLevel": 10,
+        "beatHz": 10,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Alpha/Theta",
+          "fr": "Alpha/Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-ii-01",
+      "waveSlug": "wave-ii",
+      "index": 1,
+      "title": {
+        "en": "Introduction to Focus 12",
+        "fr": "Introduction à Focus 12"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD1 - 1 - Introduction to Focus 12.flac",
+          "sha256": "2ca1f85ce34eac5ba591172cab22ac8acedf4a732fda95ba5b19a85a07769000",
+          "format": "flac"
+        },
+        "fr": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Seuil 07 Introduction a Focus 12 - Wave II.mp3",
+          "sha256": "afd242c97ac9d723ff130ae2b1a82a73e642929f7a48f70232b82a8164cf9b40",
+          "format": "mp3"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 12,
+        "beatHz": 12,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Theta",
+          "fr": "Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-ii-02",
+      "waveSlug": "wave-ii",
+      "index": 2,
+      "title": {
+        "en": "Problem Solving",
+        "fr": "Résolution de problèmes"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD1 - 2 - Problem Solving.flac",
+          "sha256": "bcf849c66033bef75f3dd4faefddb9d4934ba6142b6307e9b9b3557c73a52d5e",
+          "format": "flac"
+        },
+        "fr": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Seuil 08 - Résolution de Problèmes - Wave II.mp3",
+          "sha256": "d935ffe3d28016d7b46b45fc95f9019e586bfabbd147fdd98491548b08997ddf",
+          "format": "mp3"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 12,
+        "beatHz": 12,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Theta",
+          "fr": "Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-ii-03",
+      "waveSlug": "wave-ii",
+      "index": 3,
+      "title": {
+        "en": "One-Month Patterning",
+        "fr": "Programmation"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD2 - 3 - One-Month Patterning.flac",
+          "sha256": "53148aef39107729dc7ce8bc0780e2288fe503d71204ffb632e4c1f9a6489740",
+          "format": "flac"
+        },
+        "fr": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Seuil 09 - Programation - Wave II.mp3",
+          "sha256": "a1674d2bff336b8903cd4b4579f30060915738ec2be76f03414f7406e1e60ea8",
+          "format": "mp3"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 12,
+        "beatHz": 12,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Theta",
+          "fr": "Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-ii-04",
+      "waveSlug": "wave-ii",
+      "index": 4,
+      "title": {
+        "en": "Color Breathing",
+        "fr": "La barre d'énergie"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD2 - 4 - Color Breathing.flac",
+          "sha256": "4f8f55b0e5c57b7545fb4697a586334f6f4fb4ac10b7af173af49200089155e0",
+          "format": "flac"
+        },
+        "fr": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Seuil 10 - La Barre d'Energie - Wave II.mp3",
+          "sha256": "5a22dabf7d6dd1507e99eb110b3aa35e50e1ceb327e7b883447b079e993e89bf",
+          "format": "mp3"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 12,
+        "beatHz": 12,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Theta",
+          "fr": "Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-ii-05",
+      "waveSlug": "wave-ii",
+      "index": 5,
+      "title": {
+        "en": "Energy Bar Tool",
+        "fr": "La carte vivante"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD3 - 5 - Energy Bar Tool.flac",
+          "sha256": "763352f3b140a9903003c27c11409d881d9f6b07cd8a0cb65a9729b995642b90",
+          "format": "flac"
+        },
+        "fr": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Seuil 11 - La Carte Vivante - Wave II.mp3",
+          "sha256": "c6f32d77d4072a218572a9925ddd62ffbac5e994f0435a91eb2d8582525ac834",
+          "format": "mp3"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 12,
+        "beatHz": 12,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Theta",
+          "fr": "Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-ii-06",
+      "waveSlug": "wave-ii",
+      "index": 6,
+      "title": {
+        "en": "Living Body Map",
+        "fr": "Évolution libre 12"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave II - Threshold/CD3 - 6 - Living Body Map.flac",
+          "sha256": "06104e6ee41b6320ae4f653fdc30ad8b2833c46519c894cc5edaa16c70c9dd47",
+          "format": "flac"
+        },
+        "fr": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Seuil 12 - Evolution Libre 12 - Wave II.mp3",
+          "sha256": "4fa2124ab79317f3c181c194fc759bf46cf32df6191f56af00b8f6c48e955bf3",
+          "format": "mp3"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 12,
+        "beatHz": 12,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Theta",
+          "fr": "Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-iii-01",
+      "waveSlug": "wave-iii",
+      "index": 1,
+      "title": {
+        "en": "Lift Off",
+        "fr": "Lift Off"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD1 - 1 - Lift Off.flac",
+          "sha256": "38c325f5b56bc0eddcd5fdcf64437357ef196aa1a068fb600288abb73fe9ba99",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 12,
+        "beatHz": 12,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Theta",
+          "fr": "Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-iii-02",
+      "waveSlug": "wave-iii",
+      "index": 2,
+      "title": {
+        "en": "Remote Viewing",
+        "fr": "Remote Viewing"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD1 - 2 - Remote Viewing.flac",
+          "sha256": "e1e17ea2ee1ca089cc13f242a631c8f80f0de0c8acd37925027440100144bd6e",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 12,
+        "beatHz": 12,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Theta",
+          "fr": "Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-iii-03",
+      "waveSlug": "wave-iii",
+      "index": 3,
+      "title": {
+        "en": "Vectors",
+        "fr": "Vectors"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD2 - 3 - Vectors.flac",
+          "sha256": "9586760c19e93430bdde5f86f471d9ea8ff7bf1ce1154f4634900ec732e1aab6",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 12,
+        "beatHz": 12,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Theta",
+          "fr": "Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-iii-04",
+      "waveSlug": "wave-iii",
+      "index": 4,
+      "title": {
+        "en": "Five Questions",
+        "fr": "Five Questions"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD2 - 4 - Five Questions.flac",
+          "sha256": "117f21637c67c98dcd5b0800a1c41d54d9111d0d9f08d59c1d452c0924975f04",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 12,
+        "beatHz": 12,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Theta",
+          "fr": "Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-iii-05",
+      "waveSlug": "wave-iii",
+      "index": 5,
+      "title": {
+        "en": "Energy Food",
+        "fr": "Energy Food"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD3 - 5 - Energy Food.flac",
+          "sha256": "1b3be03dcbd4ce66eadf377661466937468ee63e76a858099aa1bf649f24a8cb",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 12,
+        "beatHz": 12,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Theta",
+          "fr": "Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-iii-06",
+      "waveSlug": "wave-iii",
+      "index": 6,
+      "title": {
+        "en": "First Stage Separation",
+        "fr": "First Stage Separation"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave III - Freedom/CD3 - 6 - First Stage Separation.flac",
+          "sha256": "3068215244bff795dd2d9b6747d42480edff0e3f82141eaad707aca4eed625f2",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 12,
+        "beatHz": 12,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Theta",
+          "fr": "Thêta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-iv-01",
+      "waveSlug": "wave-iv",
+      "index": 1,
+      "title": {
+        "en": "One Year Patterning",
+        "fr": "One Year Patterning"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD1 - 1 - One Year Patterning.flac",
+          "sha256": "7efb21ce77e8b224cb0c2582a14112386ceeaaddf362ba4da5b6f2a6602dc078",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 15,
+        "beatHz": 15,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta/Alpha",
+          "fr": "Beta/Alpha"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-iv-02",
+      "waveSlug": "wave-iv",
+      "index": 2,
+      "title": {
+        "en": "Five Messages",
+        "fr": "Five Messages"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD1 - 2 - Five Messages.flac",
+          "sha256": "af7d823b8c330aa4815c03b578f80f3cc2023c6f0700b117eacb59112a276282",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 15,
+        "beatHz": 15,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta/Alpha",
+          "fr": "Beta/Alpha"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-iv-03",
+      "waveSlug": "wave-iv",
+      "index": 3,
+      "title": {
+        "en": "Free Flow 12",
+        "fr": "Free Flow 12"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD2 - 3 - Free Flow 12.flac",
+          "sha256": "464c02ca41ceb95998c08b245037bb046fe280454b2de6ebde342fd388c27f19",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 15,
+        "beatHz": 15,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta/Alpha",
+          "fr": "Beta/Alpha"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-iv-04",
+      "waveSlug": "wave-iv",
+      "index": 4,
+      "title": {
+        "en": "NVC I",
+        "fr": "NVC I"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD2 - 4 - NVC I.flac",
+          "sha256": "cf1d9e0d0d2fdd763649b8c857125d2a526d916bd25087502504faa6db412f25",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 15,
+        "beatHz": 15,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta/Alpha",
+          "fr": "Beta/Alpha"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-iv-05",
+      "waveSlug": "wave-iv",
+      "index": 5,
+      "title": {
+        "en": "NVC II",
+        "fr": "NVC II"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD3 - 5 - NVC II.flac",
+          "sha256": "5075b7fb7a95de343438b3a3adfd20db79205e5cb1759cf50dd4ca984e107ebf",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 15,
+        "beatHz": 15,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta/Alpha",
+          "fr": "Beta/Alpha"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-iv-06",
+      "waveSlug": "wave-iv",
+      "index": 6,
+      "title": {
+        "en": "Compoint",
+        "fr": "Compoint"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave IV - Adventure/CD3 - 6 - Compoint.flac",
+          "sha256": "2fa53fcfd93934b9aba37deed103d201ec820e393f228e9a50a01a32229268e2",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 15,
+        "beatHz": 15,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta/Alpha",
+          "fr": "Beta/Alpha"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-v-01",
+      "waveSlug": "wave-v",
+      "index": 1,
+      "title": {
+        "en": "Exploring Intuition",
+        "fr": "Exploring Intuition"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD1 - 1 - Exploring Intuition.flac",
+          "sha256": "52c1afc3a7c98df75b3286dbbb5ddf5b4b6b5505d8994f7bf20327e03e0cb701",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 15,
+        "beatHz": 15,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta/Alpha",
+          "fr": "Beta/Alpha"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-v-02",
+      "waveSlug": "wave-v",
+      "index": 2,
+      "title": {
+        "en": "Intro to Focus 15",
+        "fr": "Intro to Focus 15"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD1 - 2 - Intro to Focus 15.flac",
+          "sha256": "4cf35de4fcbc510177165de833c66573d417464846311fc648d2964981962dcd",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 15,
+        "beatHz": 15,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta/Alpha",
+          "fr": "Beta/Alpha"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-v-03",
+      "waveSlug": "wave-v",
+      "index": 3,
+      "title": {
+        "en": "Exploring Intuition",
+        "fr": "Exploring Intuition"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD2 - 3 - Exploring Intuition.flac",
+          "sha256": "14e31e023b6a4841818260383b3172163ee1ff3a6a0f78e41c62784a8a2540d8",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 15,
+        "beatHz": 15,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta/Alpha",
+          "fr": "Beta/Alpha"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-v-04",
+      "waveSlug": "wave-v",
+      "index": 4,
+      "title": {
+        "en": "Intro to Focus 15",
+        "fr": "Intro to Focus 15"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD2 - 4 - Intro to Focus 15.flac",
+          "sha256": "61ddd785811039dc0f857c805c9fb583f056c957ca3445ab3933159bf0b8e183",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 15,
+        "beatHz": 15,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta/Alpha",
+          "fr": "Beta/Alpha"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-v-05",
+      "waveSlug": "wave-v",
+      "index": 5,
+      "title": {
+        "en": "Mission 15 Creation and Manifestation",
+        "fr": "Mission 15 Creation and Manifestation"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD3 - 5 - Mission 15 Creation and Manifestation.flac",
+          "sha256": "4060a19932e1a3bfcdbaacc689c9a9d27b5d4e0e29abec8fdbb6c43fd88461b7",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 15,
+        "beatHz": 15,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta/Alpha",
+          "fr": "Beta/Alpha"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-v-06",
+      "waveSlug": "wave-v",
+      "index": 6,
+      "title": {
+        "en": "Exploring Focus 15",
+        "fr": "Exploring Focus 15"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave V - Exploring Focus 15/CD3 - 6 - Exploring Focus 15.flac",
+          "sha256": "2caa29bf88eabe98ef20965c96400f02e5a989386f560a4a049a50e85bc34cd1",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 15,
+        "beatHz": 15,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta/Alpha",
+          "fr": "Beta/Alpha"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-vi-01",
+      "waveSlug": "wave-vi",
+      "index": 1,
+      "title": {
+        "en": "Sensing Locale 1",
+        "fr": "Sensing Locale 1"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD1 - 1 - Sensing Locale 1.flac",
+          "sha256": "1fb686ec6f37ca7f43fda01c1f3ae302169d9179e4960a98079a1c487922ba1b",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 21,
+        "beatHz": 21,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta",
+          "fr": "Beta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-vi-02",
+      "waveSlug": "wave-vi",
+      "index": 2,
+      "title": {
+        "en": "Expansion in Locale 1",
+        "fr": "Expansion in Locale 1"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD1 - 2 - Expansion in Locale 1.flac",
+          "sha256": "894c07127bdb2cc6f747d0cc3c5c5b2a0d65f7ebdb96d15e82db2f50ef3edceb",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 21,
+        "beatHz": 21,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta",
+          "fr": "Beta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-vi-03",
+      "waveSlug": "wave-vi",
+      "index": 3,
+      "title": {
+        "en": "Point of Departure",
+        "fr": "Point of Departure"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD2 - 3 - Point of Departure.flac",
+          "sha256": "a29c816d3f317eb5297432be4e7a75316cc32e315d4d8437fc288c9fc6bbacc3",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 21,
+        "beatHz": 21,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta",
+          "fr": "Beta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-vi-04",
+      "waveSlug": "wave-vi",
+      "index": 4,
+      "title": {
+        "en": "Nonphysical friends",
+        "fr": "Nonphysical friends"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD2 - 4 - Nonphysical friends.flac",
+          "sha256": "2fe86aaa8e23a25629a813d78e5d01610b1caae2bdb9fa966a87e73d2492b2e4",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 21,
+        "beatHz": 21,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta",
+          "fr": "Beta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-vi-05",
+      "waveSlug": "wave-vi",
+      "index": 5,
+      "title": {
+        "en": "Movement to Locale 2 - Intro Focus 21",
+        "fr": "Movement to Locale 2 - Intro Focus 21"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD3 - 5 - Movement to Locale 2 - Intro Focus 21.flac",
+          "sha256": "7ed86fc96f2713de346dc044695e1cc1357a0d764e33984a72f01317e412d215",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 21,
+        "beatHz": 21,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta",
+          "fr": "Beta"
+        },
+        "reviewed": false
+      }
+    },
+    {
+      "id": "wave-vi-06",
+      "waveSlug": "wave-vi",
+      "index": 6,
+      "title": {
+        "en": "Free Flow Journey in Focus 21",
+        "fr": "Free Flow Journey in Focus 21"
+      },
+      "audio": {
+        "en": {
+          "path": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/Wave VI - Odyssey/CD3 - 6 - Free Flow Journey in Focus 21.flac",
+          "sha256": "436005dc0466764eda309229a82bd516b80c30d083d12950c9c0f2ab14e3fe61",
+          "format": "flac"
+        }
+      },
+      "manualPdf": null,
+      "frequencies": {
+        "focusLevel": 21,
+        "beatHz": 21,
+        "leftHz": null,
+        "rightHz": null,
+        "bandLabel": {
+          "en": "Beta",
+          "fr": "Beta"
+        },
+        "reviewed": false
+      }
+    }
+  ],
+  "supplements": {
+    "mindFood": [
+      {
+        "id": "mind-food-le-sommeil-profond-01",
+        "title": {
+          "fr": "Mind Food - Le Sommeil Profond - 01",
+          "en": "Mind Food - Le Sommeil Profond - 01"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Mind Food - Le Sommeil Profond - 01.mp3",
+          "sha256": "166b55608e16ff7866aba8e207bcbd5bcaabf3d7c2a7954d024d79f518bf4472",
+          "format": "mp3"
+        },
+        "category": "mind-food"
+      },
+      {
+        "id": "mind-food-le-sommeil-profond-02",
+        "title": {
+          "fr": "Mind Food - Le Sommeil Profond - 02",
+          "en": "Mind Food - Le Sommeil Profond - 02"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Mind Food - Le Sommeil Profond - 02.mp3",
+          "sha256": "8bf049de54474db963814d0cf5abe67f9529baea72f83a35c68eaef773e267d3",
+          "format": "mp3"
+        },
+        "category": "mind-food"
+      },
+      {
+        "id": "mind-food-profonde-relaxation-01",
+        "title": {
+          "fr": "Mind Food - Profonde Relaxation - 01",
+          "en": "Mind Food - Profonde Relaxation - 01"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Mind Food - Profonde Relaxation - 01.mp3",
+          "sha256": "5b0179851eacd69398a100c87c8eb543cd9ae62473afb9bfcf5967557da078d9",
+          "format": "mp3"
+        },
+        "category": "mind-food"
+      },
+      {
+        "id": "mind-food-profonde-relaxation-02",
+        "title": {
+          "fr": "Mind Food - Profonde Relaxation - 02",
+          "en": "Mind Food - Profonde Relaxation - 02"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 1/Mind Food - Profonde Relaxation - 02.mp3",
+          "sha256": "fb97716cff41015c2c1fc1b2f02f2dca699885c5cf711166fd08b72838cc3065",
+          "format": "mp3"
+        },
+        "category": "mind-food"
+      },
+      {
+        "id": "mind-food-controle-de-la-douleur",
+        "title": {
+          "fr": "Mind Food - Controle de la Douleur",
+          "en": "Mind Food - Controle de la Douleur"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Mind Food - Controle de la Douleur.mp3",
+          "sha256": "1c1dce3f5009290a502d95bc2f2ce47994b17b4a62c75e2bab262f7b4874f754",
+          "format": "mp3"
+        },
+        "category": "mind-food"
+      },
+      {
+        "id": "mind-food-memoriser-se-rappeler-se-liberer",
+        "title": {
+          "fr": "Mind Food - Memoriser,se Rappeler,se Liberer",
+          "en": "Mind Food - Memoriser,se Rappeler,se Liberer"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Mind Food - Memoriser,se Rappeler,se Liberer.mp3",
+          "sha256": "c1f2af745b91dfb34ebf84e0fb6afb314c18e08990f2858c40a886269ef4359a",
+          "format": "mp3"
+        },
+        "category": "mind-food"
+      },
+      {
+        "id": "mind-food-moment-de-revelation",
+        "title": {
+          "fr": "Mind Food - Moment de revelation",
+          "en": "Mind Food - Moment de revelation"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Mind Food - Moment de revelation.mp3",
+          "sha256": "7d85c79a23dacb0e10886c666d7fbc3d1ea9b587854e343fd15ab7587d167030",
+          "format": "mp3"
+        },
+        "category": "mind-food"
+      }
+    ],
+    "humainPlus": [
+      {
+        "id": "humain-plus-avant-tout-preparation",
+        "title": {
+          "fr": "Humain Plus - Avant tout - PREPARATION",
+          "en": "Humain Plus - Avant tout - PREPARATION"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Avant tout - PREPARATION.mp3",
+          "sha256": "ff1ae7637c0f7065c508b605c1ca12065b67e1da7812926985bd8f640988ef13",
+          "format": "mp3"
+        },
+        "category": "humain-plus"
+      },
+      {
+        "id": "humain-plus-cerveau-reparation-et-entretien",
+        "title": {
+          "fr": "Humain Plus - Cerveau , reparation et Entretien",
+          "en": "Humain Plus - Cerveau , reparation et Entretien"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Cerveau , reparation et Entretien.mp3",
+          "sha256": "d6b850e1e5791592e48b68fb9aaa2ec570504c444ad054f8f4810e722ff88f9e",
+          "format": "mp3"
+        },
+        "category": "humain-plus"
+      },
+      {
+        "id": "humain-plus-dormir-decider",
+        "title": {
+          "fr": "Humain Plus - Dormir, Decider",
+          "en": "Humain Plus - Dormir, Decider"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Dormir, Decider.mp3",
+          "sha256": "515675749b128140982c264223c9a0df720761a045aca6cd643cbaaabed0f2c8",
+          "format": "mp3"
+        },
+        "category": "humain-plus"
+      },
+      {
+        "id": "humain-plus-effacer",
+        "title": {
+          "fr": "Humain Plus - Effacer",
+          "en": "Humain Plus - Effacer"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Effacer.mp3",
+          "sha256": "eb5c979baedc6259b433ae3af01593ba5bfb75048c160f0c0dfedb75f5e3efb4",
+          "format": "mp3"
+        },
+        "category": "humain-plus"
+      },
+      {
+        "id": "humain-plus-liberation",
+        "title": {
+          "fr": "Humain Plus - Liberation",
+          "en": "Humain Plus - Liberation"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Liberation.mp3",
+          "sha256": "6e1191e438e9a7c904fb1593805b24ac253d3d3ea3cd62a916929ba424c4f848",
+          "format": "mp3"
+        },
+        "category": "humain-plus"
+      },
+      {
+        "id": "humain-plus-options",
+        "title": {
+          "fr": "Humain Plus - Options",
+          "en": "Humain Plus - Options"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Options.mp3",
+          "sha256": "6cb5595a2221d181f17a219abdd890d33400c1b54fd068fef63e1c9b4f5f957c",
+          "format": "mp3"
+        },
+        "category": "humain-plus"
+      },
+      {
+        "id": "humain-plus-penser-vite",
+        "title": {
+          "fr": "Humain Plus - Penser vite",
+          "en": "Humain Plus - Penser vite"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Penser vite.mp3",
+          "sha256": "6943756b3e747a25f6f567f9d598e2d0fc827389eb2ff67ff75fcb27d393f87b",
+          "format": "mp3"
+        },
+        "category": "humain-plus"
+      },
+      {
+        "id": "humain-plus-pleins-pouvoirs",
+        "title": {
+          "fr": "Humain Plus - Pleins Pouvoirs",
+          "en": "Humain Plus - Pleins Pouvoirs"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Pleins Pouvoirs.mp3",
+          "sha256": "41a7585bd63162bca3041d6873c25b86044dc73d98df4a4161420b4e2bd30a1b",
+          "format": "mp3"
+        },
+        "category": "humain-plus"
+      },
+      {
+        "id": "humain-plus-retablissement",
+        "title": {
+          "fr": "Humain Plus - Retablissement",
+          "en": "Humain Plus - Retablissement"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Retablissement.mp3",
+          "sha256": "19e35a647d925f8956d972fcbf8b4e47eaa25db20a3952153c7357803f0e0d0e",
+          "format": "mp3"
+        },
+        "category": "humain-plus"
+      },
+      {
+        "id": "humain-plus-se-revigorer",
+        "title": {
+          "fr": "Humain Plus - Se Revigorer",
+          "en": "Humain Plus - Se Revigorer"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Se Revigorer.mp3",
+          "sha256": "dd4da4cc03decf49635dacd26b2cc81ad51ae76f463ba414f4143ba3cdecd5a6",
+          "format": "mp3"
+        },
+        "category": "humain-plus"
+      },
+      {
+        "id": "humain-plus-se-transformer",
+        "title": {
+          "fr": "Humain Plus - Se Transformer",
+          "en": "Humain Plus - Se Transformer"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Se Transformer.mp3",
+          "sha256": "25fea685fc28206bc12f5f1205a6b40b8b43c479525c0d77b0d383b3cb83c4bf",
+          "format": "mp3"
+        },
+        "category": "humain-plus"
+      },
+      {
+        "id": "humain-plus-s-immuniser",
+        "title": {
+          "fr": "Humain Plus - S'immuniser",
+          "en": "Humain Plus - S'immuniser"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - S'immuniser.mp3",
+          "sha256": "42674b9b7a24b8e8454b51c2a8edf26613b98cbd7ec14fe662db8bfc572b7d7c",
+          "format": "mp3"
+        },
+        "category": "humain-plus"
+      },
+      {
+        "id": "humain-plus-urgences-blessure",
+        "title": {
+          "fr": "Humain Plus - Urgences  blessure",
+          "en": "Humain Plus - Urgences  blessure"
+        },
+        "audio": {
+          "path": "Hemi-Sync/Hemi-sync COURS 2/Humain Plus - Urgences  blessure.mp3",
+          "sha256": "627f512609ac00b59c14253daaa91736ce699db9bc7f83980da53e93211badaa",
+          "format": "mp3"
+        },
+        "category": "humain-plus"
+      }
+    ]
+  },
+  "glossary": [
+    {
+      "focus": 3,
+      "title": {
+        "en": "Focus 3",
+        "fr": "Focus 3"
+      },
+      "desc": {
+        "en": "Orientation state — entry to expanded awareness.",
+        "fr": "État d'orientation — entrée dans la conscience élargie."
+      }
+    },
+    {
+      "focus": 10,
+      "title": {
+        "en": "Focus 10",
+        "fr": "Focus 10"
+      },
+      "desc": {
+        "en": "Mind awake, body asleep. Gateway foundation state.",
+        "fr": "Esprit éveillé, corps endormi. État fondamental du Gateway."
+      }
+    },
+    {
+      "focus": 12,
+      "title": {
+        "en": "Focus 12",
+        "fr": "Focus 12"
+      },
+      "desc": {
+        "en": "Expanded awareness — access to non-physical information.",
+        "fr": "Conscience élargie — accès à l'information non physique."
+      }
+    },
+    {
+      "focus": 15,
+      "title": {
+        "en": "Focus 15",
+        "fr": "Focus 15"
+      },
+      "desc": {
+        "en": "State of no time — creation and manifestation.",
+        "fr": "État hors du temps — création et manifestation."
+      }
+    },
+    {
+      "focus": 21,
+      "title": {
+        "en": "Focus 21",
+        "fr": "Focus 21"
+      },
+      "desc": {
+        "en": "Other energy systems — edge of human consciousness.",
+        "fr": "Autres systèmes d'énergie — limite de la conscience humaine."
+      }
+    }
+  ]
+}

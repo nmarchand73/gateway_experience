@@ -1,0 +1,157 @@
+---
+import { t } from '../i18n';
+import type { Locale } from '../i18n';
+import {
+  guideSteps,
+  guideTips,
+  guideFaq,
+  pickLocalized,
+} from '../lib/getting-started';
+import { resolveMediaUrl } from '../lib/media';
+
+interface Props {
+  locale: Locale;
+  prefix: string;
+}
+
+const { locale, prefix } = Astro.props;
+---
+
+<header class="hero">
+  <p class="eyebrow">{t(locale, 'start.eyebrow')}</p>
+  <h1>{t(locale, 'start.title')}</h1>
+  <p class="lede">{t(locale, 'start.intro')}</p>
+</header>
+
+<section class="card">
+  <h2>{t(locale, 'start.stepsTitle')}</h2>
+  <ol class="step-list">
+    {guideSteps.map((step, i) => {
+      const href = step.internalHref?.(prefix) ?? (step.mediaPath ? resolveMediaUrl(step.mediaPath) : step.href);
+      const external = Boolean(step.href && !step.internalHref && !step.mediaPath);
+      return (
+        <li>
+          <span class="step-num">{i + 1}</span>
+          <div>
+            <h3>
+              {href ? (
+                <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>
+                  {pickLocalized(locale, step.title)}
+                </a>
+              ) : (
+                pickLocalized(locale, step.title)
+              )}
+            </h3>
+            <p class="muted">{pickLocalized(locale, step.description)}</p>
+          </div>
+        </li>
+      );
+    })}
+  </ol>
+</section>
+
+<section class="card">
+  <h2>{t(locale, 'start.tipsTitle')}</h2>
+  <p class="muted">{t(locale, 'start.tipsIntro')}</p>
+  <ul class="tip-list">
+    {guideTips.map((tip) => (
+      <li>{pickLocalized(locale, tip)}</li>
+    ))}
+  </ul>
+</section>
+
+<section class="card">
+  <h2>{t(locale, 'start.faqTitle')}</h2>
+  <p class="muted">{t(locale, 'start.faqIntro')}</p>
+  <ul class="faq-list">
+    {guideFaq.map((item) => (
+      <li>
+        <a href={item.href} target="_blank" rel="noopener noreferrer">
+          {pickLocalized(locale, item.label)}
+        </a>
+      </li>
+    ))}
+  </ul>
+  <p class="muted" style="margin-top: 1rem;">
+    <a href="https://www.reddit.com/r/gatewaytapes/wiki/start/" target="_blank" rel="noopener noreferrer">
+      {t(locale, 'start.faqMore')}
+    </a>
+    ·
+    <a href={`${prefix}/glossary/`}>{t(locale, 'start.faqGlossary')}</a>
+  </p>
+</section>
+
+<p class="muted source-note">{t(locale, 'start.source')}</p>
+
+<style>
+  .step-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+  }
+
+  .step-list h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.05rem;
+  }
+
+  .step-list h3 a {
+    text-decoration: none;
+  }
+
+  .step-list h3 a:hover {
+    text-decoration: underline;
+  }
+
+  .tip-list,
+  .faq-list {
+    margin: 1rem 0 0;
+    padding-left: 1.25rem;
+  }
+
+  .tip-list li,
+  .faq-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .faq-list a {
+    text-decoration: none;
+  }
+
+  .faq-list a:hover {
+    text-decoration: underline;
+  }
+
+  .source-note {
+    font-size: 0.85rem;
+    margin-top: 2rem;
+  }
+</style>

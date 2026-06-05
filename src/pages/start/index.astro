@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GettingStartedGuide from '../../components/GettingStartedGuide.astro';
+import { t, localePrefix } from '../../i18n';
+
+const locale = 'fr';
+const p = localePrefix(locale);
+---
+
+<BaseLayout title={t(locale, 'start.title')} description={t(locale, 'start.intro')} locale={locale}>
+  <GettingStartedGuide locale={locale} prefix={p} />
+</BaseLayout>

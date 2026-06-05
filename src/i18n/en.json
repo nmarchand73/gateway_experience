@@ -1,0 +1,131 @@
+{
+  "site": {
+    "title": "Gateway Experience",
+    "tagline": "Hemi-Sync learning path — 6 waves, guided sessions, progress journal."
+  },
+  "nav": {
+    "skipLink": "Skip to content",
+    "navLabel": "Main navigation",
+    "home": "Home",
+    "start": "Guide",
+    "waves": "Waves",
+    "supplements": "Supplements",
+    "glossary": "Focus Glossary",
+    "progress": "Progress",
+    "chooseLanguage": "Choose language",
+    "menuOpen": "Open menu"
+  },
+  "home": {
+    "eyebrow": "Monroe Institute · Hemi-Sync",
+    "title": "Gateway Experience",
+    "subtitle": "Explore all six Gateway waves with stereo playback, L/R/Beat frequency display, and local progress tracking.",
+    "startWaveI": "Start Wave I",
+    "browseWaves": "Browse all waves",
+    "readGuide": "Getting started guide",
+    "statsSessions": "{count} sessions",
+    "statsWaves": "6 waves",
+    "statsSupplements": "{count} supplements",
+    "editionsTitle": "Choose an edition",
+    "editionsIntro": "Classic release (FLAC, 6 waves) or Gateway Experience v2 (English MP3, 7 waves including Prospecting and Odyssey).",
+    "startV2": "Start v2 — Wave I"
+  },
+  "start": {
+    "eyebrow": "Step-by-step",
+    "title": "Getting started",
+    "intro": "New to the Gateway Experience? Follow these steps and read the suggested documents before asking the same questions over and over — you’ll find answers to most of them there.",
+    "stepsTitle": "Five steps",
+    "tipsTitle": "Quick tips — things not to do",
+    "tipsIntro": "Practical community advice so early sessions aren’t derailed by common mistakes.",
+    "faqTitle": "Frequently asked questions",
+    "faqIntro": "Links to the most helpful threads (r/gatewaytapes wiki).",
+    "faqMore": "More FAQ on Reddit",
+    "faqGlossary": "Focus glossary on this site",
+    "source": "Guide adapted from the r/Sbreggo / r/gatewaytapes community — external resources are not affiliated with the Monroe Institute."
+  },
+  "waves": {
+    "title": "The six waves",
+    "intro": "Each wave introduces a Focus level and progressive exercises. Waves I–II include French audio; waves III–VI are English FLAC only.",
+    "sessions": "Sessions",
+    "focusLevel": "Focus {level}",
+    "manual": "Wave manual (PDF)",
+    "sessionCount": "{count} sessions",
+    "classicTitle": "Classic release",
+    "v2Title": "Gateway Experience v2",
+    "v2Intro": "Seven English MP3 waves — adds Prospecting (VI) and Odyssey (VII) beyond the classic six-wave path.",
+    "audioEnMp3": "English audio (MP3)"
+  },
+  "session": {
+    "breadcrumbWaves": "Waves",
+    "audio": "Session audio",
+    "download": "Download",
+    "playerHint": "No signal processing — L/R spectrum (20–500 Hz) and documented frequency metadata.",
+    "frequencies": "Hemi-Sync frequencies",
+    "left": "Left (L)",
+    "right": "Right (R)",
+    "beat": "Beat",
+    "focus": "Focus",
+    "band": "Band",
+    "unreviewed": "Default values (manual OCR pending)",
+    "transcript": "Guided script",
+    "transcriptPlaceholder": "Pedagogical script will be extracted from scanned manuals (OCR). Until then, follow the wave PDF manual.",
+    "journal": "Session journal",
+    "journalPlaceholder": "Personal notes (stored locally in your browser).",
+    "journalSave": "Save",
+    "journalSaved": "Saved",
+    "markComplete": "Mark complete",
+    "completed": "Completed",
+    "manualEmbed": "Wave manual",
+    "phaseRead": "Read",
+    "phaseListen": "Listen",
+    "phaseReflect": "Reflect",
+    "instructionsTitle": "Before you listen",
+    "instructionsLead": "Notes from the wave manual — what this exercise asks you to do.",
+    "listenTitle": "Session audio",
+    "listenLead": "Use headphones in a quiet space. Follow the voice on the track; glance back at the instructions if needed.",
+    "reflectTitle": "After the session",
+    "reflectLead": "Capture impressions while they are fresh, then mark the session complete.",
+    "prepTips": "Quiet space · Comfortable posture · Allow 45–60 min · Do not drive while listening",
+    "technicalDetails": "Technical details (frequencies, spectrum)",
+    "prevSession": "Previous",
+    "nextSession": "Next",
+    "focusBadge": "Focus {level}",
+    "manualPdfLink": "Original PDF manual",
+    "jumpToListen": "Ready? Jump to audio"
+  },
+  "player": {
+    "play": "Play / Pause",
+    "seek": "Playback position",
+    "skipBack": "Back 10 seconds",
+    "skipForward": "Forward 10 seconds",
+    "speed": "Speed",
+    "spectrumL": "Left channel",
+    "spectrumR": "Right channel",
+    "spectrumRange": "20–500 Hz",
+    "ciaReportTitle": "Why L / R / Beat? — CIA Gateway report (1983)",
+    "ciaReportBody": "The Analysis and Assessment of Gateway Process report (Lt. Col. Wayne M. McDonnell, US Army, 1983) explains Hemi-Sync: slightly different frequencies in each ear produce a binaural beat (|L − R|). That beat is intended to entrain brainwave activity toward Focus states (10, 12, 15, 21…).",
+    "ciaReportSpectrum": "The two spectra below show 20–500 Hz energy per stereo channel — the band where Hemi-Sync carrier tones sit. The purple line marks a documented carrier frequency when known.",
+    "ciaReportLink": "Read the CIA report (local PDF)",
+    "noFlac": "Your browser may not play FLAC. Download the file for local playback."
+  },
+  "supplements": {
+    "title": "Supplements",
+    "intro": "Mind Food and Humain Plus — complementary tracks from the French corpus.",
+    "mindFood": "Mind Food",
+    "humainPlus": "Humain Plus"
+  },
+  "glossary": {
+    "title": "Focus glossary",
+    "intro": "Numbered consciousness states used in the Gateway Experience."
+  },
+  "progress": {
+    "title": "My progress",
+    "intro": "Local tracking (localStorage) — no data is sent to a server.",
+    "completed": "Completed sessions",
+    "none": "No sessions marked yet.",
+    "reset": "Reset progress"
+  },
+  "footer": {
+    "tagline": "Personal educational use — Hemi-Sync / Monroe Institute.",
+    "navLabel": "Footer"
+  }
+}

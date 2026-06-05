@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { t, localePrefix } from '../../../i18n';
+import { getEdition, waveTitle, editionLabel, editionDescription } from '../../../lib/curriculum';
+
+const locale = 'fr';
+const p = localePrefix(locale);
+const edition = getEdition('v2');
+---
+
+<BaseLayout title={t(locale, 'waves.v2Title')} locale={locale}>
+  <nav class="crumbs">
+    <a href={`${p}/`}>← {t(locale, 'nav.home')}</a>
+  </nav>
+
+  <header class="hero">
+    <p class="eyebrow">{editionLabel(edition, locale)}</p>
+    <h1>{t(locale, 'waves.v2Title')}</h1>
+    <p class="lede">{editionDescription(edition, locale)}</p>
+    <p class="muted">{t(locale, 'waves.audioEnMp3')}</p>
+  </header>
+
+  <div class="grid-waves">
+    {edition.waves.map((wave) => (
+      <a href={`${p}/v2/waves/${wave.slug}/`} class="card wave-card">
+        <p class="wave-meta">Wave {wave.roman} · {t(locale, 'waves.focusLevel', { level: wave.focusLevel })}</p>
+        <h2>{waveTitle(wave, locale)}</h2>
+        <p class="muted">{t(locale, 'waves.sessionCount', { count: wave.sessions.length })}</p>
+      </a>
+    ))}
+  </div>
+
+  <p class="muted" style="margin-top: 2rem;">
+    <a href={`${p}/waves/`}>{t(locale, 'waves.classicTitle')}</a>
+  </p>
+</BaseLayout>

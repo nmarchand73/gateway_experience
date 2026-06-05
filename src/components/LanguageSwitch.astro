@@ -1,0 +1,68 @@
+---
+import { t } from '../i18n';
+
+interface Props {
+  locale: 'fr' | 'en';
+  currentPath?: string;
+}
+
+const { locale, currentPath = '/' } = Astro.props;
+const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
+const pathAfterBase = base ? (currentPath.startsWith(base) ? currentPath.slice(base.length) || '/' : currentPath) : currentPath;
+const isEn = pathAfterBase.startsWith('/en') || pathAfterBase === '/en';
+const pathFr = isEn ? base + (pathAfterBase.replace(/^\/en/, '') || '/') : currentPath;
+const pathEn = !isEn ? base + (pathAfterBase === '/' ? '/en/' : '/en' + pathAfterBase) : currentPath;
+---
+
+<div class="lang-switch" role="group" aria-label={t(locale, 'nav.chooseLanguage')}>
+  <a href={pathFr} class="lang-btn" class:list={[locale === 'fr' && 'active']} data-lang="fr">FR</a>
+  <span class="lang-sep" aria-hidden="true">|</span>
+  <a href={pathEn} class="lang-btn" class:list={[locale === 'en' && 'active']} data-lang="en">EN</a>
+</div>
+
+<script>
+  document.querySelectorAll('.lang-switch .lang-btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const lang = (e.currentTarget as HTMLAnchorElement).getAttribute('data-lang');
+      if (lang) try { localStorage.setItem('gateway-lang', lang); } catch (_) {}
+    });
+  });
+</script>
+
+<style>
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .lang-btn {
+    padding: 0.25rem 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: inherit;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    border-radius: 2px;
+    min-width: 36px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s;
+  }
+
+  .lang-btn:hover {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+
+  .lang-btn.active {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .lang-sep {
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.7rem;
+  }
+</style>

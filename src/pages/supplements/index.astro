@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t, localePrefix } from '../../i18n';
+import { loadCurriculum } from '../../lib/curriculum';
+import { resolveMediaUrl } from '../../lib/media';
+
+const locale = 'fr';
+const p = localePrefix(locale);
+const { supplements } = loadCurriculum();
+---
+
+<BaseLayout title={t(locale, 'supplements.title')} locale={locale}>
+  <header class="hero">
+    <h1>{t(locale, 'supplements.title')}</h1>
+    <p class="lede">{t(locale, 'supplements.intro')}</p>
+  </header>
+
+  <section class="card">
+    <h2>{t(locale, 'supplements.mindFood')}</h2>
+    <ul class="session-list">
+      {supplements.mindFood.map((item) => (
+        <li>
+          <a href={resolveMediaUrl(item.audio.path)} download>
+            <span>{item.title.fr}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>{t(locale, 'supplements.humainPlus')}</h2>
+    <ul class="session-list">
+      {supplements.humainPlus.map((item) => (
+        <li>
+          <a href={resolveMediaUrl(item.audio.path)} download>
+            <span>{item.title.fr}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

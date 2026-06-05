@@ -1,0 +1,317 @@
+{
+  "extractedAt": "2026-06-05T16:44:09Z",
+  "waves": [
+    {
+      "slug": "wave-i",
+      "roman": "I",
+      "title": "Discovery",
+      "sourcePdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/HemiSync - Gateway Experience - Wave I Discovery.pdf",
+      "pages": 16,
+      "markdownFile": "wave-i.md",
+      "sessions": [
+        {
+          "sessionId": "wave-i-01",
+          "index": 1,
+          "title": "Orientation",
+          "heading": "Discovery #1— Orientation",
+          "file": "sessions/wave-i-01.md"
+        },
+        {
+          "sessionId": "wave-i-02",
+          "index": 2,
+          "title": "Introduction to Focus 10",
+          "heading": "Discovery #2 — Introduction to Focus 10",
+          "file": "sessions/wave-i-02.md"
+        },
+        {
+          "sessionId": "wave-i-03",
+          "index": 3,
+          "title": "Advanced Focus 10",
+          "heading": "Discovery #3 — Advanced Focus 10",
+          "file": "sessions/wave-i-03.md"
+        },
+        {
+          "sessionId": "wave-i-04",
+          "index": 4,
+          "title": "Release and Recharge",
+          "heading": "Discovery #4— Release and Recharge",
+          "file": "sessions/wave-i-04.md"
+        },
+        {
+          "sessionId": "wave-i-05",
+          "index": 5,
+          "title": "Exploration, Sleep",
+          "heading": "Discovery #5—Exploration, Sleep",
+          "file": "sessions/wave-i-05.md"
+        },
+        {
+          "sessionId": "wave-i-06",
+          "index": 6,
+          "title": "Free Flow 10",
+          "heading": "Discovery #6—Free Flow 10",
+          "file": "sessions/wave-i-06.md"
+        }
+      ]
+    },
+    {
+      "slug": "wave-ii",
+      "roman": "II",
+      "title": "Threshold",
+      "sourcePdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/HemiSync - Gateway Experience - Wave II Threshold.pdf",
+      "pages": 10,
+      "markdownFile": "wave-ii.md",
+      "sessions": [
+        {
+          "sessionId": "wave-ii-01",
+          "index": 1,
+          "title": "Introduction to Focus 12",
+          "heading": "Threshold #1—Introduction to Focus 12",
+          "file": "sessions/wave-ii-01.md"
+        },
+        {
+          "sessionId": "wave-ii-02",
+          "index": 2,
+          "title": "Problem Solving",
+          "heading": "Threshold #2—Problem Solving",
+          "file": "sessions/wave-ii-02.md"
+        },
+        {
+          "sessionId": "wave-ii-03",
+          "index": 3,
+          "title": "One Month Patterning",
+          "heading": "Threshold #3—One Month Patterning",
+          "file": "sessions/wave-ii-03.md"
+        },
+        {
+          "sessionId": "wave-ii-04",
+          "index": 4,
+          "title": "Color Breathing",
+          "heading": "Threshold #4—Color Breathing",
+          "file": "sessions/wave-ii-04.md"
+        },
+        {
+          "sessionId": "wave-ii-05",
+          "index": 5,
+          "title": "Energy Bar Tool (EBT)",
+          "heading": "Threshold #5—Energy Bar Tool (EBT)",
+          "file": "sessions/wave-ii-05.md"
+        },
+        {
+          "sessionId": "wave-ii-06",
+          "index": 6,
+          "title": "Living Body Map (LBM)",
+          "heading": "Threshold #6 — Living Body Map (LBM)",
+          "file": "sessions/wave-ii-06.md"
+        }
+      ]
+    },
+    {
+      "slug": "wave-iii",
+      "roman": "III",
+      "title": "Freedom",
+      "sourcePdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/HemiSync - Gateway Experience - Wave III Freedom.pdf",
+      "pages": 11,
+      "markdownFile": "wave-iii.md",
+      "sessions": [
+        {
+          "sessionId": "wave-iii-01",
+          "index": 1,
+          "title": "Lift Off",
+          "heading": "Freedom #1—Lift Off",
+          "file": "sessions/wave-iii-01.md"
+        },
+        {
+          "sessionId": "wave-iii-02",
+          "index": 2,
+          "title": "Remote Viewing",
+          "heading": "Freedom #2—Remote Viewing",
+          "file": "sessions/wave-iii-02.md"
+        },
+        {
+          "sessionId": "wave-iii-03",
+          "index": 3,
+          "title": "Vectors",
+          "heading": "Freedom #3—Vectors",
+          "file": "sessions/wave-iii-03.md"
+        },
+        {
+          "sessionId": "wave-iii-04",
+          "index": 4,
+          "title": "Five Questions",
+          "heading": "Freedom #4—Five Questions",
+          "file": "sessions/wave-iii-04.md"
+        },
+        {
+          "sessionId": "wave-iii-05",
+          "index": 5,
+          "title": "Energy Food",
+          "heading": "Freedom #5—Energy Food",
+          "file": "sessions/wave-iii-05.md"
+        },
+        {
+          "sessionId": "wave-iii-06",
+          "index": 6,
+          "title": "First Stage Separation",
+          "heading": "Freedom #6—First Stage Separation",
+          "file": "sessions/wave-iii-06.md"
+        }
+      ]
+    },
+    {
+      "slug": "wave-iv",
+      "roman": "IV",
+      "title": "Adventure",
+      "sourcePdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/HemiSync - Gateway Experience - Wave IV Adventure.pdf",
+      "pages": 8,
+      "markdownFile": "wave-iv.md",
+      "sessions": [
+        {
+          "sessionId": "wave-iv-01",
+          "index": 1,
+          "title": "One Year Patterning",
+          "heading": "Adventure #1— One Year Patterning",
+          "file": "sessions/wave-iv-01.md"
+        },
+        {
+          "sessionId": "wave-iv-02",
+          "index": 2,
+          "title": "Five Messages",
+          "heading": "Adventure #2—Five Messages",
+          "file": "sessions/wave-iv-02.md"
+        },
+        {
+          "sessionId": "wave-iv-03",
+          "index": 3,
+          "title": "Free Flow 12",
+          "heading": "Adventure #3—Free Flow 12",
+          "file": "sessions/wave-iv-03.md"
+        },
+        {
+          "sessionId": "wave-iv-04",
+          "index": 4,
+          "title": "NVC I",
+          "heading": "Adventure #4—NVC I",
+          "file": "sessions/wave-iv-04.md"
+        },
+        {
+          "sessionId": "wave-iv-05",
+          "index": 5,
+          "title": "NVC II",
+          "heading": "Adventure #5—NVC II",
+          "file": "sessions/wave-iv-05.md"
+        },
+        {
+          "sessionId": "wave-iv-06",
+          "index": 6,
+          "title": "Compoint 12",
+          "heading": "Adventure #6—Compoint 12",
+          "file": "sessions/wave-iv-06.md"
+        }
+      ]
+    },
+    {
+      "slug": "wave-v",
+      "roman": "V",
+      "title": "Exploring Focus 15",
+      "sourcePdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/HemiSync - Gateway Experience - Wave V Exploring.pdf",
+      "pages": 9,
+      "markdownFile": "wave-v.md",
+      "sessions": [
+        {
+          "sessionId": "wave-v-01",
+          "index": 1,
+          "title": "Advanced Focus 12",
+          "heading": "Exploring 1—Advanced Focus 12",
+          "file": "sessions/wave-v-01.md"
+        },
+        {
+          "sessionId": "wave-v-02",
+          "index": 2,
+          "title": "Discovering Intuition",
+          "heading": "Exploring 2—Discovering Intuition",
+          "file": "sessions/wave-v-02.md"
+        },
+        {
+          "sessionId": "wave-v-03",
+          "index": 3,
+          "title": "Exploring Intuition",
+          "heading": "Exploring 3—Exploring Intuition",
+          "file": "sessions/wave-v-03.md"
+        },
+        {
+          "sessionId": "wave-v-04",
+          "index": 4,
+          "title": "Intro to Focus 15",
+          "heading": "Exploring 4—Intro to Focus 15",
+          "file": "sessions/wave-v-04.md"
+        },
+        {
+          "sessionId": "wave-v-05",
+          "index": 5,
+          "title": "Mission 15 Creation and Manifestation",
+          "heading": "Exploring 5—Mission 15 Creation and Manifestation",
+          "file": "sessions/wave-v-05.md"
+        },
+        {
+          "sessionId": "wave-v-06",
+          "index": 6,
+          "title": "Exploring Focus 15",
+          "heading": "Exploring 6 — Exploring Focus 15",
+          "file": "sessions/wave-v-06.md"
+        }
+      ]
+    },
+    {
+      "slug": "wave-vi",
+      "roman": "VI",
+      "title": "Odyssey",
+      "sourcePdf": "Hemi-Sync - The Gateway Experience/Hemi-Sync - The Gateway Experience/HemiSync - Gateway Experience - Wave VI Odyssey.pdf",
+      "pages": 11,
+      "markdownFile": "wave-vi.md",
+      "sessions": [
+        {
+          "sessionId": "wave-vi-01",
+          "index": 1,
+          "title": "Sensing Locale 1",
+          "heading": "Odyssey 1—Sensing Locale 1",
+          "file": "sessions/wave-vi-01.md"
+        },
+        {
+          "sessionId": "wave-vi-02",
+          "index": 2,
+          "title": "Expansion in Locale 1",
+          "heading": "Odyssey 2—Expansion in Locale 1",
+          "file": "sessions/wave-vi-02.md"
+        },
+        {
+          "sessionId": "wave-vi-03",
+          "index": 3,
+          "title": "Point of Departure",
+          "heading": "Odyssey 3—Point of Departure",
+          "file": "sessions/wave-vi-03.md"
+        },
+        {
+          "sessionId": "wave-vi-04",
+          "index": 4,
+          "title": "Nonphysical Friends",
+          "heading": "Odyssey 4—Nonphysical Friends",
+          "file": "sessions/wave-vi-04.md"
+        },
+        {
+          "sessionId": "wave-vi-05",
+          "index": 5,
+          "title": "Movement to Locale 2/Intro Focus 21",
+          "heading": "Odyssey 5—Movement to Locale 2/Intro Focus 21",
+          "file": "sessions/wave-vi-05.md"
+        },
+        {
+          "sessionId": "wave-vi-06",
+          "index": 6,
+          "title": "Free Flow Journey in Focus 21",
+          "heading": "Odyssey 6 — Free Flow Journey in Focus 21",
+          "file": "sessions/wave-vi-06.md"
+        }
+      ]
+    }
+  ]
+}

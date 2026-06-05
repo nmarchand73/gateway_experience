@@ -1,0 +1,156 @@
+---
+import { t } from '../i18n';
+import type { Locale } from '../i18n';
+
+interface Props {
+  sessionId: string;
+  locale: Locale;
+  guidedScript?: string;
+  progressKey?: string;
+}
+
+const { sessionId, locale, guidedScript, progressKey = sessionId } = Astro.props;
+const placeholder = t(locale, 'session.transcriptPlaceholder');
+---
+
+<section class="card transcript-section">
+  <h2>{t(locale, 'session.transcript')}</h2>
+  <div class="transcript-body muted">
+    {guidedScript ? <pre class="script-pre">{guidedScript}</pre> : <p>{placeholder}</p>}
+  </div>
+</section>
+
+<section class="card journal-section" data-journal-wrap data-session-id={progressKey}>
+  <h2>{t(locale, 'session.journal')}</h2>
+  <textarea
+    class="journal-input"
+    rows="5"
+    placeholder={t(locale, 'session.journalPlaceholder')}
+    data-journal-input
+  ></textarea>
+  <div class="journal-actions">
+    <button type="button" class="btn-secondary journal-save" data-journal-save>{t(locale, 'session.journalSave')}</button>
+    <span class="journal-status muted" data-journal-status hidden>{t(locale, 'session.journalSaved')}</span>
+    <button type="button" class="btn-complete" data-complete>{t(locale, 'session.markComplete')}</button>
+    <span class="complete-badge" data-complete-badge hidden>{t(locale, 'session.completed')}</span>
+  </div>
+</section>
+
+<script define:vars={{ progressKey }}>
+  const JOURNAL_PREFIX = 'gateway-journal-';
+  const PROGRESS_KEY = 'gateway-progress-v1';
+
+  document.querySelectorAll('[data-journal-wrap]').forEach((wrap) => {
+    const id = wrap.getAttribute('data-session-id');
+    if (!id) return;
+    const input = wrap.querySelector('[data-journal-input]');
+    const saveBtn = wrap.querySelector('[data-journal-save]');
+    const status = wrap.querySelector('[data-journal-status]');
+    const completeBtn = wrap.querySelector('[data-complete]');
+    const badge = wrap.querySelector('[data-complete-badge]');
+
+    try {
+      const saved = localStorage.getItem(JOURNAL_PREFIX + id);
+      if (saved && input) input.value = saved;
+    } catch (_) {}
+
+    const readProgress = () => {
+      try {
+        const raw = localStorage.getItem(PROGRESS_KEY);
+        return raw ? JSON.parse(raw).completed || [] : [];
+      } catch {
+        return [];
+      }
+    };
+
+    const updateCompleteUi = () => {
+      const done = readProgress().includes(id);
+      if (completeBtn) completeBtn.hidden = done;
+      if (badge) badge.hidden = !done;
+    };
+    updateCompleteUi();
+
+    saveBtn?.addEventListener('click', () => {
+      if (!input) return;
+      try {
+        localStorage.setItem(JOURNAL_PREFIX + id, input.value);
+        if (status) {
+          status.hidden = false;
+          setTimeout(() => { status.hidden = true; }, 2000);
+        }
+      } catch (_) {}
+    });
+
+    completeBtn?.addEventListener('click', () => {
+      const list = new Set(readProgress());
+      list.add(id);
+      localStorage.setItem(PROGRESS_KEY, JSON.stringify({ completed: [...list] }));
+      updateCompleteUi();
+    });
+  });
+</script>
+
+<style>
+  .transcript-section h2,
+  .journal-section h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  .script-pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  .journal-input {
+    width: 100%;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    padding: 0.75rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    resize: vertical;
+  }
+
+  .journal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  .journal-save,
+  .btn-complete {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+  }
+
+  .journal-save {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .btn-complete {
+    background: rgba(0,229,192,0.2);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    margin-left: auto;
+  }
+
+  .complete-badge {
+    margin-left: auto;
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+</style>

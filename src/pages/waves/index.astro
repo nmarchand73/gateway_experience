@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t, localePrefix } from '../../i18n';
+import { loadCurriculum, waveTitle } from '../../lib/curriculum';
+
+const locale = 'fr';
+const p = localePrefix(locale);
+const curriculum = loadCurriculum();
+---
+
+<BaseLayout title={t(locale, 'waves.title')} locale={locale}>
+  <header class="hero">
+    <h1>{t(locale, 'waves.title')}</h1>
+    <p class="lede">{t(locale, 'waves.intro')}</p>
+  </header>
+
+  <div class="grid-waves">
+    {curriculum.waves.map((wave) => (
+      <a href={`${p}/waves/${wave.slug}/`} class="card wave-card">
+        <p class="wave-meta">Wave {wave.roman} · {t(locale, 'waves.focusLevel', { level: wave.focusLevel })}</p>
+        <h2>{waveTitle(wave, locale)}</h2>
+        <p class="muted">{t(locale, 'waves.sessionCount', { count: wave.sessions.length })}</p>
+      </a>
+    ))}
+  </div>
+</BaseLayout>

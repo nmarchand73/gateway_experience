@@ -1,0 +1,346 @@
+---
+import GatewayAudioPlayer from './GatewayAudioPlayer.astro';
+import ManualInstructions from './ManualInstructions.astro';
+import SessionJournal from './SessionJournal.astro';
+import { t } from '../i18n';
+import type { Locale } from '../i18n';
+import {
+  sessionTitle,
+  sessionPath,
+  getAdjacentSessions,
+  type Session,
+  type Wave,
+  type EditionId,
+} from '../lib/curriculum';
+
+interface Crumb {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  locale: Locale;
+  wave: Wave;
+  session: Session;
+  edition?: EditionId;
+  audioUrl: string;
+  bandLabel: string;
+  manualText: string | null;
+  pdfUrl: string | null;
+  progressKey: string;
+  crumbs: Crumb[];
+  headerNote?: string;
+}
+
+const {
+  locale,
+  wave,
+  session,
+  edition = 'classic',
+  audioUrl,
+  bandLabel,
+  manualText,
+  pdfUrl,
+  progressKey,
+  crumbs,
+  headerNote,
+} = Astro.props;
+
+const { prev, next } = getAdjacentSessions(wave.slug, session.id, edition);
+const focusLabel = t(locale, 'session.focusBadge', { level: session.frequencies.focusLevel });
+---
+
+<article class="session-workspace">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    {crumbs.map((c, i) => (
+      <>
+        {i > 0 && ' / '}
+        <a href={c.href}>{c.label}</a>
+      </>
+    ))}
+  </nav>
+
+  <header class="session-header">
+    <div class="session-header-main">
+      <p class="eyebrow">
+        Wave {wave.roman} · {String(session.index).padStart(2, '0')}
+      </p>
+      <h1>{sessionTitle(session, locale)}</h1>
+      {headerNote && <p class="muted header-note">{headerNote}</p>}
+      <span class="focus-chip">{focusLabel}</span>
+    </div>
+    <nav class="session-nav" aria-label={t(locale, 'session.breadcrumbWaves')}>
+      {prev ? (
+        <a class="nav-pill" href={sessionPath(prev, locale, edition)}>
+          ← {t(locale, 'session.prevSession')}
+        </a>
+      ) : (
+        <span class="nav-pill disabled" aria-hidden="true"></span>
+      )}
+      {next ? (
+        <a class="nav-pill nav-pill-next" href={sessionPath(next, locale, edition)}>
+          {t(locale, 'session.nextSession')} →
+        </a>
+      ) : (
+        <span class="nav-pill disabled" aria-hidden="true"></span>
+      )}
+    </nav>
+  </header>
+
+  <nav class="phase-nav" aria-label="Session steps">
+    <a href="#instructions" class="phase-link">{t(locale, 'session.phaseRead')}</a>
+    <a href="#listen" class="phase-link">{t(locale, 'session.phaseListen')}</a>
+    <a href="#reflect" class="phase-link">{t(locale, 'session.phaseReflect')}</a>
+  </nav>
+
+  <section id="instructions" class="session-phase card phase-read">
+    <div class="phase-head">
+      <span class="phase-num">1</span>
+      <div>
+        <h2>{t(locale, 'session.instructionsTitle')}</h2>
+        <p class="phase-lead muted">{t(locale, 'session.instructionsLead')}</p>
+      </div>
+    </div>
+    <p class="prep-tips">{t(locale, 'session.prepTips')}</p>
+    <ManualInstructions locale={locale} manualText={manualText} />
+    <p class="phase-action">
+      <a class="chip chip-accent" href="#listen">{t(locale, 'session.jumpToListen')}</a>
+    </p>
+  </section>
+
+  <section id="listen" class="session-phase phase-listen">
+    <div class="phase-head phase-head-inline">
+      <span class="phase-num">2</span>
+      <div>
+        <h2>{t(locale, 'session.listenTitle')}</h2>
+        <p class="phase-lead muted">{t(locale, 'session.listenLead')}</p>
+      </div>
+    </div>
+    {audioUrl ? (
+      <GatewayAudioPlayer
+        src={audioUrl}
+        downloadHref={audioUrl}
+        locale={locale}
+        listenerMode
+        leftHz={session.frequencies.leftHz}
+        rightHz={session.frequencies.rightHz}
+        beatHz={session.frequencies.beatHz}
+        focusLevel={session.frequencies.focusLevel}
+        bandLabel={bandLabel}
+        reviewed={session.frequencies.reviewed}
+      />
+    ) : (
+      <p class="muted card">{t(locale, 'player.noFlac')}</p>
+    )}
+  </section>
+
+  <section id="reflect" class="session-phase card phase-reflect">
+    <div class="phase-head">
+      <span class="phase-num">3</span>
+      <div>
+        <h2>{t(locale, 'session.reflectTitle')}</h2>
+        <p class="phase-lead muted">{t(locale, 'session.reflectLead')}</p>
+      </div>
+    </div>
+    <h3 class="sr-only">{t(locale, 'session.journal')}</h3>
+    <SessionJournal progressKey={progressKey} locale={locale} />
+  </section>
+
+  {pdfUrl && (
+    <footer class="session-footer muted">
+      <a href={pdfUrl} target="_blank" rel="noopener">{t(locale, 'session.manualPdfLink')}</a>
+    </footer>
+  )}
+</article>
+
+<style>
+  .session-workspace {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .session-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem 1.5rem;
+  }
+
+  .session-header h1 {
+    margin: 0.25rem 0 0.5rem;
+  }
+
+  .header-note {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .focus-chip {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 229, 192, 0.4);
+    color: var(--accent);
+    background: rgba(0, 229, 192, 0.08);
+  }
+
+  .session-nav {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .nav-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .nav-pill-next {
+    margin-left: auto;
+  }
+
+  .nav-pill.disabled {
+    visibility: hidden;
+    min-width: 5rem;
+  }
+
+  .phase-nav {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    position: sticky;
+    top: calc(var(--nav-height) + 0.5rem);
+    z-index: 5;
+    padding: 0.5rem 0;
+    background: linear-gradient(to bottom, var(--bg) 70%, transparent);
+  }
+
+  .phase-link {
+    flex: 1;
+    min-width: 5rem;
+    text-align: center;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .phase-link:hover {
+    color: var(--accent);
+    border-color: rgba(0, 229, 192, 0.45);
+  }
+
+  .session-phase {
+    scroll-margin-top: calc(var(--nav-height) + 3rem);
+  }
+
+  .phase-head {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .phase-head-inline {
+    margin-bottom: 0.75rem;
+    padding: 0 0.25rem;
+  }
+
+  .phase-num {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 229, 192, 0.15);
+    border: 1px solid rgba(0, 229, 192, 0.35);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .phase-head h2 {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+
+  .phase-lead {
+    margin: 0.35rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .prep-tips {
+    margin: 0 0 1.25rem;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    border-left: 3px solid var(--accent2);
+    background: rgba(124, 58, 237, 0.08);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    color: var(--text-muted);
+  }
+
+  .phase-action {
+    margin: 1.25rem 0 0;
+  }
+
+  .chip-accent {
+    background: rgba(0, 229, 192, 0.12);
+    border-color: rgba(0, 229, 192, 0.45);
+  }
+
+  .phase-listen :global(.player-wrap) {
+    margin: 0;
+  }
+
+  .phase-reflect h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1rem;
+  }
+
+  .session-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    padding-top: 0.5rem;
+  }
+
+  .session-footer a {
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 560px) {
+    .session-nav {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .nav-pill {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.5rem;
+    }
+  }
+</style>

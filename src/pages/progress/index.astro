@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t, localePrefix } from '../../i18n';
+import { loadCurriculum, sessionTitle } from '../../lib/curriculum';
+
+const locale = 'fr';
+const p = localePrefix(locale);
+const curriculum = loadCurriculum();
+---
+
+<BaseLayout title={t(locale, 'progress.title')} locale={locale}>
+  <header class="hero">
+    <h1>{t(locale, 'progress.title')}</h1>
+    <p class="lede">{t(locale, 'progress.intro')}</p>
+  </header>
+
+  <section class="card" data-progress-page>
+    <h2>{t(locale, 'progress.completed')}</h2>
+    <ul class="session-list" data-progress-list>
+      <li class="muted" data-progress-empty>{t(locale, 'progress.none')}</li>
+    </ul>
+    <button type="button" class="btn-skip" data-progress-reset style="margin-top:1rem;">{t(locale, 'progress.reset')}</button>
+  </section>
+</BaseLayout>
+
+<script define:vars={{ sessions: curriculum.sessions.map((s) => ({ id: s.id, title: s.title.fr, wave: s.waveSlug })), basePath: p }}>
+  const PROGRESS_KEY = 'gateway-progress-v1';
+
+  const readProgress = () => {
+    try {
+      const raw = localStorage.getItem(PROGRESS_KEY);
+      return raw ? JSON.parse(raw).completed || [] : [];
+    } catch {
+      return [];
+    }
+  };
+
+  const render = () => {
+    const list = document.querySelector('[data-progress-list]');
+    const empty = document.querySelector('[data-progress-empty]');
+    if (!list) return;
+    const done = readProgress();
+    list.querySelectorAll('[data-progress-item]').forEach((el) => el.remove());
+    if (!done.length) {
+      if (empty) empty.hidden = false;
+      return;
+    }
+    if (empty) empty.hidden = true;
+    done.forEach((id) => {
+      const meta = sessions.find((s) => s.id === id);
+      if (!meta) return;
+      const li = document.createElement('li');
+      li.setAttribute('data-progress-item', '');
+      const a = document.createElement('a');
+      a.href = `${basePath}/waves/${meta.wave}/${meta.id}/`;
+      a.textContent = meta.title;
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+  };
+
+  render();
+  document.querySelector('[data-progress-reset]')?.addEventListener('click', () => {
+    localStorage.removeItem(PROGRESS_KEY);
+    render();
+  });
+</script>
