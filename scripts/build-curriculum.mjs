@@ -395,12 +395,48 @@ const waves = Object.values(WAVE_META).map((meta) => ({
 
 const supplements = buildSupplements(files);
 
+// Summarized from CIA-RDP96-00788 (McDonnell, 1983) — data/cia-gateway-experience.pdf
 const glossary = [
-  { focus: 3, title: { en: 'Focus 3', fr: 'Focus 3' }, desc: { en: 'Orientation state — entry to expanded awareness.', fr: 'État d\'orientation — entrée dans la conscience élargie.' } },
-  { focus: 10, title: { en: 'Focus 10', fr: 'Focus 10' }, desc: { en: 'Mind awake, body asleep. Gateway foundation state.', fr: 'Esprit éveillé, corps endormi. État fondamental du Gateway.' } },
-  { focus: 12, title: { en: 'Focus 12', fr: 'Focus 12' }, desc: { en: 'Expanded awareness — access to non-physical information.', fr: 'Conscience élargie — accès à l\'information non physique.' } },
-  { focus: 15, title: { en: 'Focus 15', fr: 'Focus 15' }, desc: { en: 'State of no time — creation and manifestation.', fr: 'État hors du temps — création et manifestation.' } },
-  { focus: 21, title: { en: 'Focus 21', fr: 'Focus 21' }, desc: { en: 'Other energy systems — edge of human consciousness.', fr: 'Autres systèmes d\'énergie — limite de la conscience humaine.' } },
+  {
+    focus: 3,
+    title: { en: 'Focus 3', fr: 'Focus 3' },
+    desc: {
+      en: 'Basic Hemi-Sync entry on the Institute\'s Focus 3 tapes; beyond this level, training gradually adds visualization and objective feedback.',
+      fr: 'Entrée Hemi-Sync de base sur les bandes Focus 3 ; au-delà, la formation enrichit progressivement la visualisation et le retour objectif.',
+    },
+  },
+  {
+    focus: 10,
+    title: { en: 'Focus 10', fr: 'Focus 10' },
+    desc: {
+      en: 'Gateway before Focus 12 — sufficient expanded awareness to begin the program\'s practical techniques (mind awake, body asleep).',
+      fr: 'Passage avant le Focus 12 — conscience suffisamment élargie pour les techniques pratiques (esprit éveillé, corps endormi).',
+    },
+  },
+  {
+    focus: 12,
+    title: { en: 'Focus 12', fr: 'Focus 12' },
+    desc: {
+      en: 'Expanded awareness with conscious effort; platform for patterning, problem-solving, healing, remote viewing, and out-of-body work.',
+      fr: 'Conscience élargie par effort volontaire ; base du patterning, de la résolution de problèmes, de la guérison, de la vision à distance et du hors-du-corps.',
+    },
+  },
+  {
+    focus: 15,
+    title: { en: 'Focus 15', fr: 'Focus 15' },
+    desc: {
+      en: 'Travel into the past — consciousness moves outside time-space to explore personal and other histories; extremely difficult to achieve.',
+      fr: 'Voyage dans le passé — la conscience sort de l\'espace-temps pour explorer l\'histoire personnelle et d\'autres passés ; état très difficile à atteindre.',
+    },
+  },
+  {
+    focus: 21,
+    title: { en: 'Focus 21', fr: 'Focus 21' },
+    desc: {
+      en: 'The future — the most advanced Focus state, outside time-space and oriented toward what is coming rather than what has passed.',
+      fr: 'Le futur — état Focus le plus avancé, hors espace-temps, tourné vers ce qui vient plutôt que vers le passé.',
+    },
+  },
 ];
 
 const classicEdition = {

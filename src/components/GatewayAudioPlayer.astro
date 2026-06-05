@@ -7,7 +7,7 @@ interface Props {
   src: string;
   downloadHref: string;
   locale: Locale;
-  /** Puts playback controls first; hides spectrum/CIA behind a collapsed panel. */
+  /** Collapses spectrum / reference panel by default. */
   listenerMode?: boolean;
   leftHz?: number | null;
   rightHz?: number | null;
@@ -36,191 +36,130 @@ const fmtHz = (v: number | null | undefined) =>
 const ciaReportUrl = resolvePdfUrl(CIA_GATEWAY_REPORT_PATH);
 ---
 
-<section class:list={['player-wrap', 'card', listenerMode && 'player-listener']} data-gateway-player>
-  {listenerMode ? (
-    <>
-      <div class="controls controls-primary">
-        <button type="button" class="btn-play btn-play-lg" data-play aria-label={t(locale, 'player.play')}>
-          <span data-play-icon>▶</span>
-        </button>
-        <div class="timeline">
-          <input type="range" min="0" max="1000" value="0" step="1" class="scrub" data-scrub aria-label={t(locale, 'player.seek')} />
-          <div class="time">
-            <span class="mono" data-current>0:00</span>
-            <span>·</span>
-            <span class="mono" data-duration>—:—</span>
-          </div>
-        </div>
-        <div class="right">
-          <button type="button" class="btn-skip" data-skip="-10">−10s</button>
-          <button type="button" class="btn-skip" data-skip="10">+10s</button>
-          <label class="speed">
-            <span class="sr-only">{t(locale, 'player.speed')}</span>
-            <select data-speed>
-              <option value="0.8">0.8×</option>
-              <option value="1" selected>1×</option>
-              <option value="1.25">1.25×</option>
-              <option value="1.5">1.5×</option>
-            </select>
-          </label>
-          <a class="chip" href={downloadHref} download>{t(locale, 'session.download')}</a>
-        </div>
+<section class:list={['player-wrap', 'card']} data-gateway-player>
+  <audio preload="metadata" src={src} data-audio crossorigin="anonymous" class="sr-audio">
+    <p class="muted">{t(locale, 'player.noFlac')} <a href={downloadHref}>{t(locale, 'session.download')}</a></p>
+  </audio>
+
+  <div class="player-toolbar">
+    <button type="button" class="btn-play" data-play aria-label={t(locale, 'player.play')}>
+      <span data-play-icon aria-hidden="true">▶</span>
+    </button>
+
+    <div class="timeline">
+      <input type="range" min="0" max="1000" value="0" step="1" class="scrub" data-scrub aria-label={t(locale, 'player.seek')} />
+      <div class="time mono">
+        <span data-current>0:00</span>
+        <span class="time-sep">/</span>
+        <span data-duration>—:—</span>
       </div>
+    </div>
 
-      <audio preload="metadata" src={src} data-audio crossorigin="anonymous">
-        <p class="muted">{t(locale, 'player.noFlac')} <a href={downloadHref}>{t(locale, 'session.download')}</a></p>
-      </audio>
+    <div class="toolbar-actions">
+      <button type="button" class="btn-skip" data-skip="-10" aria-label={t(locale, 'player.skipBack')}>−10s</button>
+      <button type="button" class="btn-skip" data-skip="10" aria-label={t(locale, 'player.skipForward')}>+10s</button>
+      <label class="speed">
+        <span class="sr-only">{t(locale, 'player.speed')}</span>
+        <select data-speed>
+          <option value="0.8">0.8×</option>
+          <option value="1" selected>1×</option>
+          <option value="1.25">1.25×</option>
+          <option value="1.5">1.5×</option>
+        </select>
+      </label>
+      <label class="volume" title={t(locale, 'player.volume')}>
+        <span class="vol-icon" data-vol-icon aria-hidden="true">🔊</span>
+        <span class="sr-only">{t(locale, 'player.volume')}</span>
+        <input type="range" min="0" max="100" value="100" step="1" class="vol-slider" data-volume aria-label={t(locale, 'player.volume')} />
+      </label>
+    </div>
+  </div>
 
-      <details class="tech-panel">
-        <summary>{t(locale, 'session.technicalDetails')}</summary>
-        <div class="freq-strip" aria-label={t(locale, 'session.frequencies')}>
-          <div class="freq-cell">
-            <span class="freq-k">{t(locale, 'session.left')}</span>
-            <span class="freq-v mono" data-freq-l>{fmtHz(leftHz)}</span>
-          </div>
-          <div class="freq-cell">
-            <span class="freq-k">{t(locale, 'session.right')}</span>
-            <span class="freq-v mono" data-freq-r>{fmtHz(rightHz)}</span>
-          </div>
-          <div class="freq-cell accent">
-            <span class="freq-k">{t(locale, 'session.beat')}</span>
-            <span class="freq-v mono">{beatHz != null ? `${beatHz} Hz` : '—'}</span>
-          </div>
-          <div class="freq-cell">
-            <span class="freq-k">{t(locale, 'session.focus')}</span>
-            <span class="freq-v mono">{focusLevel ?? '—'}</span>
-          </div>
-          {bandLabel && (
-            <div class="freq-cell wide">
-              <span class="freq-k">{t(locale, 'session.band')}</span>
-              <span class="freq-v">{bandLabel}</span>
+  <p class="player-extras">
+    <a class="link-quiet" href={downloadHref} download>{t(locale, 'player.downloadFlac')}</a>
+  </p>
+
+  <div class="meta-row" aria-label={t(locale, 'session.frequencies')}>
+    <span class="meta-pill"><span class="meta-k">{t(locale, 'session.left')}</span> <span class="mono" data-freq-l>{fmtHz(leftHz)}</span></span>
+    <span class="meta-pill"><span class="meta-k">{t(locale, 'session.right')}</span> <span class="mono" data-freq-r>{fmtHz(rightHz)}</span></span>
+    <span class="meta-pill accent"><span class="meta-k">{t(locale, 'session.beat')}</span> <span class="mono">{beatHz != null ? `${beatHz} Hz` : '—'}</span></span>
+    <span class="meta-pill"><span class="meta-k">{t(locale, 'session.focus')}</span> <span class="mono">{focusLevel ?? '—'}</span></span>
+    {bandLabel && (
+      <span class="meta-pill"><span class="meta-k">{t(locale, 'session.band')}</span> {bandLabel}</span>
+    )}
+    {!reviewed && <span class="meta-pill warn">{t(locale, 'session.unreviewedShort')}</span>}
+  </div>
+
+  <details class="tech-panel" open={!listenerMode}>
+    <summary>{t(locale, 'player.spectrumPanel')}</summary>
+    <div class="tech-panel-body">
+      <p class="spectrum-caption mono">{t(locale, 'player.spectrumRange')} · {t(locale, 'player.spectrumCaption')}</p>
+      <div class="brain-dist" data-brain-dist aria-label={t(locale, 'player.bandDistLabel')}>
+        <p class="brain-dist-title">{t(locale, 'player.bandDistLabel')}</p>
+        <div class="brain-dist-meters">
+          <div class="brain-band-meter theta" data-band="theta">
+            <div class="brain-band-head">
+              <span class="brain-band-k">θ</span>
+              <span class="brain-band-range">4–8 Hz</span>
+              <span class="brain-band-pct mono" data-band-pct="theta">—</span>
             </div>
-          )}
-        </div>
-        {!reviewed && <p class="freq-note muted">{t(locale, 'session.unreviewed')}</p>}
-        {ciaReportUrl && (
-          <details class="cia-report card-inset">
-            <summary>{t(locale, 'player.ciaReportTitle')}</summary>
-            <p class="cia-body">{t(locale, 'player.ciaReportBody')}</p>
-            <p class="cia-body muted">{t(locale, 'player.ciaReportSpectrum')}</p>
-            <p>
-              <a class="chip" href={ciaReportUrl} target="_blank" rel="noopener">
-                {t(locale, 'player.ciaReportLink')}
-              </a>
-            </p>
-          </details>
-        )}
-        <p class="muted player-hint">{t(locale, 'session.playerHint')}</p>
-        <div class="spectrum-row">
-          <div class="viz-block">
-            <div class="viz-head">
-              <span class="viz-label">{t(locale, 'player.spectrumL')}</span>
-              <span class="viz-range mono">{t(locale, 'player.spectrumRange')}</span>
+            <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="theta"></div></div>
+          </div>
+          <div class="brain-band-meter alpha" data-band="alpha">
+            <div class="brain-band-head">
+              <span class="brain-band-k">α</span>
+              <span class="brain-band-range">8–13 Hz</span>
+              <span class="brain-band-pct mono" data-band-pct="alpha">—</span>
             </div>
-            <canvas class="viz-canvas" data-viz-l width="640" height="180" role="img" aria-label={t(locale, 'player.spectrumL')}></canvas>
+            <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="alpha"></div></div>
           </div>
-          <div class="viz-block">
-            <div class="viz-head">
-              <span class="viz-label">{t(locale, 'player.spectrumR')}</span>
-              <span class="viz-range mono">{t(locale, 'player.spectrumRange')}</span>
+          <div class="brain-band-meter beta" data-band="beta">
+            <div class="brain-band-head">
+              <span class="brain-band-k">β</span>
+              <span class="brain-band-range">13–30 Hz</span>
+              <span class="brain-band-pct mono" data-band-pct="beta">—</span>
             </div>
-            <canvas class="viz-canvas" data-viz-r width="640" height="180" role="img" aria-label={t(locale, 'player.spectrumR')}></canvas>
+            <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="beta"></div></div>
+          </div>
+          <div class="brain-band-meter gamma" data-band="gamma">
+            <div class="brain-band-head">
+              <span class="brain-band-k">γ</span>
+              <span class="brain-band-range">30+ Hz</span>
+              <span class="brain-band-pct mono" data-band-pct="gamma">—</span>
+            </div>
+            <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="gamma"></div></div>
           </div>
         </div>
-      </details>
-    </>
-  ) : (
-    <>
-      <div class="freq-strip" aria-label={t(locale, 'session.frequencies')}>
-        <div class="freq-cell">
-          <span class="freq-k">{t(locale, 'session.left')}</span>
-          <span class="freq-v mono" data-freq-l>{fmtHz(leftHz)}</span>
-        </div>
-        <div class="freq-cell">
-          <span class="freq-k">{t(locale, 'session.right')}</span>
-          <span class="freq-v mono" data-freq-r>{fmtHz(rightHz)}</span>
-        </div>
-        <div class="freq-cell accent">
-          <span class="freq-k">{t(locale, 'session.beat')}</span>
-          <span class="freq-v mono">{beatHz != null ? `${beatHz} Hz` : '—'}</span>
-        </div>
-        <div class="freq-cell">
-          <span class="freq-k">{t(locale, 'session.focus')}</span>
-          <span class="freq-v mono">{focusLevel ?? '—'}</span>
-        </div>
-        {bandLabel && (
-          <div class="freq-cell wide">
-            <span class="freq-k">{t(locale, 'session.band')}</span>
-            <span class="freq-v">{bandLabel}</span>
-          </div>
-        )}
+        <p class="brain-dist-hint muted">{t(locale, 'player.bandDistHint')}</p>
       </div>
-      {!reviewed && <p class="freq-note muted">{t(locale, 'session.unreviewed')}</p>}
-
-      {ciaReportUrl && (
-        <details class="cia-report card-inset" open>
-          <summary>{t(locale, 'player.ciaReportTitle')}</summary>
-          <p class="cia-body">{t(locale, 'player.ciaReportBody')}</p>
-          <p class="cia-body muted">{t(locale, 'player.ciaReportSpectrum')}</p>
-          <p>
-            <a class="chip" href={ciaReportUrl} target="_blank" rel="noopener">
-              {t(locale, 'player.ciaReportLink')}
-            </a>
-          </p>
-        </details>
-      )}
-
-      <p class="muted player-hint">{t(locale, 'session.playerHint')}</p>
-
-      <audio preload="metadata" src={src} data-audio crossorigin="anonymous">
-        <p class="muted">{t(locale, 'player.noFlac')} <a href={downloadHref}>{t(locale, 'session.download')}</a></p>
-      </audio>
-
+      <div class="brain-legend-marks" aria-hidden="true">
+        <span class="brain-mark session">{t(locale, 'player.spectrumSessionBeat')}</span>
+        <span class="brain-mark carrier">{t(locale, 'player.spectrumCarrier')}</span>
+        <span class="brain-mark detected">{t(locale, 'player.spectrumDetected')}</span>
+      </div>
+      <p class="live-detect mono" data-live-detect aria-live="polite">
+        <span class="live-detect-item"><span class="detect-k">{t(locale, 'player.detectL')}</span> <span data-detect-l>—</span></span>
+        <span class="live-detect-item"><span class="detect-k">{t(locale, 'player.detectR')}</span> <span data-detect-r>—</span></span>
+        <span class="live-detect-item accent"><span class="detect-k">{t(locale, 'player.detectBeat')}</span> <span data-detect-beat>—</span></span>
+      </p>
+      <p class="detect-hint muted">{t(locale, 'player.detectHint')}</p>
       <div class="spectrum-row">
         <div class="viz-block">
-          <div class="viz-head">
-            <span class="viz-label">{t(locale, 'player.spectrumL')}</span>
-            <span class="viz-range mono">{t(locale, 'player.spectrumRange')}</span>
-          </div>
-          <canvas class="viz-canvas" data-viz-l width="640" height="180" role="img" aria-label={t(locale, 'player.spectrumL')}></canvas>
+          <span class="viz-label">{t(locale, 'player.spectrumL')} · <span data-peak-l class="viz-peak">—</span></span>
+          <canvas class="viz-canvas" data-viz-l width="960" height="280" role="img" aria-label={t(locale, 'player.spectrumL')}></canvas>
         </div>
         <div class="viz-block">
-          <div class="viz-head">
-            <span class="viz-label">{t(locale, 'player.spectrumR')}</span>
-            <span class="viz-range mono">{t(locale, 'player.spectrumRange')}</span>
-          </div>
-          <canvas class="viz-canvas" data-viz-r width="640" height="180" role="img" aria-label={t(locale, 'player.spectrumR')}></canvas>
+          <span class="viz-label">{t(locale, 'player.spectrumR')} · <span data-peak-r class="viz-peak">—</span></span>
+          <canvas class="viz-canvas" data-viz-r width="960" height="280" role="img" aria-label={t(locale, 'player.spectrumR')}></canvas>
         </div>
       </div>
+    </div>
+  </details>
 
-      <div class="controls">
-        <button type="button" class="btn-play" data-play aria-label={t(locale, 'player.play')}>
-          <span data-play-icon>▶</span>
-        </button>
-        <div class="timeline">
-          <input type="range" min="0" max="1000" value="0" step="1" class="scrub" data-scrub aria-label={t(locale, 'player.seek')} />
-          <div class="time">
-            <span class="mono" data-current>0:00</span>
-            <span>·</span>
-            <span class="mono" data-duration>—:—</span>
-          </div>
-        </div>
-        <div class="right">
-          <button type="button" class="btn-skip" data-skip="-10">−10s</button>
-          <button type="button" class="btn-skip" data-skip="10">+10s</button>
-          <label class="speed">
-            <span class="sr-only">{t(locale, 'player.speed')}</span>
-            <select data-speed>
-              <option value="0.8">0.8×</option>
-              <option value="1" selected>1×</option>
-              <option value="1.25">1.25×</option>
-              <option value="1.5">1.5×</option>
-            </select>
-          </label>
-          <a class="chip" href={downloadHref} download>{t(locale, 'session.download')}</a>
-        </div>
-      </div>
-    </>
+  {ciaReportUrl && (
+    <p class="player-ref">
+      <a class="link-quiet" href={ciaReportUrl} target="_blank" rel="noopener">{t(locale, 'player.ciaReportLink')}</a>
+    </p>
   )}
 </section>
 
@@ -235,8 +174,29 @@ const ciaReportUrl = resolvePdfUrl(CIA_GATEWAY_REPORT_PATH);
     const currentEl = root.querySelector('[data-current]');
     const durationEl = root.querySelector('[data-duration]');
     const speedSel = root.querySelector('[data-speed]');
+    const volumeEl = root.querySelector('[data-volume]');
+    const volIcon = root.querySelector('[data-vol-icon]');
     const canvasL = root.querySelector('[data-viz-l]');
     const canvasR = root.querySelector('[data-viz-r]');
+    const techPanel = root.querySelector('.tech-panel');
+    const detectL = root.querySelector('[data-detect-l]');
+    const detectR = root.querySelector('[data-detect-r]');
+    const detectBeat = root.querySelector('[data-detect-beat]');
+    const peakLabelL = root.querySelector('[data-peak-l]');
+    const peakLabelR = root.querySelector('[data-peak-r]');
+    const bandMeters = root.querySelectorAll('.brain-band-meter');
+    const bandPctEls = {
+      theta: root.querySelector('[data-band-pct="theta"]'),
+      alpha: root.querySelector('[data-band-pct="alpha"]'),
+      beta: root.querySelector('[data-band-pct="beta"]'),
+      gamma: root.querySelector('[data-band-pct="gamma"]'),
+    };
+    const bandFillEls = {
+      theta: root.querySelector('[data-band-fill="theta"]'),
+      alpha: root.querySelector('[data-band-fill="alpha"]'),
+      beta: root.querySelector('[data-band-fill="beta"]'),
+      gamma: root.querySelector('[data-band-fill="gamma"]'),
+    };
 
     const fmt = (s) => {
       if (!isFinite(s) || s < 0) return '0:00';
@@ -249,54 +209,217 @@ const ciaReportUrl = resolvePdfUrl(CIA_GATEWAY_REPORT_PATH);
       if (playIcon) playIcon.textContent = audio.paused ? '▶' : '⏸';
     };
 
+    const applyVolume = (pct) => {
+      const v = Math.max(0, Math.min(1, pct / 100));
+      audio.volume = v;
+      if (gainNode) gainNode.gain.value = v;
+      if (volIcon) volIcon.textContent = v === 0 ? '🔇' : v < 0.35 ? '🔈' : '🔊';
+    };
+
     let ac = null;
+    let gainNode = null;
     let splitter = null;
     let analyserL = null;
     let analyserR = null;
     let dataL = null;
     let dataR = null;
+    let floatL = null;
+    let floatR = null;
     let startBin = 0;
     let endBin = 0;
+    let binHz = 5.38330078125;
     let raf = 0;
+    let vizActive = false;
+    let smoothPeakL = null;
+    let smoothPeakR = null;
+    let smoothBeat = null;
+    let smoothBandPct = { theta: 0.25, alpha: 0.25, beta: 0.25, gamma: 0.25 };
 
-    const F_LOW = 20;
-    const F_HIGH = 500;
-    const AXIS_TICKS = [20, 100, 200, 300, 400, 500];
+    const F_LOW = 4;
+    const F_HIGH = 4000;
+    /** Axis ticks — band edges + decades for readable log scale. */
+    const AXIS_TICKS = [4, 8, 13, 30, 100, 500, 1000, 4000];
+    const CARRIER_LO = 80;
+    const CARRIER_HI = 1200;
+    const PEAK_SMOOTH = 0.88;
+    const BAND_SMOOTH = 0.86;
+    const BAND_DEFS = [
+      { id: 'theta', lo: 4, hi: 8, fill: 'rgba(124, 58, 237, 0.1)', bar: 'rgba(124, 58, 237, 0.85)' },
+      { id: 'alpha', lo: 8, hi: 13, fill: 'rgba(0, 229, 192, 0.08)', bar: 'rgba(0, 229, 192, 0.85)' },
+      { id: 'beta', lo: 13, hi: 30, fill: 'rgba(59, 130, 246, 0.07)', bar: 'rgba(59, 130, 246, 0.85)' },
+      { id: 'gamma', lo: 30, hi: 100, fill: 'rgba(245, 158, 11, 0.06)', bar: 'rgba(245, 158, 11, 0.85)' },
+    ];
+    const BRAIN_BANDS = BAND_DEFS;
+    /** Gateway / Hemi-Sync beat targets (Hz) — binaural |L−R| entrainment. */
+    const GATEWAY_BEATS = [4, 7, 10, 12, 15, 21];
+    const logF = (hz) => Math.log10(hz);
+    const logSpan = logF(F_HIGH) - logF(F_LOW);
 
-    const hzToX = (hz, w, pad) =>
-      pad + ((hz - F_LOW) / (F_HIGH - F_LOW)) * (w - pad * 2);
+    const hzToX = (hz, w, pad) => {
+      const t = (logF(Math.max(F_LOW, Math.min(F_HIGH, hz))) - logF(F_LOW)) / logSpan;
+      return pad + t * (w - pad * 2);
+    };
+
+    const hzAtT = (t) => 10 ** (logF(F_LOW) + t * logSpan);
+
+    const fmtTick = (hz) => (hz >= 1000 ? `${hz / 1000}k` : String(hz));
+
+    const fmtPeak = (hz) => {
+      if (hz == null || !isFinite(hz)) return '—';
+      if (hz < 10) return `${hz.toFixed(1)} Hz`;
+      if (hz < 100) return `${hz.toFixed(1)} Hz`;
+      return `${Math.round(hz)} Hz`;
+    };
+
+    const smoothVal = (prev, next) =>
+      prev == null ? next : PEAK_SMOOTH * prev + (1 - PEAK_SMOOTH) * next;
+
+    /** Parabolic peak in [lo, hi] Hz on float dB spectrum. */
+    const findPeakInRange = (floatData, lo, hi, floorDb = -72) => {
+      if (!floatData) return null;
+      const b0 = Math.max(startBin + 1, Math.floor(lo / binHz));
+      const b1 = Math.min(endBin - 1, Math.ceil(hi / binHz));
+      if (b0 >= b1) return null;
+      let bestBin = b0;
+      let bestVal = -Infinity;
+      for (let k = b0; k <= b1; k++) {
+        if (floatData[k] > bestVal) {
+          bestVal = floatData[k];
+          bestBin = k;
+        }
+      }
+      if (bestVal < floorDb) return null;
+      const y0 = floatData[bestBin - 1];
+      const y1 = floatData[bestBin];
+      const y2 = floatData[bestBin + 1];
+      const denom = y0 - 2 * y1 + y2;
+      const delta = denom !== 0 ? 0.5 * (y0 - y2) / denom : 0;
+      return (bestBin + delta) * binHz;
+    };
+
+    const detectPeaks = () => {
+      const rawL = findPeakInRange(floatL, CARRIER_LO, CARRIER_HI);
+      const rawR = findPeakInRange(floatR, CARRIER_LO, CARRIER_HI);
+      if (rawL != null) smoothPeakL = smoothVal(smoothPeakL, rawL);
+      if (rawR != null) smoothPeakR = smoothVal(smoothPeakR, rawR);
+      if (smoothPeakL != null && smoothPeakR != null) {
+        smoothBeat = smoothVal(smoothBeat, Math.abs(smoothPeakL - smoothPeakR));
+      }
+      return { peakL: smoothPeakL, peakR: smoothPeakR, beat: smoothBeat };
+    };
+
+    /** Linear energy per EEG band (4–100 Hz), averaged L+R. */
+    const measureBandDistribution = () => {
+      if (!floatL || !floatR) return null;
+      const raw = BAND_DEFS.map(({ lo, hi }) => {
+        const b0 = Math.max(startBin, Math.floor(lo / binHz));
+        const b1 = Math.min(endBin, Math.ceil(hi / binHz));
+        if (b0 >= b1) return 0;
+        let sum = 0;
+        for (let k = b0; k < b1; k++) {
+          const l = 10 ** (floatL[k] / 20);
+          const r = 10 ** (floatR[k] / 20);
+          sum += (l + r) * 0.5;
+        }
+        return sum / (b1 - b0);
+      });
+      const total = raw.reduce((a, b) => a + b, 0);
+      if (total <= 1e-12) return null;
+      return raw.map((v) => v / total);
+    };
+
+    const updateBandDistribution = (playing) => {
+      if (!playing) {
+        for (const id of BAND_DEFS) {
+          const key = id.id;
+          if (bandPctEls[key]) bandPctEls[key].textContent = '—';
+          if (bandFillEls[key]) bandFillEls[key].style.width = '0%';
+        }
+        bandMeters.forEach((el) => el.classList.remove('is-dominant'));
+        return;
+      }
+      const dist = measureBandDistribution();
+      if (!dist) return;
+      let dominant = 'theta';
+      let maxPct = 0;
+      BAND_DEFS.forEach(({ id }, i) => {
+        const prev = smoothBandPct[id];
+        smoothBandPct[id] = BAND_SMOOTH * prev + (1 - BAND_SMOOTH) * dist[i];
+        const pct = smoothBandPct[id] * 100;
+        if (bandPctEls[id]) bandPctEls[id].textContent = `${Math.round(pct)}%`;
+        if (bandFillEls[id]) bandFillEls[id].style.width = `${Math.max(2, pct)}%`;
+        if (pct > maxPct) {
+          maxPct = pct;
+          dominant = id;
+        }
+      });
+      bandMeters.forEach((el) => {
+        el.classList.toggle('is-dominant', el.dataset.band === dominant && maxPct > 18);
+      });
+    };
+
+    const updateDetectUI = ({ peakL, peakR, beat }) => {
+      const playing = !audio.paused && !audio.ended;
+      const lText = playing ? fmtPeak(peakL) : '—';
+      const rText = playing ? fmtPeak(peakR) : '—';
+      const bText = playing && beat != null && beat >= 0.5 ? fmtPeak(beat) : '—';
+      if (detectL) detectL.textContent = lText;
+      if (detectR) detectR.textContent = rText;
+      if (detectBeat) detectBeat.textContent = bText;
+      if (peakLabelL) peakLabelL.textContent = lText;
+      if (peakLabelR) peakLabelR.textContent = rText;
+      updateBandDistribution(playing);
+    };
 
     const setupGraph = async () => {
       if (ac) return;
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       if (!AudioCtx) return;
       ac = new AudioCtx();
+      gainNode = ac.createGain();
+      gainNode.gain.value = volumeEl ? Number(volumeEl.value) / 100 : 1;
+
       const source = ac.createMediaElementSource(audio);
       splitter = ac.createChannelSplitter(2);
       analyserL = ac.createAnalyser();
       analyserR = ac.createAnalyser();
-      analyserL.fftSize = 2048;
-      analyserR.fftSize = 2048;
-      analyserL.smoothingTimeConstant = 0.85;
-      analyserR.smoothingTimeConstant = 0.85;
+      analyserL.fftSize = 8192;
+      analyserR.fftSize = 8192;
+      analyserL.smoothingTimeConstant = 0.82;
+      analyserR.smoothingTimeConstant = 0.82;
       dataL = new Uint8Array(analyserL.frequencyBinCount);
       dataR = new Uint8Array(analyserR.frequencyBinCount);
+      floatL = new Float32Array(analyserL.frequencyBinCount);
+      floatR = new Float32Array(analyserR.frequencyBinCount);
 
       const nyquist = ac.sampleRate / 2;
-      const binHz = nyquist / analyserL.frequencyBinCount;
+      binHz = nyquist / analyserL.frequencyBinCount;
       startBin = Math.max(0, Math.floor(F_LOW / binHz));
       endBin = Math.min(analyserL.frequencyBinCount, Math.ceil(F_HIGH / binHz));
 
       source.connect(splitter);
       splitter.connect(analyserL, 0);
       splitter.connect(analyserR, 1);
-      source.connect(ac.destination);
+      source.connect(gainNode);
+      gainNode.connect(ac.destination);
 
       if (ac.state === 'suspended') await ac.resume();
       startViz();
     };
 
-    const drawSpectrum = (canvas, data, markerHz) => {
+    const drawVLine = (ctx, x, top, bottom, color, width = 1, dash = []) => {
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.setLineDash(dash);
+      ctx.beginPath();
+      ctx.moveTo(x, top);
+      ctx.lineTo(x, bottom);
+      ctx.stroke();
+      ctx.restore();
+    };
+
+    const drawSpectrum = (canvas, data, carrierHz, detectedHz) => {
       if (!canvas || !data) return;
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
@@ -309,86 +432,124 @@ const ciaReportUrl = resolvePdfUrl(CIA_GATEWAY_REPORT_PATH);
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       }
 
-      const padX = 12;
-      const top = 8;
-      const axisH = 26;
+      const padX = 10;
+      const top = 14;
+      const axisH = 24;
       const usableH = h - top - axisH;
+      const plotBottom = top + usableH;
 
       ctx.fillStyle = 'rgba(5, 12, 18, 0.92)';
       ctx.fillRect(0, 0, w, h);
 
+      for (const band of BRAIN_BANDS) {
+        const x0 = hzToX(band.lo, w, padX);
+        const x1 = hzToX(Math.min(F_HIGH, band.hi), w, padX);
+        ctx.fillStyle = band.fill;
+        ctx.fillRect(x0, top, Math.max(1, x1 - x0), usableH);
+      }
+
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
       ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.moveTo(padX, top + usableH);
-      ctx.lineTo(w - padX, top + usableH);
+      ctx.moveTo(padX, plotBottom);
+      ctx.lineTo(w - padX, plotBottom);
       ctx.stroke();
 
       for (const hz of AXIS_TICKS) {
         const x = hzToX(hz, w, padX);
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-        ctx.beginPath();
-        ctx.moveTo(x, top);
-        ctx.lineTo(x, top + usableH);
-        ctx.stroke();
+        drawVLine(ctx, x, top, plotBottom, 'rgba(255, 255, 255, 0.06)', 1);
       }
 
-      const bins = endBin - startBin;
-      const bars = Math.min(96, Math.max(40, Math.floor(w / 6)));
-      const step = Math.max(1, Math.floor(bins / bars));
+      for (const hz of GATEWAY_BEATS) {
+        if (hz < F_LOW || hz > F_HIGH) continue;
+        const isSession = beatHz != null && Math.abs(hz - beatHz) < 0.5;
+        if (isSession) continue;
+        const x = hzToX(hz, w, padX);
+        drawVLine(ctx, x, top, plotBottom, 'rgba(255, 255, 255, 0.14)', 1, [2, 4]);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.35)';
+        ctx.font = '10px JetBrains Mono, monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText(String(hz), x, top + 10);
+      }
+
+      const bars = Math.min(120, Math.max(64, Math.floor(w / 3)));
       const barW = (w - padX * 2) / bars;
 
       ctx.fillStyle = 'rgba(0, 229, 192, 0.88)';
       for (let i = 0; i < bars; i++) {
+        const f0 = hzAtT(i / bars);
+        const f1 = hzAtT((i + 1) / bars);
+        const b0 = Math.max(startBin, Math.floor(f0 / binHz));
+        const b1 = Math.min(endBin, Math.max(b0 + 1, Math.ceil(f1 / binHz)));
         let sum = 0;
-        const base = startBin + i * step;
-        for (let k = 0; k < step; k++) sum += data[base + k] || 0;
-        const v = sum / step / 255;
+        for (let k = b0; k < b1; k++) sum += data[k] || 0;
+        const v = sum / (b1 - b0) / 255;
         const bh = Math.max(2, v * usableH);
-        ctx.fillRect(padX + i * barW, top + usableH - bh, Math.max(2, barW - 1), bh);
+        ctx.fillRect(padX + i * barW, plotBottom - bh, Math.max(1.5, barW - 0.5), bh);
       }
 
-      if (markerHz != null && markerHz >= F_LOW && markerHz <= F_HIGH) {
-        const x = hzToX(markerHz, w, padX);
-        ctx.strokeStyle = 'rgba(124, 58, 237, 0.95)';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(x, top);
-        ctx.lineTo(x, top + usableH);
-        ctx.stroke();
-        ctx.fillStyle = 'rgba(124, 58, 237, 0.95)';
-        ctx.font = '600 11px JetBrains Mono, monospace';
+      if (detectedHz != null && detectedHz >= F_LOW && detectedHz <= F_HIGH) {
+        const x = hzToX(detectedHz, w, padX);
+        drawVLine(ctx, x, top, plotBottom, 'rgba(251, 191, 36, 0.92)', 2, [4, 3]);
+        ctx.fillStyle = 'rgba(251, 191, 36, 0.95)';
+        ctx.font = '10px JetBrains Mono, monospace';
         ctx.textAlign = 'center';
-        ctx.fillText(`${markerHz} Hz`, x, top + 14);
+        ctx.fillText(fmtPeak(detectedHz).replace(' Hz', ''), x, top + 10);
       }
 
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.55)';
+      if (carrierHz != null && carrierHz >= F_LOW && carrierHz <= F_HIGH) {
+        const x = hzToX(carrierHz, w, padX);
+        drawVLine(ctx, x, top, plotBottom, 'rgba(167, 139, 250, 0.95)', 1.5);
+      }
+
+      if (beatHz != null && beatHz >= F_LOW && beatHz <= F_HIGH) {
+        const x = hzToX(beatHz, w, padX);
+        drawVLine(ctx, x, top, plotBottom, 'rgba(0, 229, 192, 0.95)', 2);
+        ctx.fillStyle = 'rgba(0, 229, 192, 0.9)';
+        ctx.font = '10px JetBrains Mono, monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText(String(beatHz), x, top + 10);
+      }
+
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
       ctx.font = '11px JetBrains Mono, monospace';
       ctx.textAlign = 'center';
-      const labelY = top + usableH + 18;
+      const labelY = plotBottom + 16;
       for (const hz of AXIS_TICKS) {
         const x = hzToX(hz, w, padX);
-        ctx.fillText(String(hz), x, labelY);
+        const label = hz < 10 ? `${hz} Hz` : fmtTick(hz);
+        ctx.fillText(label, x, labelY);
       }
-      ctx.textAlign = 'left';
-      ctx.fillStyle = 'rgba(0, 229, 192, 0.65)';
-      ctx.font = '10px JetBrains Mono, monospace';
-      ctx.fillText('Hz', padX, labelY);
     };
 
     const render = () => {
-      if (analyserL && analyserR) {
-        analyserL.getByteFrequencyData(dataL);
-        analyserR.getByteFrequencyData(dataR);
-        drawSpectrum(canvasL, dataL, leftHz);
-        drawSpectrum(canvasR, dataR, rightHz);
-      }
+      if (!vizActive || !analyserL || !analyserR) return;
+      analyserL.getByteFrequencyData(dataL);
+      analyserR.getByteFrequencyData(dataR);
+      analyserL.getFloatFrequencyData(floatL);
+      analyserR.getFloatFrequencyData(floatR);
+      const peaks = detectPeaks();
+      updateDetectUI(peaks);
+      drawSpectrum(canvasL, dataL, leftHz, peaks.peakL);
+      drawSpectrum(canvasR, dataR, rightHz, peaks.peakR);
       raf = requestAnimationFrame(render);
     };
 
     const startViz = () => {
       if (raf) cancelAnimationFrame(raf);
+      vizActive = true;
       raf = requestAnimationFrame(render);
+    };
+
+    const stopViz = () => {
+      vizActive = false;
+      if (raf) cancelAnimationFrame(raf);
+      raf = 0;
+    };
+
+    const ensureViz = async () => {
+      if (!techPanel?.open) return;
+      await setupGraph();
     };
 
     playBtn?.addEventListener('click', async () => {
@@ -398,8 +559,18 @@ const ciaReportUrl = resolvePdfUrl(CIA_GATEWAY_REPORT_PATH);
       setIcon();
     });
 
-    audio.addEventListener('play', setIcon);
-    audio.addEventListener('pause', setIcon);
+    audio.addEventListener('play', () => {
+      setIcon();
+      smoothPeakL = null;
+      smoothPeakR = null;
+      smoothBeat = null;
+      smoothBandPct = { theta: 0.25, alpha: 0.25, beta: 0.25, gamma: 0.25 };
+    });
+    audio.addEventListener('pause', () => {
+      setIcon();
+      updateDetectUI({ peakL: null, peakR: null, beat: null });
+    });
+    audio.addEventListener('ended', () => updateDetectUI({ peakL: null, peakR: null, beat: null }));
 
     audio.addEventListener('loadedmetadata', () => {
       if (durationEl) durationEl.textContent = fmt(audio.duration);
@@ -428,222 +599,520 @@ const ciaReportUrl = resolvePdfUrl(CIA_GATEWAY_REPORT_PATH);
       audio.playbackRate = Number(speedSel.value);
     });
 
+    volumeEl?.addEventListener('input', () => {
+      applyVolume(Number(volumeEl.value));
+    });
+
+    applyVolume(volumeEl ? Number(volumeEl.value) : 100);
+
+    techPanel?.addEventListener('toggle', () => {
+      if (techPanel.open) ensureViz();
+      else stopViz();
+    });
+
+    if (techPanel?.open) ensureViz();
+
     window.addEventListener('resize', () => {
-      if (analyserL) {
-        drawSpectrum(canvasL, dataL, leftHz);
-        drawSpectrum(canvasR, dataR, rightHz);
+      if (analyserL && vizActive) {
+        const peaks = detectPeaks();
+        drawSpectrum(canvasL, dataL, leftHz, peaks.peakL);
+        drawSpectrum(canvasR, dataR, rightHz, peaks.peakR);
       }
     });
   });
 </script>
 
 <style>
-  .player-wrap { padding: 1rem 1.25rem 1.25rem; }
-
-  .player-listener {
-    padding: 1.25rem;
-  }
-
-  .player-listener audio {
-    margin: 0.75rem 0 0;
-  }
-
-  .controls-primary {
-    margin-bottom: 0;
-  }
-
-  .btn-play-lg {
-    width: 52px;
-    height: 52px;
-    font-size: 1.15rem;
-  }
-
-  .tech-panel {
-    margin-top: 1rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .tech-panel summary {
-    cursor: pointer;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    list-style: none;
-  }
-
-  .tech-panel summary::-webkit-details-marker { display: none; }
-
-  .tech-panel[open] summary {
-    margin-bottom: 0.75rem;
-  }
-
-  .freq-strip {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .freq-cell {
-    background: rgba(0,0,0,0.25);
-    border: 1px solid rgba(0,255,220,0.15);
-    border-radius: 6px;
-    padding: 0.5rem 0.65rem;
-  }
-  .freq-cell.accent { border-color: rgba(0,229,192,0.45); }
-  .freq-cell.wide { grid-column: 1 / -1; }
-  .freq-k {
-    display: block;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
-  }
-  .freq-v { font-size: 1rem; font-weight: 600; }
-  .freq-note { margin: 0 0 0.75rem; font-size: 0.8rem; }
-
-  .player-hint { margin: 0 0 1rem; font-size: 0.85rem; }
-
-  audio { width: 100%; margin-bottom: 0.75rem; }
-
-  .spectrum-row {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
-    margin-bottom: 1.25rem;
-    align-items: stretch;
-  }
-
-  .card-inset {
-    margin-bottom: 1rem;
-    padding: 0.75rem 1rem;
-    background: rgba(0, 0, 0, 0.28);
-    border: 1px solid rgba(124, 58, 237, 0.35);
-    border-radius: 8px;
-  }
-
-  .card-inset summary {
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--text);
-    list-style: none;
-  }
-
-  .card-inset summary::-webkit-details-marker { display: none; }
-
-  .cia-body {
-    margin: 0.65rem 0 0.5rem;
-    font-size: 0.88rem;
-    line-height: 1.55;
-    max-width: 72ch;
-  }
-
-  .cia-body + .cia-body { margin-top: 0.35rem; }
-
-  .viz-block {
-    background: rgba(0,0,0,0.35);
-    border: 1px solid rgba(0,255,220,0.15);
-    border-radius: 8px;
-    padding: 0.65rem 0.75rem 0.75rem;
-  }
-
-  .viz-head {
+  .player-wrap {
+    padding: 0.85rem 1rem 1rem;
     display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 0.35rem 0.75rem;
-    margin-bottom: 0.5rem;
+    flex-direction: column;
+    gap: 0.65rem;
   }
 
-  .viz-label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text);
+  .sr-audio {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
-  .viz-range {
-    font-size: 0.85rem;
-    color: var(--accent);
-  }
-
-  .viz-canvas {
-    display: block;
-    width: 100%;
-    height: clamp(120px, 16vw, 168px);
-    min-height: 120px;
-  }
-
-  @media (max-width: 480px) {
-    .spectrum-row {
-      gap: 0.5rem;
-    }
-    .viz-block {
-      padding: 0.45rem 0.5rem 0.55rem;
-    }
-    .viz-head {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.15rem;
-    }
-    .viz-label { font-size: 0.7rem; }
-    .viz-range { font-size: 0.75rem; }
-  }
-
-  .controls {
+  .player-toolbar {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.6rem 0.75rem;
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   .btn-play {
-    width: 44px;
-    height: 44px;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     border: 1px solid var(--border);
-    background: rgba(0,229,192,0.15);
+    background: rgba(0, 229, 192, 0.15);
     color: var(--accent);
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1;
   }
 
-  .timeline { flex: 1; min-width: 180px; }
-  .scrub { width: 100%; accent-color: var(--accent); }
+  .timeline {
+    flex: 1 1 160px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .scrub {
+    width: 100%;
+    max-width: 100%;
+    accent-color: var(--accent);
+    height: 4px;
+  }
+
   .time {
     display: flex;
-    gap: 0.35rem;
-    font-size: 0.8rem;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
-    margin-top: 0.25rem;
   }
 
-  .right {
+  .time-sep { opacity: 0.45; }
+
+  .toolbar-actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.35rem 0.45rem;
+    flex: 1 1 auto;
+    justify-content: flex-end;
   }
 
   .btn-skip {
-    padding: 0.35rem 0.6rem;
+    padding: 0.28rem 0.5rem;
     border: 1px solid var(--border);
     background: transparent;
     color: var(--text);
     border-radius: 4px;
     cursor: pointer;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
   }
 
   .speed select {
-    background: rgba(0,0,0,0.3);
+    font-size: 0.72rem;
+    background: rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border);
     color: var(--text);
     border-radius: 4px;
-    padding: 0.35rem;
+    padding: 0.28rem 0.35rem;
+  }
+
+  .volume {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    min-width: 88px;
+  }
+
+  .vol-icon {
+    font-size: 0.85rem;
+    line-height: 1;
+    opacity: 0.85;
+  }
+
+  .vol-slider {
+    width: 72px;
+    accent-color: var(--accent);
+    height: 4px;
+  }
+
+  .player-extras {
+    margin: 0.5rem 0 0;
+    padding-top: 0.45rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: right;
+  }
+
+  .player-ref {
+    margin: 0.5rem 0 0;
+    padding-top: 0.35rem;
+    text-align: right;
+    font-size: 0.72rem;
+  }
+
+  .link-quiet {
+    display: inline-block;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 0.15rem 0;
+  }
+
+  .link-quiet:hover {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: center;
+  }
+
+  .meta-pill {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.22);
+    font-size: 0.78rem;
+  }
+
+  .meta-pill.accent {
+    border-color: rgba(0, 229, 192, 0.35);
+  }
+
+  .meta-pill.warn {
+    border-color: rgba(245, 158, 11, 0.45);
+    color: rgba(253, 224, 171, 0.95);
+    font-size: 0.72rem;
+  }
+
+  .meta-k {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+
+  .tech-panel {
+    border-top: 1px solid var(--border);
+    padding-top: 0.5rem;
+  }
+
+  .tech-panel summary {
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    list-style: none;
+    user-select: none;
+  }
+
+  .tech-panel summary::-webkit-details-marker { display: none; }
+
+  .tech-panel-body {
+    padding-top: 0.55rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .spectrum-caption {
+    margin: 0;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  .brain-dist {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .brain-dist-title {
+    margin: 0;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+
+  .brain-dist-meters {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.45rem;
+  }
+
+  .brain-band-meter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.35rem 0.45rem 0.4rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.22);
+    min-width: 0;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .brain-band-meter.is-dominant {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+
+  .brain-band-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.2rem 0.35rem;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+
+  .brain-band-pct {
+    margin-left: auto;
+    font-size: 0.78rem;
+    color: var(--text);
+  }
+
+  .brain-band-track {
+    height: 5px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+  }
+
+  .brain-band-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    transition: width 0.12s ease-out;
+  }
+
+  .brain-band-meter.theta { border-left: 3px solid rgba(124, 58, 237, 0.75); }
+  .brain-band-meter.theta .brain-band-fill { background: rgba(124, 58, 237, 0.85); }
+  .brain-band-meter.theta.is-dominant { border-color: rgba(124, 58, 237, 0.55); }
+
+  .brain-band-meter.alpha { border-left: 3px solid rgba(0, 229, 192, 0.75); }
+  .brain-band-meter.alpha .brain-band-fill { background: rgba(0, 229, 192, 0.85); }
+  .brain-band-meter.alpha.is-dominant { border-color: rgba(0, 229, 192, 0.55); }
+
+  .brain-band-meter.beta { border-left: 3px solid rgba(59, 130, 246, 0.75); }
+  .brain-band-meter.beta .brain-band-fill { background: rgba(59, 130, 246, 0.85); }
+  .brain-band-meter.beta.is-dominant { border-color: rgba(59, 130, 246, 0.55); }
+
+  .brain-band-meter.gamma { border-left: 3px solid rgba(245, 158, 11, 0.75); }
+  .brain-band-meter.gamma .brain-band-fill { background: rgba(245, 158, 11, 0.85); }
+  .brain-band-meter.gamma.is-dominant { border-color: rgba(245, 158, 11, 0.55); }
+
+  .brain-dist-hint {
+    margin: 0;
+    font-size: 0.65rem;
+    line-height: 1.35;
+  }
+
+  .brain-legend-marks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.55rem;
+    align-items: center;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+  }
+
+  .brain-band-k {
+    font-weight: 700;
+    font-size: 0.72rem;
+  }
+
+  .brain-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.12rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .brain-mark.session::before {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background: rgba(0, 229, 192, 0.95);
+    border-radius: 1px;
+  }
+
+  .brain-mark.carrier::before {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background: rgba(167, 139, 250, 0.95);
+    border-radius: 1px;
+  }
+
+  .brain-mark.detected::before {
+    content: '';
+    width: 10px;
+    height: 2px;
+    background: rgba(251, 191, 36, 0.95);
+    border-radius: 1px;
+    border-style: dashed;
+  }
+
+  .live-detect {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin: 0;
+    font-size: 0.82rem;
+  }
+
+  .live-detect-item {
+    display: inline-flex;
+    gap: 0.35rem;
+    align-items: baseline;
+  }
+
+  .live-detect-item.accent {
+    color: var(--accent);
+  }
+
+  .detect-k {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+
+  .detect-hint {
+    margin: 0;
+    font-size: 0.68rem;
+    line-height: 1.35;
+  }
+
+  .viz-peak {
+    color: rgba(251, 191, 36, 0.95);
+    font-weight: 500;
+  }
+
+  .spectrum-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .viz-block {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 255, 220, 0.12);
+    border-radius: 6px;
+    padding: 0.35rem 0.45rem 0.4rem;
+    min-width: 0;
+  }
+
+  .viz-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .viz-canvas {
+    display: block;
+    width: 100%;
+    height: 168px;
+    min-height: 140px;
+  }
+
+  @media (min-width: 900px) {
+    .viz-canvas {
+      height: 200px;
+      min-height: 168px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .player-wrap {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      overflow-x: clip;
+    }
+
+    .player-toolbar {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .timeline {
+      width: 100%;
+      max-width: 100%;
+      flex: 1 1 auto;
+    }
+
+    .toolbar-actions {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.4rem;
+      justify-content: stretch;
+    }
+
+    .btn-skip,
+    .speed select {
+      min-height: 44px;
+      width: 100%;
+    }
+
+    .volume {
+      grid-column: 1 / -1;
+      width: 100%;
+      min-width: 0;
+      margin-top: 0.15rem;
+    }
+
+    .vol-slider {
+      flex: 1;
+      width: auto;
+      min-width: 0;
+    }
+
+    .player-extras {
+      margin-top: 0.65rem;
+      padding-top: 0.55rem;
+    }
+
+    .tech-panel summary {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.35rem 0;
+    }
+
+    .live-detect {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+
+    .brain-band-range {
+      display: none;
+    }
+
+    .spectrum-row {
+      grid-template-columns: 1fr;
+    }
+
+    .brain-dist-meters {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 </style>

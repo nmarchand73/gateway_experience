@@ -72,7 +72,7 @@ Repeat for `data/Hemi-Sync Gateway Experience - v2` then `data/Hemi-Sync - The G
 | `content/curriculum.json` | Generated waves/sessions + `editions.classic` / `editions.v2` |
 | `scripts/extract-manuals-md.py` | PDF → `content/manuals/*.md` + per-session slices |
 | `scripts/build-curriculum.mjs` | Manifest + v2 folder scan → curriculum |
-| `src/components/GatewayAudioPlayer.astro` | Passthrough player + L/R spectrum 20–500 Hz |
+| `src/components/GatewayAudioPlayer.astro` | Passthrough player + L/R spectrum 20 Hz–4 kHz (log) |
 | `src/pages/start/` | Guide de démarrage (5 étapes, conseils, FAQ — inspiré r/Sbreggo) |
 
 ## Progress
