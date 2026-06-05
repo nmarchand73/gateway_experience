@@ -12,6 +12,7 @@ import {
   type Wave,
   type EditionId,
 } from '../lib/curriculum';
+import { isMediaHosted } from '../lib/media';
 
 interface Crumb {
   href: string;
@@ -48,6 +49,7 @@ const {
 
 const { prev, next } = getAdjacentSessions(wave.slug, session.id, edition);
 const focusLabel = t(locale, 'session.focusBadge', { level: session.frequencies.focusLevel });
+const mediaHosted = isMediaHosted();
 ---
 
 <article class="session-workspace">
@@ -116,7 +118,7 @@ const focusLabel = t(locale, 'session.focusBadge', { level: session.frequencies.
         <p class="phase-lead muted">{t(locale, 'session.listenLead')}</p>
       </div>
     </div>
-    {audioUrl ? (
+    {audioUrl && mediaHosted ? (
       <GatewayAudioPlayer
         src={audioUrl}
         downloadHref={audioUrl}
@@ -129,6 +131,11 @@ const focusLabel = t(locale, 'session.focusBadge', { level: session.frequencies.
         bandLabel={bandLabel}
         reviewed={session.frequencies.reviewed}
       />
+    ) : audioUrl ? (
+      <div class="card media-offline">
+        <p class="media-offline-title">{t(locale, 'player.pagesNoMediaTitle')}</p>
+        <p class="muted">{t(locale, 'player.pagesNoMediaBody')}</p>
+      </div>
     ) : (
       <p class="muted card">{t(locale, 'player.noFlac')}</p>
     )}
@@ -315,6 +322,16 @@ const focusLabel = t(locale, 'session.focusBadge', { level: session.frequencies.
 
   .phase-listen :global(.player-wrap) {
     margin: 0;
+  }
+
+  .media-offline {
+    padding: 1rem 1.1rem;
+    border-left: 3px solid rgba(245, 158, 11, 0.65);
+  }
+
+  .media-offline-title {
+    margin: 0 0 0.5rem;
+    font-weight: 600;
   }
 
   .phase-reflect h3 {

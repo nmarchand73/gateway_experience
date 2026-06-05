@@ -27,10 +27,12 @@ jobs:
       - run: npm ci
         working-directory: .
 
-      # Media stays local (~6 GB). Pages deploy = site shell + manuals; audio needs local data/ or external CDN.
+      # Media not copied to Pages artifact — stream from GitHub LFS (raw/main/data) unless PUBLIC_MEDIA_BASE_URL secret overrides.
       - run: npm run build
         env:
           SKIP_COPY_MEDIA: '1'
+          PUBLIC_MEDIA_HOSTED: 'false'
+          PUBLIC_MEDIA_BASE_URL: ${{ secrets.PUBLIC_MEDIA_BASE_URL }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

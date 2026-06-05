@@ -119,7 +119,10 @@
     "ciaReportBody": "The Analysis and Assessment of Gateway Process report (Lt. Col. Wayne M. McDonnell, US Army, 1983) explains Hemi-Sync: slightly different frequencies in each ear produce a binaural beat (|L − R|). That beat is intended to entrain brainwave activity toward Focus states (10, 12, 15, 21…).",
     "ciaReportSpectrum": "The two spectra below show per-channel energy from 20 Hz to 4 kHz (log scale) — Hemi-Sync carriers, harmonics, and guided voice. The purple line marks a documented carrier frequency when known.",
     "ciaReportLink": "CIA report (PDF)",
-    "noFlac": "Your browser may not play FLAC. Download the file for local playback."
+    "noFlac": "Your browser may not play FLAC. Download the file for local playback.",
+    "pagesNoMediaTitle": "Audio not available on this online site",
+    "pagesNoMediaBody": "No media source configured for this build. Locally: clone with data/ and npm run dev. On GitHub Pages, files must be pushed to LFS on main.",
+    "loadError": "Could not load audio (file missing or unsupported format)."
   },
   "supplements": {
     "title": "Supplements",

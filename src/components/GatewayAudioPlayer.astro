@@ -34,6 +34,7 @@ const fmtHz = (v: number | null | undefined) =>
   v == null ? '—' : `${v.toFixed(v % 1 ? 1 : 0)} Hz`;
 
 const ciaReportUrl = resolvePdfUrl(CIA_GATEWAY_REPORT_PATH);
+const loadErrorMsg = t(locale, 'player.loadError');
 ---
 
 <section class:list={['player-wrap', 'card']} data-gateway-player>
@@ -163,7 +164,7 @@ const ciaReportUrl = resolvePdfUrl(CIA_GATEWAY_REPORT_PATH);
   )}
 </section>
 
-<script define:vars={{ leftHz, rightHz, beatHz }}>
+<script define:vars={{ leftHz, rightHz, beatHz, loadErrorMsg }}>
   document.querySelectorAll('[data-gateway-player]').forEach((root) => {
     const audio = root.querySelector('[data-audio]');
     if (!audio) return;
@@ -553,11 +554,28 @@ const ciaReportUrl = resolvePdfUrl(CIA_GATEWAY_REPORT_PATH);
     };
 
     playBtn?.addEventListener('click', async () => {
-      await setupGraph();
-      if (audio.paused) await audio.play();
-      else audio.pause();
-      setIcon();
+      try {
+        await setupGraph();
+        if (audio.paused) await audio.play();
+        else audio.pause();
+        setIcon();
+      } catch {
+        showLoadError();
+      }
     });
+
+    const showLoadError = () => {
+      let el = root.querySelector('[data-load-error]');
+      if (!el) {
+        el = document.createElement('p');
+        el.setAttribute('data-load-error', '');
+        el.className = 'player-load-error muted';
+        el.textContent = loadErrorMsg;
+        root.querySelector('.player-toolbar')?.after(el);
+      }
+    };
+
+    audio.addEventListener('error', showLoadError);
 
     audio.addEventListener('play', () => {
       setIcon();
@@ -742,6 +760,12 @@ const ciaReportUrl = resolvePdfUrl(CIA_GATEWAY_REPORT_PATH);
     padding-top: 0.45rem;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     text-align: right;
+  }
+
+  .player-load-error {
+    margin: 0.35rem 0 0;
+    font-size: 0.82rem;
+    color: rgba(245, 158, 11, 0.95);
   }
 
   .player-ref {

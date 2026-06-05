@@ -1,10 +1,31 @@
-const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
+const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
+const externalBase = (import.meta.env.PUBLIC_MEDIA_BASE_URL || '').replace(/\/$/, '');
 
-/** Media URL: dev serves from `{BASE_URL}media/` via Vite; prod from dist/media/ */
+/** GitHub LFS audio/PDF in data/ — used when Pages build skips local media copy. */
+export const GITHUB_MEDIA_BASE =
+  'https://github.com/nmarchand73/gateway_experience/raw/main/data';
+
+function pagesUseGithubMedia(): boolean {
+  return import.meta.env.PUBLIC_MEDIA_HOSTED === 'false' && !externalBase;
+}
+
+function mediaRoot(): string {
+  if (externalBase) return externalBase;
+  if (pagesUseGithubMedia()) return GITHUB_MEDIA_BASE;
+  return `${siteBase}/media`;
+}
+
+/** True when session audio/PDF URLs resolve to something other than missing Pages /media/. */
+export function isMediaHosted(): boolean {
+  if (externalBase || pagesUseGithubMedia()) return true;
+  return import.meta.env.PUBLIC_MEDIA_HOSTED !== 'false';
+}
+
+/** Media URL: local `{BASE_URL}media/`, GitHub raw/LFS on Pages, or PUBLIC_MEDIA_BASE_URL CDN. */
 export function resolveMediaUrl(relativePath: string): string {
   const clean = relativePath.replace(/\\/g, '/').replace(/^\//, '');
   const encoded = clean.split('/').map((part) => encodeURIComponent(part)).join('/');
-  return `${base}/media/${encoded}`;
+  return `${mediaRoot()}/${encoded}`;
 }
 
 export function resolvePdfUrl(relativePath: string | null | undefined): string | null {

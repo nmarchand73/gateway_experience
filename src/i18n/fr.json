@@ -119,7 +119,10 @@
     "ciaReportBody": "Le rapport Analysis and Assessment of Gateway Process (Lt. Col. Wayne M. McDonnell, US Army, 1983) explique l’Hemi-Sync : deux fréquences légèrement différentes dans chaque oreille produisent un battement binaural (|L − R|). Ce battement vise à entraîner l’activité cérébrale vers les états associés aux niveaux de Focus (10, 12, 15, 21…).",
     "ciaReportSpectrum": "Les deux spectres ci-dessous montrent l’énergie par canal (20 Hz–4 kHz, échelle log) — porteurs Hemi-Sync, harmoniques et voix guidée. La ligne violette marque une fréquence documentée quand elle est connue.",
     "ciaReportLink": "Rapport CIA (PDF)",
-    "noFlac": "Votre navigateur ne lit peut‑être pas le FLAC. Téléchargez le fichier pour une lecture locale."
+    "noFlac": "Votre navigateur ne lit peut‑être pas le FLAC. Téléchargez le fichier pour une lecture locale.",
+    "pagesNoMediaTitle": "Audio non disponible sur ce site en ligne",
+    "pagesNoMediaBody": "Aucune source média configurée pour cette build. En local : clonez le dépôt avec data/ et npm run dev. Sur GitHub Pages, les fichiers doivent être poussés en LFS sur main.",
+    "loadError": "Impossible de charger l’audio (fichier introuvable ou format non supporté)."
   },
   "supplements": {
     "title": "Suppléments",

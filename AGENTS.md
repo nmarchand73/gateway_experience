@@ -55,7 +55,7 @@ Repeat for `data/Hemi-Sync Gateway Experience - v2` then `data/Hemi-Sync - The G
 
 **GitHub LFS quota:** free accounts include ~1 GB LFS storage — this library needs a **paid LFS data pack** (or another remote) before `git lfs push` completes for all ~9.5 GB.
 
-**GitHub Pages:** CI sets `SKIP_COPY_MEDIA=1` — the public site is UI + manuals; session audio plays only when `data/` exists locally (or you point URLs at external hosting).
+**GitHub Pages:** CI sets `SKIP_COPY_MEDIA=1` and `PUBLIC_MEDIA_HOSTED=false`. Audio/PDF URLs point at **`https://github.com/nmarchand73/gateway_experience/raw/main/data/…`** (GitHub LFS → `media.githubusercontent.com`, CORS `*`). Override with repo secret **`PUBLIC_MEDIA_BASE_URL`** if you mirror `data/` elsewhere.
 
 ## i18n
 
