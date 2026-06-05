@@ -40,27 +40,22 @@ Runs curriculum generation, Astro static build, then copies `data/` → `dist/me
 
 ## Git and media (important)
 
-`data/` (~6 GB FLAC/MP3/PDF) is **not** in git (see `.gitignore`). Reasons:
+`data/` (~9.5 GB FLAC/MP3/PDF) is tracked via **Git LFS** (see `.gitattributes`).
 
-1. **`git add` + LFS** copies each file into `.git/lfs/tmp/` — you need **several GB free** on `C:` or the add fails with *Espace insuffisant sur le disque*.
-2. **GitHub free LFS** is ~1 GB storage — not enough for this library.
-3. **GitHub Pages** deploy artifacts are ~1 GB max — a full build with media cannot deploy via Actions.
-
-What **is** tracked: site code, `content/`, and `data/manifest.json` (inventory for `npm run build-curriculum`).
-
-**Local full site:** keep `data/` on disk → `npm run dev` / `npm run build` (copies media into `dist/`).
-
-**Public GitHub Pages:** UI + manuals only; session audio URLs 404 until you host media elsewhere (CDN, private server, or local use only).
-
-If a failed `git add` left the repo dirty:
+**Disk space:** `git add` writes LFS objects under `.git/lfs/objects/` while keeping your working copy. With ~7 GB free on `C:`, add media **one top-level folder at a time**, then push and prune:
 
 ```powershell
-git reset
-Remove-Item -Recurse -Force .git\lfs\tmp\* -ErrorAction SilentlyContinue
-git add .
+git add "data/Hemi-Sync"
+git commit -m "Add Hemi-Sync FR MP3 edition (LFS)"
+git lfs push origin main --all
+git lfs prune
 ```
 
-To retry LFS anyway (needs ~10 GB free + paid GitHub LFS): remove `data/**` from `.gitignore`, then `git config lfs.storage "D:/git-lfs"` if `C:` is tight.
+Repeat for `data/Hemi-Sync Gateway Experience - v2` then `data/Hemi-Sync - The Gateway Experience`.
+
+**GitHub LFS quota:** free accounts include ~1 GB LFS storage — this library needs a **paid LFS data pack** (or another remote) before `git lfs push` completes for all ~9.5 GB.
+
+**GitHub Pages:** CI sets `SKIP_COPY_MEDIA=1` — the public site is UI + manuals; session audio plays only when `data/` exists locally (or you point URLs at external hosting).
 
 ## i18n
 
