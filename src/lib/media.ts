@@ -1,9 +1,13 @@
 const siteBase = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '';
 const externalBase = (import.meta.env.PUBLIC_MEDIA_BASE_URL || '').replace(/\/$/, '');
 
-/** GitHub LFS audio/PDF in data/ — used when Pages build skips local media copy. */
+/**
+ * GitHub LFS CDN — used when Pages build skips local media copy.
+ * Use media.githubusercontent.com directly: github.com/raw 302 responses send an empty
+ * Access-Control-Allow-Origin, which breaks <audio crossorigin> + Web Audio on Pages.
+ */
 export const GITHUB_MEDIA_BASE =
-  'https://github.com/nmarchand73/gateway_experience/raw/main/data';
+  'https://media.githubusercontent.com/media/nmarchand73/gateway_experience/main/data';
 
 function pagesUseGithubMedia(): boolean {
   return import.meta.env.PUBLIC_MEDIA_HOSTED === 'false' && !externalBase;
