@@ -74,13 +74,16 @@ test.describe('Gateway CRT golden path', () => {
     await expect(liveScope.locator('[data-viz-r]')).toBeVisible();
     await expect(liveScope.locator('[data-live-fs]')).toBeVisible();
     await liveScope.locator('[data-live-fs]').dispatchEvent('click');
-    await expect(liveScope).toHaveClass(/is-fs/);
-    await expect(liveScope.locator('[data-live-session]')).toBeVisible();
-    await expect(liveScope.locator('.live-scope-session-name')).not.toHaveText('');
+    const liveStage = page.locator('[data-live-stage]');
+    await expect(liveStage).toHaveClass(/is-fs/);
+    await expect(liveStage.locator('[data-live-session]')).toBeVisible();
+    await expect(liveStage.locator('.live-scope-session-name')).not.toHaveText('');
+    await expect(liveStage.locator('[data-play]')).toBeVisible();
     await expect(liveScope.locator('[data-live-fs-label]')).toHaveText('EXIT');
+    await expect(liveScope.locator('[data-band-hold="alpha"]')).toBeVisible();
 
     await liveScope.locator('[data-live-fs]').dispatchEvent('click');
-    await expect(liveScope).not.toHaveClass(/is-fs/);
+    await expect(liveStage).not.toHaveClass(/is-fs/);
 
     await playBtn.click();
     await expect(page.locator('[data-gateway-player]')).not.toHaveAttribute('data-state', 'playing');
