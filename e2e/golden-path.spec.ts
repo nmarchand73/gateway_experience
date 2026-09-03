@@ -67,10 +67,16 @@ test.describe('Gateway CRT golden path', () => {
     await playBtn.click();
     await expect(page.locator('[data-gateway-player]')).toHaveAttribute('data-state', 'playing');
     await expect(page.locator('html')).toHaveAttribute('data-crt', 'listen');
+    const liveScope = page.locator('[data-live-scope]');
+    await expect(liveScope).toBeVisible();
+    await expect(liveScope).toContainText(/Live analysis|Analyse live/i);
+    await expect(liveScope.locator('[data-viz-l]')).toBeVisible();
+    await expect(liveScope.locator('[data-viz-r]')).toBeVisible();
 
     await playBtn.click();
     await expect(page.locator('[data-gateway-player]')).not.toHaveAttribute('data-state', 'playing');
     await expect(page.locator('html')).toHaveAttribute('data-crt', 'full');
+    await expect(page.locator('[data-live-scope]')).toBeHidden();
   });
 
   test('skip boot remembers preference', async ({ page }) => {

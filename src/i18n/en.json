@@ -110,6 +110,7 @@
     "targetsTitle": "Focus and frequency (heuristic)",
     "beatTargetNote": "Focus is a Monroe state label, not “N hertz”. This Hz is an unverified |L−R| placeholder. Monroe Sound Science layers several EEG bands and changes them during a track.",
     "spectrumPanel": "Live analysis",
+    "methodNotes": "How this FFT is read",
     "spectrumCaption": "log scale, no signal processing",
     "spectrumL": "Left channel",
     "spectrumR": "Right channel",

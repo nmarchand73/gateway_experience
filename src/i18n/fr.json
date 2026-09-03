@@ -110,6 +110,7 @@
     "targetsTitle": "Focus et fréquences (heuristique)",
     "beatTargetNote": "Le Focus est un label d’état Monroe, pas « N hertz ». Ce Hz est un placeholder |G−D| non vérifié. Monroe Sound Science superpose plusieurs bandes EEG et les fait évoluer pendant la piste.",
     "spectrumPanel": "Analyse live",
+    "methodNotes": "Comment lire cette FFT",
     "spectrumCaption": "échelle log, sans traitement du signal",
     "spectrumL": "Canal gauche",
     "spectrumR": "Canal droit",

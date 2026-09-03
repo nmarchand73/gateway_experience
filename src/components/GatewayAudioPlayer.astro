@@ -115,10 +115,96 @@ const pauseCmd = t(locale, 'player.pauseCmd');
     {bandLabel && (
       <p class="band-line mono"><span class="ctl-k">{t(locale, 'session.band')}</span> {bandLabel}</p>
     )}
-    <p class="analysis-status muted" data-analysis-status hidden></p>
     {beatHz != null && <p class="target-note muted">{t(locale, 'player.beatTargetNote')}</p>}
     {!reviewed && <p class="target-warn">{t(locale, 'session.unreviewedShort')}</p>}
     <p class="target-mss muted">{t(locale, 'player.ciaReportBody')}</p>
+  </div>
+
+  <div class="live-scope" data-live-scope aria-hidden="true">
+    <div class="live-scope-head">
+      <span class="live-scope-title">{t(locale, 'player.spectrumPanel')}</span>
+      <span class="live-scope-hint mono">{t(locale, 'player.spectrumRange')} · {t(locale, 'player.spectrumCaption')}</span>
+    </div>
+    <p class="analysis-status muted" data-analysis-status hidden></p>
+    <div class="live-stats" data-live-detect aria-live="polite">
+      <div class="stat-card stat-l">
+        <span class="stat-k">{t(locale, 'player.detectL')}</span>
+        <span class="stat-v mono" data-detect-l>—</span>
+      </div>
+      <div class="stat-card stat-r">
+        <span class="stat-k">{t(locale, 'player.detectR')}</span>
+        <span class="stat-v mono" data-detect-r>—</span>
+      </div>
+      <div class="stat-card stat-beat">
+        <span class="stat-k">{t(locale, 'player.detectBeat')}</span>
+        <span class="stat-v mono" data-detect-beat>—</span>
+      </div>
+    </div>
+    <div class="brain-legend-marks" aria-hidden="true">
+      <span class="brain-mark carrier">{t(locale, 'player.spectrumCarrier')}</span>
+      <span class="brain-mark detected">{t(locale, 'player.spectrumDetected')}</span>
+    </div>
+    <div class="spectrum-row">
+      <div class="viz-block viz-l">
+        <div class="viz-head">
+          <span class="viz-channel">{t(locale, 'player.spectrumL')}</span>
+          <span class="viz-peak mono" data-peak-l>—</span>
+        </div>
+        <canvas class="viz-canvas" data-viz-l width="960" height="280" role="img" aria-label={t(locale, 'player.spectrumL')}></canvas>
+      </div>
+      <div class="viz-block viz-r">
+        <div class="viz-head">
+          <span class="viz-channel">{t(locale, 'player.spectrumR')}</span>
+          <span class="viz-peak mono" data-peak-r>—</span>
+        </div>
+        <canvas class="viz-canvas" data-viz-r width="960" height="280" role="img" aria-label={t(locale, 'player.spectrumR')}></canvas>
+      </div>
+    </div>
+    <div class="brain-dist" data-brain-dist aria-label={t(locale, 'player.bandDistLabel')}>
+      <p class="brain-dist-title">{t(locale, 'player.bandDistLabel')}</p>
+      <div class="brain-dist-meters">
+        <div class="brain-band-meter delta" data-band="delta">
+          <div class="brain-band-head">
+            <span class="brain-band-k">δ</span>
+            <span class="brain-band-range">1–4 Hz</span>
+            <span class="brain-band-pct mono" data-band-pct="delta">—</span>
+          </div>
+          <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="delta"></div></div>
+        </div>
+        <div class="brain-band-meter theta" data-band="theta">
+          <div class="brain-band-head">
+            <span class="brain-band-k">θ</span>
+            <span class="brain-band-range">4–8 Hz</span>
+            <span class="brain-band-pct mono" data-band-pct="theta">—</span>
+          </div>
+          <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="theta"></div></div>
+        </div>
+        <div class="brain-band-meter alpha" data-band="alpha">
+          <div class="brain-band-head">
+            <span class="brain-band-k">α</span>
+            <span class="brain-band-range">8–13 Hz</span>
+            <span class="brain-band-pct mono" data-band-pct="alpha">—</span>
+          </div>
+          <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="alpha"></div></div>
+        </div>
+        <div class="brain-band-meter beta" data-band="beta">
+          <div class="brain-band-head">
+            <span class="brain-band-k">β</span>
+            <span class="brain-band-range">13–30 Hz</span>
+            <span class="brain-band-pct mono" data-band-pct="beta">—</span>
+          </div>
+          <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="beta"></div></div>
+        </div>
+        <div class="brain-band-meter gamma" data-band="gamma">
+          <div class="brain-band-head">
+            <span class="brain-band-k">γ</span>
+            <span class="brain-band-range">30–150 Hz</span>
+            <span class="brain-band-pct mono" data-band-pct="gamma">—</span>
+          </div>
+          <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="gamma"></div></div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="player-actions">
@@ -129,98 +215,13 @@ const pauseCmd = t(locale, 'player.pauseCmd');
     <a class="action-link" href="https://www.monroeinstituteuk.org/about-monroe-sound-science/" target="_blank" rel="noopener noreferrer">{t(locale, 'player.mssLink')}</a>
   </div>
 
-  <details class="tech-panel" open={!listenerMode}>
+  <details class="tech-panel">
     <summary>
-      <span class="tech-summary-label">{t(locale, 'player.spectrumPanel')}</span>
-      <span class="tech-summary-hint mono">{t(locale, 'player.spectrumRange')}</span>
+      <span class="tech-summary-label">{t(locale, 'player.methodNotes')}</span>
     </summary>
     <div class="tech-panel-body">
-      <p class="spectrum-caption muted">{t(locale, 'player.spectrumCaption')}</p>
-
-      <div class="live-stats" data-live-detect aria-live="polite">
-        <div class="stat-card stat-l">
-          <span class="stat-k">{t(locale, 'player.detectL')}</span>
-          <span class="stat-v mono" data-detect-l>—</span>
-        </div>
-        <div class="stat-card stat-r">
-          <span class="stat-k">{t(locale, 'player.detectR')}</span>
-          <span class="stat-v mono" data-detect-r>—</span>
-        </div>
-        <div class="stat-card stat-beat">
-          <span class="stat-k">{t(locale, 'player.detectBeat')}</span>
-          <span class="stat-v mono" data-detect-beat>—</span>
-        </div>
-      </div>
       <p class="detect-hint muted">{t(locale, 'player.detectHint')}</p>
-
-      <div class="brain-legend-marks" aria-hidden="true">
-        <span class="brain-mark carrier">{t(locale, 'player.spectrumCarrier')}</span>
-        <span class="brain-mark detected">{t(locale, 'player.spectrumDetected')}</span>
-      </div>
-
-      <div class="spectrum-row">
-        <div class="viz-block viz-l">
-          <div class="viz-head">
-            <span class="viz-channel">{t(locale, 'player.spectrumL')}</span>
-            <span class="viz-peak mono" data-peak-l>—</span>
-          </div>
-          <canvas class="viz-canvas" data-viz-l width="960" height="280" role="img" aria-label={t(locale, 'player.spectrumL')}></canvas>
-        </div>
-        <div class="viz-block viz-r">
-          <div class="viz-head">
-            <span class="viz-channel">{t(locale, 'player.spectrumR')}</span>
-            <span class="viz-peak mono" data-peak-r>—</span>
-          </div>
-          <canvas class="viz-canvas" data-viz-r width="960" height="280" role="img" aria-label={t(locale, 'player.spectrumR')}></canvas>
-        </div>
-      </div>
-
-      <div class="brain-dist" data-brain-dist aria-label={t(locale, 'player.bandDistLabel')}>
-        <p class="brain-dist-title">{t(locale, 'player.bandDistLabel')}</p>
-        <div class="brain-dist-meters">
-          <div class="brain-band-meter delta" data-band="delta">
-            <div class="brain-band-head">
-              <span class="brain-band-k">δ</span>
-              <span class="brain-band-range">1–4 Hz</span>
-              <span class="brain-band-pct mono" data-band-pct="delta">—</span>
-            </div>
-            <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="delta"></div></div>
-          </div>
-          <div class="brain-band-meter theta" data-band="theta">
-            <div class="brain-band-head">
-              <span class="brain-band-k">θ</span>
-              <span class="brain-band-range">4–8 Hz</span>
-              <span class="brain-band-pct mono" data-band-pct="theta">—</span>
-            </div>
-            <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="theta"></div></div>
-          </div>
-          <div class="brain-band-meter alpha" data-band="alpha">
-            <div class="brain-band-head">
-              <span class="brain-band-k">α</span>
-              <span class="brain-band-range">8–13 Hz</span>
-              <span class="brain-band-pct mono" data-band-pct="alpha">—</span>
-            </div>
-            <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="alpha"></div></div>
-          </div>
-          <div class="brain-band-meter beta" data-band="beta">
-            <div class="brain-band-head">
-              <span class="brain-band-k">β</span>
-              <span class="brain-band-range">13–30 Hz</span>
-              <span class="brain-band-pct mono" data-band-pct="beta">—</span>
-            </div>
-            <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="beta"></div></div>
-          </div>
-          <div class="brain-band-meter gamma" data-band="gamma">
-            <div class="brain-band-head">
-              <span class="brain-band-k">γ</span>
-              <span class="brain-band-range">30–150 Hz</span>
-              <span class="brain-band-pct mono" data-band-pct="gamma">—</span>
-            </div>
-            <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="gamma"></div></div>
-          </div>
-        </div>
-        <p class="brain-dist-hint muted">{t(locale, 'player.bandDistHint')}</p>
-      </div>
+      <p class="brain-dist-hint muted">{t(locale, 'player.bandDistHint')}</p>
     </div>
   </details>
 </section>
@@ -278,6 +279,8 @@ const pauseCmd = t(locale, 'player.pauseCmd');
       const playing = !audio.paused && !audio.ended;
       root.dataset.state = playing ? 'playing' : audio.ended ? 'ended' : 'idle';
       if (playCmdEl) playCmdEl.textContent = playing ? pauseCmd : playCmd;
+      const liveScope = root.querySelector('[data-live-scope]');
+      if (liveScope) liveScope.setAttribute('aria-hidden', playing ? 'false' : 'true');
       const crt = window.__gatewayCrt;
       let crtOff = false;
       try {
@@ -530,6 +533,7 @@ const pauseCmd = t(locale, 'player.pauseCmd');
       if (!ctx) return;
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
+      if (w < 8 || h < 8) return;
       const dpr = Math.min(2, window.devicePixelRatio || 1);
       if (canvas.width !== Math.floor(w * dpr)) {
         canvas.width = Math.floor(w * dpr);
@@ -632,10 +636,8 @@ const pauseCmd = t(locale, 'player.pauseCmd');
         analysisStatus.hidden = !silent || audio.paused;
         analysisStatus.textContent = silent && !audio.paused ? analysisSilentMsg : '';
       }
-      if (techPanel?.open) {
-        drawSpectrum(canvasL, dataL, leftHz, peaks.peakL, 'l');
-        drawSpectrum(canvasR, dataR, rightHz, peaks.peakR, 'r');
-      }
+      drawSpectrum(canvasL, dataL, leftHz, peaks.peakL, 'l');
+      drawSpectrum(canvasR, dataR, rightHz, peaks.peakR, 'r');
       raf = requestAnimationFrame(render);
     };
 
@@ -773,6 +775,45 @@ const pauseCmd = t(locale, 'player.pauseCmd');
 
   .player-wrap[data-state='playing'] {
     border-color: var(--accent);
+  }
+
+  .player-wrap[data-state='playing'] .target-note,
+  .player-wrap[data-state='playing'] .target-mss,
+  .player-wrap[data-state='playing'] .player-actions,
+  .player-wrap[data-state='playing'] .tech-panel {
+    display: none;
+  }
+
+  .live-scope {
+    display: none;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 0.5rem 0 0.15rem;
+    border-top: 1px dashed var(--accent);
+  }
+
+  .player-wrap[data-state='playing'] .live-scope {
+    display: flex;
+  }
+
+  .live-scope-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 0.75rem;
+  }
+
+  .live-scope-title {
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .live-scope-hint {
+    font-size: 0.8rem;
+    color: var(--text-muted);
   }
 
   .deck-banner {
@@ -1119,8 +1160,9 @@ const pauseCmd = t(locale, 'player.pauseCmd');
   }
 
   .stat-v {
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     color: var(--accent);
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.35);
   }
 
   .brain-legend-marks {
@@ -1184,9 +1226,10 @@ const pauseCmd = t(locale, 'player.pauseCmd');
   .viz-canvas {
     display: block;
     width: 100%;
-    height: 148px;
-    min-height: 128px;
+    height: 168px;
+    min-height: 148px;
     border-radius: 0;
+    background: #000800;
   }
 
   .brain-dist {
@@ -1246,7 +1289,7 @@ const pauseCmd = t(locale, 'player.pauseCmd');
   }
 
   .brain-band-track {
-    height: 6px;
+    height: 10px;
     background: rgba(108, 255, 108, 0.12);
     overflow: hidden;
   }
@@ -1259,8 +1302,8 @@ const pauseCmd = t(locale, 'player.pauseCmd');
 
   @media (min-width: 900px) {
     .viz-canvas {
-      height: 180px;
-      min-height: 148px;
+      height: 210px;
+      min-height: 180px;
     }
   }
 
@@ -1283,10 +1326,16 @@ const pauseCmd = t(locale, 'player.pauseCmd');
       min-width: 0;
     }
 
-    .live-stats,
-    .spectrum-row,
-    .brain-dist-meters {
+    .live-stats {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .spectrum-row {
       grid-template-columns: 1fr;
+    }
+
+    .brain-dist-meters {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 
     .telemetry {
