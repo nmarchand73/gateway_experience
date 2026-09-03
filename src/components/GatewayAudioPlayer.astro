@@ -461,6 +461,7 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
     let specHoldR = null;
     let specHoldUntilL = null;
     let specHoldUntilR = null;
+    let holdClock = 0;
     let stereoLikely = true;
     let stereoFrames = 0;
 
@@ -472,10 +473,22 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
     const CARRIER_HI = 1200;
     const PEAK_SMOOTH = 0.88;
     const BAND_SMOOTH = 0.86;
-    const HOLD_MS = 520;
-    const HOLD_FALL = 0.85; // % points per frame after hold delay
-    const SPEC_HOLD_MS = 480;
-    const SPEC_HOLD_FALL = 0.018; // normalized 0–1 fall per frame
+    /**
+     * Peak-hold timing aligned with common analyzer practice:
+     * - ITU-R BS.1771: peak lamps stay ≥150 ms so the eye can catch them
+     * - Spectrum UIs (e.g. Outboard): decaying peaks ≈ 6–12 dB/s (we use ~18 for snappier EQ feel)
+     * Attack is instantaneous; hold then exponential fall in linear display space.
+     */
+    const PEAK_HOLD_MS = 160;
+    const PEAK_FALL_DB_PER_S = 18;
+
+    const peakHoldStep = (prev, until, next, now, dt) => {
+      if (next >= prev) return { v: next, until: now + PEAK_HOLD_MS };
+      if (now < until) return { v: prev, until };
+      const decay = Math.pow(10, (-PEAK_FALL_DB_PER_S * Math.max(0.001, dt)) / 20);
+      return { v: Math.max(next, prev * decay), until };
+    };
+
     const BAND_DEFS = [
       { id: 'delta', lo: 1, hi: 4, fill: 'rgba(108, 255, 108, 0.03)' },
       { id: 'theta', lo: 4, hi: 8, fill: 'rgba(108, 255, 108, 0.05)' },
@@ -616,6 +629,7 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
       const dist = measureBandDistribution();
       if (!dist) return;
       const now = performance.now();
+      const dt = holdClock ? Math.min(0.05, (now - holdClock) / 1000) : 1 / 60;
       let dominant = 'alpha';
       let maxPct = 0;
       BAND_DEFS.forEach(({ id }, i) => {
@@ -625,12 +639,9 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
         if (bandPctEls[id]) bandPctEls[id].textContent = `${Math.round(pct)}%`;
         if (bandFillEls[id]) bandFillEls[id].style.height = `${Math.max(2, pct)}%`;
 
-        if (pct >= bandHoldPct[id] - 0.05) {
-          bandHoldPct[id] = pct;
-          bandHoldUntil[id] = now + HOLD_MS;
-        } else if (now > bandHoldUntil[id]) {
-          bandHoldPct[id] = Math.max(pct, bandHoldPct[id] - HOLD_FALL);
-        }
+        const stepped = peakHoldStep(bandHoldPct[id], bandHoldUntil[id], pct, now, dt);
+        bandHoldPct[id] = stepped.v;
+        bandHoldUntil[id] = stepped.until;
         if (bandHoldEls[id]) {
           bandHoldEls[id].style.bottom = `${Math.max(0, Math.min(100, bandHoldPct[id]))}%`;
           bandHoldEls[id].style.opacity = bandHoldPct[id] > 1 ? '1' : '0';
@@ -803,6 +814,7 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
       const holds = channel === 'r' ? specHoldR : specHoldL;
       const untils = channel === 'r' ? specHoldUntilR : specHoldUntilL;
       const now = performance.now();
+      const dt = holdClock ? Math.min(0.05, (now - holdClock) / 1000) : 1 / 60;
 
       for (let i = 0; i < bars; i++) {
         const f0 = hzAtT(i / bars);
@@ -825,13 +837,10 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
         ctx.fillRect(x, y, bw, bh);
         ctx.globalAlpha = 1;
 
-        if (v >= holds[i] - 0.002) {
-          holds[i] = v;
-          untils[i] = now + SPEC_HOLD_MS;
-        } else if (now > untils[i]) {
-          holds[i] = Math.max(v, holds[i] - SPEC_HOLD_FALL);
-        }
-        if (holds[i] > 0.04) {
+        const stepped = peakHoldStep(holds[i], untils[i], v, now, dt);
+        holds[i] = stepped.v;
+        untils[i] = stepped.until;
+        if (holds[i] > 0.03) {
           const hy = plotBottom - holds[i] * usableH;
           ctx.fillStyle = 'rgba(180, 255, 180, 0.95)';
           ctx.fillRect(x, hy - 1, bw, 2);
@@ -890,6 +899,7 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
       }
       drawSpectrum(canvasL, dataL, leftHz, peaks.peakL, 'l');
       drawSpectrum(canvasR, dataR, rightHz, peaks.peakR, 'r');
+      holdClock = performance.now();
       raf = requestAnimationFrame(render);
     };
 
@@ -903,6 +913,7 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
       vizActive = false;
       if (raf) cancelAnimationFrame(raf);
       raf = 0;
+      holdClock = 0;
     };
 
     const ensureViz = async () => {
