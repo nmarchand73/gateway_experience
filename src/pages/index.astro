@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CrtBoot from '../components/CrtBoot.astro';
 import { t, localePrefix } from '../i18n';
 import { loadCurriculum, getEdition, editionDescription, hasEdition } from '../lib/curriculum';
 
@@ -12,6 +13,8 @@ const supplementCount =
 ---
 
 <BaseLayout title={t(locale, 'home.title')} locale={locale}>
+  <CrtBoot locale={locale} />
+  <p class="dossier-banner">SOURCE DOC · CIA GATEWAY PROCESS · 1983</p>
   <header class="hero">
     <p class="eyebrow">{t(locale, 'home.eyebrow')}</p>
     <h1>{t(locale, 'home.title')}</h1>
@@ -57,7 +60,7 @@ const supplementCount =
     <div class="grid-waves" style="margin-top: 1rem;">
       {curriculum.waves.map((wave) => (
         <a href={`${p}/waves/${wave.slug}/`} class="card wave-card">
-          <p class="wave-meta">Wave {wave.roman} · Focus {wave.focusLevel}</p>
+          <p class="wave-meta">WAVE-{wave.roman} · FOCUS {wave.focusLevel}</p>
           <h2>{wave.title.fr}</h2>
           <p class="muted">{t(locale, 'waves.sessionCount', { count: wave.sessions.length })}</p>
         </a>
@@ -72,7 +75,7 @@ const supplementCount =
       <div class="grid-waves" style="margin-top: 1rem;">
         {v2.waves.map((wave) => (
           <a href={`${p}/v2/waves/${wave.slug}/`} class="card wave-card">
-            <p class="wave-meta">Wave {wave.roman} · Focus {wave.focusLevel}</p>
+            <p class="wave-meta">WAVE-{wave.roman} · FOCUS {wave.focusLevel}</p>
             <h2>{wave.title.fr}</h2>
             <p class="muted">{t(locale, 'waves.sessionCount', { count: wave.sessions.length })}</p>
           </a>

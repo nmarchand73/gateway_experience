@@ -4,3 +4,6 @@ dist/
 public/media
 .DS_Store
 content/raw-ocr/
+test-results/
+playwright-report/
+playwright/.cache/

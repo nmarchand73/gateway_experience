@@ -146,5 +146,21 @@
   "footer": {
     "tagline": "Personal educational use — Hemi-Sync / Monroe Institute.",
     "navLabel": "Footer"
+  },
+  "crt": {
+    "toggle": "CRT",
+    "toggleTitle": "Toggle CRT monitor effect",
+    "footerStatus": "Classified · Gateway Process · LOCAL CLEARANCE",
+    "boot": {
+      "line1": "Search: Analysis and Assessment of Gateway Process>",
+      "line2": "PASSWORD : [7] (format) CASE-X10",
+      "line3": "/T Specify ADMIN — Monroe / Hemi-Sync archive",
+      "line4": "A=All (decimal, binary) Focus levels 10–21+",
+      "line5": "ERROR #154468//-S-13\\case X-10 — media check deferred",
+      "line6": "Classified Documents, (restricted information).",
+      "accessGranted": "ACCESS GRANTED/",
+      "enter": "Enter dossier",
+      "skip": "Skip intro"
+    }
   }
 }

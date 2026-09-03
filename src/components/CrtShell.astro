@@ -1,0 +1,116 @@
+---
+/**
+ * CRT glass overlay (afterglow-crt) + intensity helpers.
+ * Intensity is driven by html[data-crt]: full | listen | off
+ */
+---
+
+<div class="screen" aria-hidden="true" data-crt-screen>
+  <div class="beam"></div>
+</div>
+
+<script>
+  const KEY = 'gateway-crt-intensity';
+
+  function preferredOff() {
+    try {
+      if (localStorage.getItem(KEY) === 'off') return true;
+    } catch {
+      /* ignore */
+    }
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function setCrt(mode) {
+    document.documentElement.setAttribute('data-crt', mode);
+  }
+
+  function restoreNavMode() {
+    setCrt(preferredOff() ? 'off' : 'full');
+  }
+
+  // Boot: respect stored preference / reduced motion before paint if possible
+  if (!document.documentElement.hasAttribute('data-crt')) {
+    restoreNavMode();
+  }
+
+  // Expose for player + boot
+  window.__gatewayCrt = {
+    set: setCrt,
+    restore: restoreNavMode,
+  };
+
+  document.querySelectorAll('[data-crt-toggle]').forEach((btn) => {
+    btn.setAttribute('aria-pressed', String(preferredOff()));
+    btn.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-crt') === 'off' ? 'full' : 'off';
+      try {
+        localStorage.setItem(KEY, next === 'off' ? 'off' : 'full');
+      } catch {
+        /* ignore */
+      }
+      setCrt(next);
+      btn.setAttribute('aria-pressed', String(next === 'off'));
+    });
+  });
+</script>
+
+<style is:global>
+  /* Dampen CRT during listening — no flicker / warp / beam */
+  html[data-crt='listen'] {
+    --crt-scanline-opacity: 0.12;
+    --crt-scanline-dark: 0.06;
+    --crt-scanline-light: 0.01;
+    --crt-warp-x: 1;
+    --crt-warp-y: 1;
+    --crt-breath-brightness: 1;
+    --crt-flicker-speed: 99999s;
+    --crt-beam-opacity: 0;
+    --crt-ghost-opacity: 0;
+  }
+
+  html[data-crt='listen'] .screen {
+    animation: none !important;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.55);
+  }
+
+  html[data-crt='listen'] .screen .beam {
+    display: none;
+  }
+
+  html[data-crt='listen'] body::after {
+    opacity: 0 !important;
+  }
+
+  html[data-crt='listen'] body.crt-green {
+    text-shadow: none;
+  }
+
+  /* Full off — accessibility / preference */
+  html[data-crt='off'] {
+    --crt-scanline-opacity: 0;
+    --crt-beam-opacity: 0;
+    --crt-ghost-opacity: 0;
+    --crt-warp-x: 1;
+    --crt-warp-y: 1;
+    --crt-breath-brightness: 1;
+  }
+
+  html[data-crt='off'] .screen,
+  html[data-crt='off'] body::after {
+    display: none !important;
+  }
+
+  html[data-crt='off'] body.crt-green {
+    text-shadow: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html[data-crt='full'] .screen {
+      animation: none !important;
+    }
+    html[data-crt='full'] .screen .beam {
+      display: none;
+    }
+  }
+</style>

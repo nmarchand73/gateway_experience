@@ -1,0 +1,198 @@
+---
+import { t } from '../i18n';
+import type { Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const lines = [
+  t(locale, 'crt.boot.line1'),
+  t(locale, 'crt.boot.line2'),
+  t(locale, 'crt.boot.line3'),
+  t(locale, 'crt.boot.line4'),
+  t(locale, 'crt.boot.line5'),
+  t(locale, 'crt.boot.line6'),
+];
+---
+
+{/* Inline: hide before paint when already dismissed */}
+<script is:inline>
+  try {
+    if (localStorage.getItem('gateway-crt-boot') === 'seen') {
+      document.documentElement.classList.add('crt-boot-seen');
+    }
+  } catch (_) {}
+</script>
+
+<div
+  class="crt-boot"
+  data-crt-boot
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="crt-boot-title"
+>
+  <div class="crt-boot-inner">
+    <pre class="crt-boot-log" data-crt-boot-log aria-live="polite"></pre>
+    <p class="crt-boot-stamp" data-crt-boot-stamp hidden id="crt-boot-title">
+      {t(locale, 'crt.boot.accessGranted')}
+    </p>
+    <div class="crt-boot-actions" data-crt-boot-actions>
+      <button type="button" class="btn-primary" data-crt-boot-enter hidden>
+        {t(locale, 'crt.boot.enter')}
+      </button>
+      <button type="button" class="btn-secondary" data-crt-boot-skip>
+        {t(locale, 'crt.boot.skip')}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ lines }}>
+  const BOOT_KEY = 'gateway-crt-boot';
+  const root = document.querySelector('[data-crt-boot]');
+  if (!root) {
+    /* no-op */
+  } else {
+    const logEl = root.querySelector('[data-crt-boot-log]');
+    const stamp = root.querySelector('[data-crt-boot-stamp]');
+    const enterBtn = root.querySelector('[data-crt-boot-enter]');
+    const skipBtn = root.querySelector('[data-crt-boot-skip]');
+
+    const dismiss = () => {
+      try {
+        localStorage.setItem(BOOT_KEY, 'seen');
+      } catch (_) {}
+      document.documentElement.classList.add('crt-boot-seen');
+      root.setAttribute('hidden', '');
+      root.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('crt-boot-open');
+    };
+
+    const alreadySeen = () => document.documentElement.classList.contains('crt-boot-seen');
+
+    if (alreadySeen()) {
+      root.setAttribute('hidden', '');
+      root.setAttribute('aria-hidden', 'true');
+    } else {
+      root.removeAttribute('hidden');
+      document.body.classList.add('crt-boot-open');
+
+      const finish = () => {
+        if (stamp) stamp.removeAttribute('hidden');
+        if (enterBtn) {
+          enterBtn.removeAttribute('hidden');
+          enterBtn.focus();
+        }
+      };
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const typeLines = async () => {
+        if (!logEl) {
+          finish();
+          return;
+        }
+        if (reduceMotion) {
+          logEl.textContent = lines.join('\n');
+          finish();
+          return;
+        }
+        let shown = '';
+        for (const line of lines) {
+          for (let i = 0; i < line.length; i++) {
+            shown += line[i];
+            logEl.textContent = shown + '█';
+            await new Promise((r) => setTimeout(r, 12));
+          }
+          shown += '\n';
+          logEl.textContent = shown;
+          await new Promise((r) => setTimeout(r, 180));
+        }
+        finish();
+      };
+
+      typeLines();
+    }
+
+    enterBtn?.addEventListener('click', dismiss);
+    skipBtn?.addEventListener('click', dismiss);
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') dismiss();
+    });
+  }
+</script>
+
+<style>
+  :global(html.crt-boot-seen [data-crt-boot]) {
+    display: none !important;
+  }
+
+  .crt-boot {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(0, 8, 0, 0.92);
+  }
+
+  .crt-boot[hidden] {
+    display: none !important;
+  }
+
+  .crt-boot-inner {
+    width: min(42rem, 100%);
+    position: relative;
+  }
+
+  .crt-boot-log {
+    margin: 0;
+    font-family: var(--font-terminal);
+    font-size: clamp(0.95rem, 2.4vw, 1.15rem);
+    line-height: 1.45;
+    color: var(--phosphor);
+    white-space: pre-wrap;
+    min-height: 9rem;
+    text-shadow: 0 0 8px rgba(108, 255, 108, 0.45);
+  }
+
+  .crt-boot-stamp {
+    margin: 1.25rem 0 0;
+    font-family: var(--font-terminal);
+    font-size: clamp(1.75rem, 6vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--stamp);
+    text-transform: uppercase;
+    transform: rotate(-6deg);
+    opacity: 0.88;
+    text-shadow:
+      2px 0 rgba(255, 40, 40, 0.35),
+      -2px 0 rgba(0, 80, 255, 0.25),
+      0 0 12px rgba(255, 60, 60, 0.4);
+    pointer-events: none;
+  }
+
+  .crt-boot-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  :global(body.crt-boot-open) {
+    overflow: hidden;
+  }
+
+  /* Boot lives in the main slot — hide chrome/content, not the overlay itself */
+  :global(body.crt-boot-open .site-header),
+  :global(body.crt-boot-open .site-footer),
+  :global(body.crt-boot-open .main-inner > :not([data-crt-boot])) {
+    visibility: hidden;
+  }
+</style>

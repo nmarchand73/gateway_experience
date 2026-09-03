@@ -19,12 +19,13 @@ const pdfUrl = resolvePdfUrl(wave.manualPdf);
 ---
 
 <BaseLayout title={`Wave ${wave.roman} — ${waveTitle(wave, locale)}`} locale={locale}>
+  <p class="dossier-banner">CASE FILE · WAVE-{wave.roman} · FOCUS {wave.focusLevel}</p>
   <nav class="crumbs">
     <a href={`${p}/waves/`}>← {t(locale, 'nav.waves')}</a>
   </nav>
 
   <header class="hero">
-    <p class="eyebrow">Wave {wave.roman} · {t(locale, 'waves.focusLevel', { level: wave.focusLevel })}</p>
+    <p class="eyebrow">WAVE-{wave.roman} · FOCUS {wave.focusLevel}</p>
     <h1>{waveTitle(wave, locale)}</h1>
     {pdfUrl && (
       <p><a class="chip" href={pdfUrl} target="_blank" rel="noopener">{t(locale, 'waves.manual')}</a></p>

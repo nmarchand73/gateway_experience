@@ -259,6 +259,17 @@ const loadErrorMsg = t(locale, 'player.loadError');
       root.dataset.state = playing ? 'playing' : audio.ended ? 'ended' : 'idle';
       if (playIcon) playIcon.hidden = playing;
       if (pauseIcon) pauseIcon.hidden = !playing;
+      const crt = window.__gatewayCrt;
+      if (crt) {
+        if (playing) crt.set('listen');
+        else crt.restore();
+      } else {
+        let intensity = 'full';
+        try {
+          if (localStorage.getItem('gateway-crt-intensity') === 'off') intensity = 'off';
+        } catch (_) {}
+        document.documentElement.setAttribute('data-crt', playing ? 'listen' : intensity);
+      }
     };
 
     const applyVolume = (pct) => {
