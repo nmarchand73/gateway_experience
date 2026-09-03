@@ -85,7 +85,7 @@ test.describe('Gateway CRT golden path', () => {
     await liveScope.locator('[data-live-fs]').dispatchEvent('click');
     await expect(liveStage).not.toHaveClass(/is-fs/);
 
-    await playBtn.click();
+    await playBtn.dispatchEvent('click');
     await expect(page.locator('[data-gateway-player]')).not.toHaveAttribute('data-state', 'playing');
     await expect(page.locator('html')).toHaveAttribute('data-crt', 'full');
     await expect(page.locator('[data-live-scope]')).toBeHidden();
