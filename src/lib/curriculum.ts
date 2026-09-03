@@ -69,7 +69,7 @@ export interface Supplement {
 }
 
 export interface GlossaryEntry {
-  focus: number;
+  focus: number | string;
   title: { en: string; fr: string };
   desc: { en: string; fr: string };
 }

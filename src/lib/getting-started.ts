@@ -56,8 +56,8 @@ export const guideSteps: GuideStep[] = [
       en: 'Understand Focus Levels',
     },
     description: {
-      fr: 'Une fois que vous savez ce qu’est un niveau de Focus, parcourez les principaux états expliqués.',
-      en: 'Now that you know what a Focus level is, see the major Focus levels explained.',
+      fr: 'Les Focus sont des labels Monroe pour des phases de conscience — comme un cadran radio (modèle du phasage), pas une sortie unique du corps. Lisez le glossaire de ce site, puis l’aperçu Monroe Institute UK.',
+      en: 'Focus labels name phases of consciousness — like stations on a radio dial (the phasing model), not a one-way exit from the body. Read this site’s glossary, then the Monroe Institute UK overview.',
     },
     href: 'https://www.monroeinstituteuk.org/focus-levels/',
   },

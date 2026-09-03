@@ -22,6 +22,11 @@
   }
 
   function setCrt(mode) {
+    // User (or reduced-motion) turned CRT off — never re-enable on play.
+    if (mode === 'listen' && preferredOff()) {
+      document.documentElement.setAttribute('data-crt', 'off');
+      return;
+    }
     document.documentElement.setAttribute('data-crt', mode);
   }
 

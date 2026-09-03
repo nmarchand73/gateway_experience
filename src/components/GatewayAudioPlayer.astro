@@ -113,6 +113,7 @@ const loadErrorMsg = t(locale, 'player.loadError');
       )}
     </div>
     {!reviewed && <p class="target-warn">{t(locale, 'session.unreviewedShort')}</p>}
+    <p class="target-mss muted">{t(locale, 'player.ciaReportBody')}</p>
   </div>
 
   <div class="player-actions">
@@ -120,6 +121,7 @@ const loadErrorMsg = t(locale, 'player.loadError');
     {ciaReportUrl && (
       <a class="action-link" href={ciaReportUrl} target="_blank" rel="noopener">{t(locale, 'player.ciaReportLink')}</a>
     )}
+    <a class="action-link" href="https://www.monroeinstituteuk.org/about-monroe-sound-science/" target="_blank" rel="noopener noreferrer">{t(locale, 'player.mssLink')}</a>
   </div>
 
   <details class="tech-panel" open={!listenerMode}>
@@ -171,6 +173,14 @@ const loadErrorMsg = t(locale, 'player.loadError');
       <div class="brain-dist" data-brain-dist aria-label={t(locale, 'player.bandDistLabel')}>
         <p class="brain-dist-title">{t(locale, 'player.bandDistLabel')}</p>
         <div class="brain-dist-meters">
+          <div class="brain-band-meter delta" data-band="delta">
+            <div class="brain-band-head">
+              <span class="brain-band-k">δ</span>
+              <span class="brain-band-range">1–4 Hz</span>
+              <span class="brain-band-pct mono" data-band-pct="delta">—</span>
+            </div>
+            <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="delta"></div></div>
+          </div>
           <div class="brain-band-meter theta" data-band="theta">
             <div class="brain-band-head">
               <span class="brain-band-k">θ</span>
@@ -198,7 +208,7 @@ const loadErrorMsg = t(locale, 'player.loadError');
           <div class="brain-band-meter gamma" data-band="gamma">
             <div class="brain-band-head">
               <span class="brain-band-k">γ</span>
-              <span class="brain-band-range">30+ Hz</span>
+              <span class="brain-band-range">30–150 Hz</span>
               <span class="brain-band-pct mono" data-band-pct="gamma">—</span>
             </div>
             <div class="brain-band-track" aria-hidden="true"><div class="brain-band-fill" data-band-fill="gamma"></div></div>
@@ -235,12 +245,14 @@ const loadErrorMsg = t(locale, 'player.loadError');
     const peakLabelR = root.querySelector('[data-peak-r]');
     const bandMeters = root.querySelectorAll('.brain-band-meter');
     const bandPctEls = {
+      delta: root.querySelector('[data-band-pct="delta"]'),
       theta: root.querySelector('[data-band-pct="theta"]'),
       alpha: root.querySelector('[data-band-pct="alpha"]'),
       beta: root.querySelector('[data-band-pct="beta"]'),
       gamma: root.querySelector('[data-band-pct="gamma"]'),
     };
     const bandFillEls = {
+      delta: root.querySelector('[data-band-fill="delta"]'),
       theta: root.querySelector('[data-band-fill="theta"]'),
       alpha: root.querySelector('[data-band-fill="alpha"]'),
       beta: root.querySelector('[data-band-fill="beta"]'),
@@ -260,15 +272,19 @@ const loadErrorMsg = t(locale, 'player.loadError');
       if (playIcon) playIcon.hidden = playing;
       if (pauseIcon) pauseIcon.hidden = !playing;
       const crt = window.__gatewayCrt;
+      let crtOff = false;
+      try {
+        crtOff = localStorage.getItem('gateway-crt-intensity') === 'off';
+      } catch (_) {}
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) crtOff = true;
       if (crt) {
-        if (playing) crt.set('listen');
+        if (playing && !crtOff) crt.set('listen');
         else crt.restore();
       } else {
-        let intensity = 'full';
-        try {
-          if (localStorage.getItem('gateway-crt-intensity') === 'off') intensity = 'off';
-        } catch (_) {}
-        document.documentElement.setAttribute('data-crt', playing ? 'listen' : intensity);
+        document.documentElement.setAttribute(
+          'data-crt',
+          crtOff ? 'off' : playing ? 'listen' : 'full',
+        );
       }
     };
 
@@ -299,21 +315,22 @@ const loadErrorMsg = t(locale, 'player.loadError');
     let smoothPeakL = null;
     let smoothPeakR = null;
     let smoothBeat = null;
-    let smoothBandPct = { theta: 0.25, alpha: 0.25, beta: 0.25, gamma: 0.25 };
+    let smoothBandPct = { delta: 0.2, theta: 0.2, alpha: 0.2, beta: 0.2, gamma: 0.2 };
 
-    const F_LOW = 4;
+    const F_LOW = 1;
     const F_HIGH = 4000;
-    /** Axis ticks — band edges + decades for readable log scale. */
-    const AXIS_TICKS = [4, 8, 13, 30, 100, 500, 1000, 4000];
+    /** Axis ticks — Monroe UK band edges + decades for readable log scale. */
+    const AXIS_TICKS = [1, 4, 8, 13, 30, 150, 500, 1000, 4000];
     const CARRIER_LO = 80;
     const CARRIER_HI = 1200;
     const PEAK_SMOOTH = 0.88;
     const BAND_SMOOTH = 0.86;
     const BAND_DEFS = [
+      { id: 'delta', lo: 1, hi: 4, fill: 'rgba(148, 163, 184, 0.1)', bar: 'rgba(148, 163, 184, 0.85)' },
       { id: 'theta', lo: 4, hi: 8, fill: 'rgba(124, 58, 237, 0.1)', bar: 'rgba(124, 58, 237, 0.85)' },
       { id: 'alpha', lo: 8, hi: 13, fill: 'rgba(0, 229, 192, 0.08)', bar: 'rgba(0, 229, 192, 0.85)' },
       { id: 'beta', lo: 13, hi: 30, fill: 'rgba(59, 130, 246, 0.07)', bar: 'rgba(59, 130, 246, 0.85)' },
-      { id: 'gamma', lo: 30, hi: 100, fill: 'rgba(245, 158, 11, 0.06)', bar: 'rgba(245, 158, 11, 0.85)' },
+      { id: 'gamma', lo: 30, hi: 150, fill: 'rgba(245, 158, 11, 0.06)', bar: 'rgba(245, 158, 11, 0.85)' },
     ];
     const BRAIN_BANDS = BAND_DEFS;
     const logF = (hz) => Math.log10(hz);
@@ -372,7 +389,7 @@ const loadErrorMsg = t(locale, 'player.loadError');
       return { peakL: smoothPeakL, peakR: smoothPeakR, beat: smoothBeat };
     };
 
-    /** Linear energy per EEG band (4–100 Hz), averaged L+R. */
+    /** Linear energy per EEG band (1–150 Hz, Monroe UK), averaged L+R. */
     const measureBandDistribution = () => {
       if (!floatL || !floatR) return null;
       const raw = BAND_DEFS.map(({ lo, hi }) => {
@@ -404,7 +421,7 @@ const loadErrorMsg = t(locale, 'player.loadError');
       }
       const dist = measureBandDistribution();
       if (!dist) return;
-      let dominant = 'theta';
+      let dominant = 'alpha';
       let maxPct = 0;
       BAND_DEFS.forEach(({ id }, i) => {
         const prev = smoothBandPct[id];
@@ -637,7 +654,7 @@ const loadErrorMsg = t(locale, 'player.loadError');
       smoothPeakL = null;
       smoothPeakR = null;
       smoothBeat = null;
-      smoothBandPct = { theta: 0.25, alpha: 0.25, beta: 0.25, gamma: 0.25 };
+      smoothBandPct = { delta: 0.2, theta: 0.2, alpha: 0.2, beta: 0.2, gamma: 0.2 };
     });
     audio.addEventListener('pause', () => {
       setPlayerState();
@@ -978,6 +995,13 @@ const loadErrorMsg = t(locale, 'player.loadError');
     color: rgba(245, 158, 11, 0.95);
   }
 
+  .target-mss {
+    margin: 0.65rem 0 0;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    max-width: 70ch;
+  }
+
   .player-actions {
     display: flex;
     flex-wrap: wrap;
@@ -1246,6 +1270,10 @@ const loadErrorMsg = t(locale, 'player.loadError');
     border-radius: 999px;
     transition: width 0.12s ease-out;
   }
+
+  .brain-band-meter.delta { border-left: 3px solid rgba(148, 163, 184, 0.75); }
+  .brain-band-meter.delta .brain-band-fill { background: rgba(148, 163, 184, 0.85); }
+  .brain-band-meter.delta.is-dominant { border-color: rgba(148, 163, 184, 0.55); }
 
   .brain-band-meter.theta { border-left: 3px solid rgba(124, 58, 237, 0.75); }
   .brain-band-meter.theta .brain-band-fill { background: rgba(124, 58, 237, 0.85); }

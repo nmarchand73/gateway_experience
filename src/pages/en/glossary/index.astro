@@ -9,10 +9,19 @@ const { glossary } = loadCurriculum();
 ---
 
 <BaseLayout title={t(locale, 'glossary.title')} locale={locale}>
-  <p class="dossier-banner">FOCUS MAP · CIA GATEWAY 1983</p>
+  <p class="dossier-banner">FOCUS MAP · MONROE UK · CIA 1983</p>
   <header class="hero">
     <h1>{t(locale, 'glossary.title')}</h1>
     <p class="lede">{t(locale, 'glossary.intro')}</p>
+    <p class="lede">{t(locale, 'glossary.phasing')}</p>
+    <p class="lede">{t(locale, 'glossary.bands')}</p>
+    <p class="muted">
+      {t(locale, 'glossary.source')}
+      {' '}
+      <a href="https://www.monroeinstituteuk.org/focus-levels/" target="_blank" rel="noopener noreferrer">{t(locale, 'glossary.sourceLink')}</a>
+      {' · '}
+      <a href="https://www.monroeinstituteuk.org/about-monroe-sound-science/" target="_blank" rel="noopener noreferrer">{t(locale, 'glossary.mssLink')}</a>
+    </p>
   </header>
 
   <div class="grid-waves">

@@ -15,7 +15,9 @@ const WAVE_META = {
     focusLevel: 10,
     title: { en: 'Discovery', fr: 'Découverte' },
     beatHz: 10,
-    bandLabel: { en: 'Alpha/Theta', fr: 'Alpha/Thêta' },
+    // EEG bands: Monroe Institute UK (delta 1–4, theta 4–8, alpha 8–13, beta 13–30, gamma 30–150).
+    // Focus N is a state label, not “N hertz”. beatHz is an unverified |L−R| placeholder.
+    bandLabel: { en: 'α 8–13 Hz (often + θ 4–8)', fr: 'α 8–13 Hz (souvent + θ 4–8)' },
   },
   'wave-ii': {
     roman: 'II',
@@ -23,7 +25,7 @@ const WAVE_META = {
     focusLevel: 12,
     title: { en: 'Threshold', fr: 'Seuil' },
     beatHz: 12,
-    bandLabel: { en: 'Theta', fr: 'Thêta' },
+    bandLabel: { en: 'α 8–13 Hz (12 Hz is alpha, not theta)', fr: 'α 8–13 Hz (12 Hz = alpha, pas thêta)' },
   },
   'wave-iii': {
     roman: 'III',
@@ -31,7 +33,7 @@ const WAVE_META = {
     focusLevel: 12,
     title: { en: 'Freedom', fr: 'Liberté' },
     beatHz: 12,
-    bandLabel: { en: 'Theta', fr: 'Thêta' },
+    bandLabel: { en: 'α 8–13 Hz (12 Hz is alpha, not theta)', fr: 'α 8–13 Hz (12 Hz = alpha, pas thêta)' },
   },
   'wave-iv': {
     roman: 'IV',
@@ -39,7 +41,7 @@ const WAVE_META = {
     focusLevel: 15,
     title: { en: 'Adventure', fr: 'Aventure' },
     beatHz: 15,
-    bandLabel: { en: 'Beta/Alpha', fr: 'Beta/Alpha' },
+    bandLabel: { en: 'β 13–30 Hz (layered mix, not a single tone)', fr: 'β 13–30 Hz (mélange en couches, pas une seule note)' },
   },
   'wave-v': {
     roman: 'V',
@@ -47,7 +49,7 @@ const WAVE_META = {
     focusLevel: 15,
     title: { en: 'Exploring Focus 15', fr: 'Exploration Focus 15' },
     beatHz: 15,
-    bandLabel: { en: 'Beta/Alpha', fr: 'Beta/Alpha' },
+    bandLabel: { en: 'β 13–30 Hz (layered mix, not a single tone)', fr: 'β 13–30 Hz (mélange en couches, pas une seule note)' },
   },
   'wave-vi': {
     roman: 'VI',
@@ -55,7 +57,7 @@ const WAVE_META = {
     focusLevel: 21,
     title: { en: 'Odyssey', fr: 'Odyssée' },
     beatHz: 21,
-    bandLabel: { en: 'Beta', fr: 'Beta' },
+    bandLabel: { en: 'β 13–30 Hz (layered mix, not a single tone)', fr: 'β 13–30 Hz (mélange en couches, pas une seule note)' },
   },
 };
 
@@ -168,7 +170,7 @@ const V2_WAVE_META = {
     focusLevel: 10,
     title: { en: 'Discovery', fr: 'Découverte' },
     beatHz: 10,
-    bandLabel: { en: 'Alpha/Theta', fr: 'Alpha/Thêta' },
+    bandLabel: { en: 'α 8–13 Hz (often + θ 4–8)', fr: 'α 8–13 Hz (souvent + θ 4–8)' },
   },
   'wave-ii': {
     roman: 'II',
@@ -176,7 +178,7 @@ const V2_WAVE_META = {
     focusLevel: 12,
     title: { en: 'Threshold', fr: 'Seuil' },
     beatHz: 12,
-    bandLabel: { en: 'Theta', fr: 'Thêta' },
+    bandLabel: { en: 'α 8–13 Hz (12 Hz is alpha, not theta)', fr: 'α 8–13 Hz (12 Hz = alpha, pas thêta)' },
   },
   'wave-iii': {
     roman: 'III',
@@ -184,7 +186,7 @@ const V2_WAVE_META = {
     focusLevel: 12,
     title: { en: 'Freedom', fr: 'Liberté' },
     beatHz: 12,
-    bandLabel: { en: 'Theta', fr: 'Thêta' },
+    bandLabel: { en: 'α 8–13 Hz (12 Hz is alpha, not theta)', fr: 'α 8–13 Hz (12 Hz = alpha, pas thêta)' },
   },
   'wave-iv': {
     roman: 'IV',
@@ -192,7 +194,7 @@ const V2_WAVE_META = {
     focusLevel: 15,
     title: { en: 'Adventure', fr: 'Aventure' },
     beatHz: 15,
-    bandLabel: { en: 'Beta/Alpha', fr: 'Beta/Alpha' },
+    bandLabel: { en: 'β 13–30 Hz (layered mix, not a single tone)', fr: 'β 13–30 Hz (mélange en couches, pas une seule note)' },
   },
   'wave-v': {
     roman: 'V',
@@ -200,7 +202,7 @@ const V2_WAVE_META = {
     focusLevel: 15,
     title: { en: 'Exploring Focus 15', fr: 'Exploration Focus 15' },
     beatHz: 15,
-    bandLabel: { en: 'Beta/Alpha', fr: 'Beta/Alpha' },
+    bandLabel: { en: 'β 13–30 Hz (layered mix, not a single tone)', fr: 'β 13–30 Hz (mélange en couches, pas une seule note)' },
   },
   'wave-vi': {
     roman: 'VI',
@@ -208,7 +210,7 @@ const V2_WAVE_META = {
     focusLevel: 21,
     title: { en: 'Prospecting', fr: 'Prospection' },
     beatHz: 21,
-    bandLabel: { en: 'Beta', fr: 'Beta' },
+    bandLabel: { en: 'β 13–30 Hz (layered mix, not a single tone)', fr: 'β 13–30 Hz (mélange en couches, pas une seule note)' },
   },
   'wave-vii': {
     roman: 'VII',
@@ -216,7 +218,7 @@ const V2_WAVE_META = {
     focusLevel: 21,
     title: { en: 'Odyssey', fr: 'Odyssée' },
     beatHz: 21,
-    bandLabel: { en: 'Beta', fr: 'Beta' },
+    bandLabel: { en: 'β 13–30 Hz (layered mix, not a single tone)', fr: 'β 13–30 Hz (mélange en couches, pas une seule note)' },
   },
 };
 
@@ -395,46 +397,143 @@ const waves = Object.values(WAVE_META).map((meta) => ({
 
 const supplements = buildSupplements(files);
 
-// Summarized from CIA-RDP96-00788 (McDonnell, 1983) — data/cia-gateway-experience.pdf
+// Focus map: Monroe Institute UK overview + Gateway home-study labels (F3).
+// https://www.monroeinstituteuk.org/focus-levels/
 const glossary = [
   {
-    focus: 3,
-    title: { en: 'Focus 3', fr: 'Focus 3' },
+    focus: 1,
+    title: { en: 'C1 — waking life', fr: 'C1 — veille quotidienne' },
     desc: {
-      en: 'Basic Hemi-Sync entry on the Institute\'s Focus 3 tapes; beyond this level, training gradually adds visualization and objective feedback.',
-      fr: 'Entrée Hemi-Sync de base sur les bandes Focus 3 ; au-delà, la formation enrichit progressivement la visualisation et le retour objectif.',
+      en: 'Ordinary waking consciousness, fully in phase with physical-matter reality. Also called C1. Everything else on this list is a shift of that same awareness — not an exit from a body you leave behind.',
+      fr: 'Conscience de veille ordinaire, entièrement en phase avec la réalité matérielle. Aussi appelée C1. Les autres Focus sont des décalages de cette même conscience — pas une sortie définitive du corps.',
+    },
+  },
+  {
+    focus: 3,
+    title: { en: 'Early Hemi-Sync', fr: 'Hemi-Sync d’entrée' },
+    desc: {
+      en: 'Light Hemi-Sync used on some introductory tapes (including French Wave I orientation). A first step off C1 toward the deeper relaxation of Focus 10; not listed on the Monroe UK overview.',
+      fr: 'Hemi-Sync léger de certaines bandes d’introduction (dont l’orientation Vague I en français). Premier pas hors de C1 vers la relaxation plus profonde du Focus 10 ; absent du panorama Monroe UK.',
     },
   },
   {
     focus: 10,
-    title: { en: 'Focus 10', fr: 'Focus 10' },
+    title: { en: 'Mind awake, body asleep', fr: 'Esprit éveillé, corps endormi' },
     desc: {
-      en: 'Gateway before Focus 12 — sufficient expanded awareness to begin the program\'s practical techniques (mind awake, body asleep).',
-      fr: 'Passage avant le Focus 12 — conscience suffisamment élargie pour les techniques pratiques (esprit éveillé, corps endormi).',
+      en: 'The body is deeply relaxed; the mind stays conscious, awake, and alert. This is the first state Gateway Voyage / Wave I trains you to stabilize — the platform for everything that follows.',
+      fr: 'Le corps est profondément détendu ; l’esprit reste conscient, éveillé et alerte. Premier état que le Gateway Voyage / la Vague I vous apprennent à stabiliser — la base de tout le reste.',
+    },
+  },
+  {
+    focus: 11,
+    title: { en: 'Access Channel', fr: 'Canal d’accès' },
+    desc: {
+      en: 'A communication channel across mental, physical, and emotional awareness. Monroe opens it in each Human Plus exercise (the Humain Plus supplements on this site).',
+      fr: 'Canal de communication entre les niveaux mental, physique et émotionnel. Monroe l’ouvre à chaque exercice Human Plus (suppléments Humain Plus sur ce site).',
     },
   },
   {
     focus: 12,
-    title: { en: 'Focus 12', fr: 'Focus 12' },
+    title: { en: 'Expanded awareness', fr: 'Conscience élargie' },
     desc: {
-      en: 'Expanded awareness with conscious effort; platform for patterning, problem-solving, healing, remote viewing, and out-of-body work.',
-      fr: 'Conscience élargie par effort volontaire ; base du patterning, de la résolution de problèmes, de la guérison, de la vision à distance et du hors-du-corps.',
+      en: 'Awareness widens while the body stays deeply relaxed and “asleep.” Gateway Waves II–IV use this as the working state for patterning, problem-solving, energy tools, and first-stage separation.',
+      fr: 'La conscience s’élargit alors que le corps reste profondément détendu et « endormi ». Les vagues II–IV s’en servent pour le patterning, la résolution de problèmes, les outils d’énergie et la première séparation.',
     },
   },
   {
     focus: 15,
-    title: { en: 'Focus 15', fr: 'Focus 15' },
+    title: { en: 'No-Time', fr: 'Non-Temps' },
     desc: {
-      en: 'Travel into the past — consciousness moves outside time-space to explore personal and other histories; extremely difficult to achieve.',
-      fr: 'Voyage dans le passé — la conscience sort de l\'espace-temps pour explorer l\'histoire personnelle et d\'autres passés ; état très difficile à atteindre.',
+      en: 'Consciousness is far from physical-body signals; linear time drops out of the experience. Often called the Void or Pure Potential. Wave V lives here. (The 1983 CIA paper instead frames 15 as movement “into the past.”)',
+      fr: 'La conscience s’éloigne des signaux du corps ; le temps linéaire n’a plus de prise. Souvent appelé le Vide ou le Potentiel pur. La Vague V s’y tient. (Le rapport CIA 1983 présente plutôt le 15 comme un voyage « dans le passé ».)',
+    },
+  },
+  {
+    focus: 18,
+    title: { en: 'Unconditional love', fr: 'Amour inconditionnel' },
+    desc: {
+      en: 'A state used to cultivate unconditional love and acceptance — less a destination on the home Gateway set than a quality of being that later programmes develop.',
+      fr: 'État où l’on cultive amour inconditionnel et acceptation — moins une étape du coffret Gateway maison qu’une qualité d’être travaillée dans les programmes suivants.',
     },
   },
   {
     focus: 21,
-    title: { en: 'Focus 21', fr: 'Focus 21' },
+    title: { en: 'Bridge to other realities', fr: 'Pont vers d’autres réalités' },
     desc: {
-      en: 'The future — the most advanced Focus state, outside time-space and oriented toward what is coming rather than what has passed.',
-      fr: 'Le futur — état Focus le plus avancé, hors espace-temps, tourné vers ce qui vient plutôt que vers le passé.',
+      en: 'The edge of time/space perception; the mind stays fully conscious and active. Wave VI / Odyssey (classic) and Wave VII (v2) aim here. (The CIA paper treats 21 as “the future.”)',
+      fr: 'Lisière de la perception espace-temps ; l’esprit reste pleinement conscient et actif. Vague VI / Odyssée (classique) et Vague VII (v2). (Le rapport CIA en fait « le futur ».)',
+    },
+  },
+  {
+    focus: 22,
+    title: { en: 'Time/space border', fr: 'Frontière espace-temps' },
+    desc: {
+      en: 'The border between time/space and non-physical states of being — associated with the comatose condition. Beyond Gateway home study (Lifeline and later).',
+      fr: 'Frontière entre l’espace-temps et les états non physiques — associée à l’état comateux. Au-delà du Gateway à domicile (Lifeline et suivants).',
+    },
+  },
+  {
+    focus: 23,
+    title: { en: 'New arrivals', fr: 'Nouveaux arrivants' },
+    desc: {
+      en: 'The condition someone may meet immediately after physical death — territory of the “new arrivals.” Mapped in Lifeline, not in the six-wave home set.',
+      fr: 'État où l’on peut se trouver juste après la mort physique — territoire des « nouveaux arrivants ». Cartographié dans Lifeline, pas dans les six vagues à domicile.',
+    },
+  },
+  {
+    focus: 24,
+    title: { en: 'Belief System Territories', fr: 'Territoires des croyances' },
+    desc: {
+      en: 'Non-physical activity shaped by simple or primitive religious and cultural beliefs. Together with 25–26, the Belief System Territories: thought-responsive places explored in Lifeline and Exploration 27.',
+      fr: 'Activité non physique modelée par des croyances religieuses ou culturelles simples ou primitives. Avec 25–26 : Territoires des systèmes de croyance, environnements sensibles à la pensée (Lifeline, Exploration 27).',
+    },
+  },
+  {
+    focus: 25,
+    title: { en: 'Organised religions', fr: 'Religions organisées' },
+    desc: {
+      en: 'Expression of the major organised religious beliefs of recent human history — still inside the Belief System Territories (24–26).',
+      fr: 'Expression des grandes croyances religieuses organisées de l’histoire humaine récente — toujours dans les Territoires des croyances (24–26).',
+    },
+  },
+  {
+    focus: 26,
+    title: { en: 'Personal belief structures', fr: 'Croyances personnelles' },
+    desc: {
+      en: 'A few areas holding structures and knowledge of highly individual religious or other beliefs grounded in direct experience of self. Last of the Belief System Territories.',
+      fr: 'Quelques zones qui portent les structures et savoirs de croyances très individuelles, religieuses ou non, fondées sur l’expérience directe de soi. Dernier des Territoires des croyances.',
+    },
+  },
+  {
+    focus: 27,
+    title: { en: 'The way-station', fr: 'La station' },
+    desc: {
+      en: 'Near the edge of human thought capacity: a way-station (not a terminus) for rest after the trauma of physical death, life review, and planning the next phase. Core of Exploration 27.',
+      fr: 'Près de la limite de la pensée humaine : une station (pas un terminus) pour se reposer après le traumatisme de la mort physique, revoir sa vie et préparer la phase suivante. Cœur d’Exploration 27.',
+    },
+  },
+  {
+    focus: '34/35',
+    title: { en: 'The Gathering', fr: 'Le Rassemblement' },
+    desc: {
+      en: 'Area of the Gathering: beings from many locations in the physical universe, described as assembled to witness coming Earth changes. First mapped in Bob Monroe’s Far Journeys (Starlines programmes).',
+      fr: 'Zone du Rassemblement : êtres venus de nombreux lieux de l’univers physique, décrits comme réunis pour témoigner des changements terrestres à venir. Cartographié dans Far Journeys (programmes Starlines).',
+    },
+  },
+  {
+    focus: 42,
+    title: { en: 'I-There cluster', fr: 'Grappe I-There' },
+    desc: {
+      en: 'I-There cluster consciousness — a later Monroe label for a group identity beyond a single lifetime. Far beyond the Gateway home waves.',
+      fr: 'Conscience de grappe I-There — label Monroe plus tardif pour une identité de groupe au-delà d’une seule vie. Bien au-delà des vagues Gateway à domicile.',
+    },
+  },
+  {
+    focus: 49,
+    title: { en: 'Sea of I-There clusters', fr: 'Mer de grappes I-There' },
+    desc: {
+      en: 'A “sea” of I-There clusters — the outermost Focus label on the Monroe UK overview.',
+      fr: 'Une « mer » de grappes I-There — le label Focus le plus lointain du panorama Monroe UK.',
     },
   },
 ];
