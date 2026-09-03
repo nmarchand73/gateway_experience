@@ -38,49 +38,47 @@ const livePeakLabel = t(locale, 'player.livePeak');
 const analysisOffMsg = t(locale, 'player.analysisOff');
 const analysisSilentMsg = t(locale, 'player.analysisSilent');
 const loadErrorMsg = t(locale, 'player.loadError');
+const playCmd = t(locale, 'player.playCmd');
+const pauseCmd = t(locale, 'player.pauseCmd');
 ---
 
-<section class:list={['player-wrap', 'card']} data-gateway-player data-state="idle">
+<section class="player-wrap" data-gateway-player data-state="idle">
   <audio preload="metadata" src={src} data-audio crossorigin="anonymous" class="sr-audio">
     <p class="muted">{t(locale, 'player.noFlac')} <a href={downloadHref}>{t(locale, 'session.download')}</a></p>
   </audio>
 
+  <p class="deck-banner mono" aria-hidden="true">DECK // HEMI-SYNC // PHONES</p>
   <div class="player-transport">
     <button type="button" class="btn-play" data-play aria-label={t(locale, 'player.play')}>
-      <svg class="icon icon-play" data-play-icon viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
-      <svg class="icon icon-pause" data-pause-icon viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M6 5h4v14H6zm8 0h4v14h-4z" fill="currentColor"/></svg>
+      <span aria-hidden="true">[</span>
+      <span data-play-cmd>{playCmd}</span>
+      <span aria-hidden="true">]</span>
     </button>
 
     <div class="transport-main">
       <div class="scrub-wrap">
-        <div class="scrub-rail" aria-hidden="true">
-          <div class="scrub-progress" data-scrub-progress style="width: 0%"></div>
-        </div>
+        <span class="scrub-ascii mono" data-scrub-ascii aria-hidden="true">[&gt;-----------------------------]</span>
         <input type="range" min="0" max="1000" value="0" step="1" class="scrub" data-scrub aria-label={t(locale, 'player.seek')} />
       </div>
       <div class="transport-row">
         <span class="time mono">
-          <span data-current>0:00</span><span class="time-sep"> / </span><span data-duration>—:—</span>
+          <span data-current>0:00</span><span class="time-sep">/</span><span data-duration>--:--</span>
         </span>
         <div class="transport-tools">
-          <button type="button" class="btn-icon" data-skip="-10" aria-label={t(locale, 'player.skipBack')}>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="7" fill="currentColor">10</text></svg>
-          </button>
-          <button type="button" class="btn-icon" data-skip="10" aria-label={t(locale, 'player.skipForward')}>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="7" fill="currentColor">10</text></svg>
-          </button>
+          <button type="button" class="btn-icon" data-skip="-10" aria-label={t(locale, 'player.skipBack')}>-10</button>
+          <button type="button" class="btn-icon" data-skip="10" aria-label={t(locale, 'player.skipForward')}>+10</button>
           <label class="speed">
-            <span class="sr-only">{t(locale, 'player.speed')}</span>
-            <select data-speed>
-              <option value="0.8">0.8×</option>
-              <option value="1" selected>1×</option>
-              <option value="1.25">1.25×</option>
-              <option value="1.5">1.5×</option>
+            <span class="ctl-k">{t(locale, 'player.rate')}</span>
+            <select data-speed aria-label={t(locale, 'player.speed')}>
+              <option value="0.8">0.8x</option>
+              <option value="1" selected>1.0x</option>
+              <option value="1.25">1.25x</option>
+              <option value="1.5">1.5x</option>
             </select>
           </label>
           <label class="volume" title={t(locale, 'player.volume')}>
-            <svg class="vol-icon" data-vol-icon viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 10v4h4l5 5V5L7 10H3zm13.5 2c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03z"/></svg>
-            <span class="sr-only">{t(locale, 'player.volume')}</span>
+            <span class="ctl-k">{t(locale, 'player.vol')}</span>
+            <span class="vol-ascii mono" data-vol-ascii aria-hidden="true">[##########]</span>
             <input type="range" min="0" max="100" value="100" step="1" class="vol-slider" data-volume aria-label={t(locale, 'player.volume')} />
           </label>
         </div>
@@ -90,38 +88,35 @@ const loadErrorMsg = t(locale, 'player.loadError');
 
   <div class="player-targets" aria-label={t(locale, 'player.targetsTitle')}>
     <p class="player-targets-title">{t(locale, 'player.targetsTitle')}</p>
-    <div class="target-grid">
-      <div class:list={['target-card', 'target-beat', beatHz != null && 'is-highlight']}>
-        <span class="target-k">{t(locale, 'session.beat')}</span>
-        <span class="target-v mono">{beatHz != null ? `${beatHz} Hz` : '—'}</span>
-        {beatHz != null && <span class="target-note muted">{t(locale, 'player.beatTargetNote')}</span>}
-      </div>
-      <div class="target-card">
-        <span class="target-k">{t(locale, 'session.left')}</span>
-        <span class="target-v mono" data-freq-l>{fmtHz(leftHz)}</span>
-        <span class="target-live mono" data-live-l></span>
-      </div>
-      <div class="target-card">
-        <span class="target-k">{t(locale, 'session.right')}</span>
-        <span class="target-v mono" data-freq-r>{fmtHz(rightHz)}</span>
-        <span class="target-live mono" data-live-r></span>
-      </div>
-      <div class="target-card">
-        <span class="target-k">{t(locale, 'session.focus')}</span>
-        <span class="target-v mono">{focusLevel ?? '—'}</span>
-      </div>
-      {bandLabel && (
-        <div class="target-card target-wide">
-          <span class="target-k">{t(locale, 'session.band')}</span>
-          <span class="target-v">{bandLabel}</span>
-        </div>
-      )}
-      <div class="target-card target-wide target-live-beat">
-        <span class="target-k">{t(locale, 'player.liveBeat')}</span>
-        <span class="target-v mono" data-live-beat>—</span>
-      </div>
-    </div>
+    <table class="telemetry">
+      <thead>
+        <tr>
+          <th>{t(locale, 'session.beat')}</th>
+          <th title={t(locale, 'session.left')}>{t(locale, 'player.leftHdr')}</th>
+          <th title={t(locale, 'session.right')}>{t(locale, 'player.rightHdr')}</th>
+          <th>{t(locale, 'session.focus')}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono">{beatHz != null ? `${beatHz} Hz` : '--'}</td>
+          <td class="mono" data-freq-l>{fmtHz(leftHz)}</td>
+          <td class="mono" data-freq-r>{fmtHz(rightHz)}</td>
+          <td class="mono">{focusLevel ?? '--'}</td>
+        </tr>
+        <tr class="telemetry-live">
+          <td class="mono"><span class="live-k">{t(locale, 'player.liveBeat')}</span> <span data-live-beat>--</span></td>
+          <td class="mono" data-live-l></td>
+          <td class="mono" data-live-r></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    {bandLabel && (
+      <p class="band-line mono"><span class="ctl-k">{t(locale, 'session.band')}</span> {bandLabel}</p>
+    )}
     <p class="analysis-status muted" data-analysis-status hidden></p>
+    {beatHz != null && <p class="target-note muted">{t(locale, 'player.beatTargetNote')}</p>}
     {!reviewed && <p class="target-warn">{t(locale, 'session.unreviewedShort')}</p>}
     <p class="target-mss muted">{t(locale, 'player.ciaReportBody')}</p>
   </div>
@@ -230,21 +225,20 @@ const loadErrorMsg = t(locale, 'player.loadError');
   </details>
 </section>
 
-<script define:vars={{ leftHz, rightHz, beatHz, loadErrorMsg, livePeakLabel, analysisOffMsg, analysisSilentMsg }}>
+<script define:vars={{ leftHz, rightHz, beatHz, loadErrorMsg, livePeakLabel, analysisOffMsg, analysisSilentMsg, playCmd, pauseCmd }}>
   document.querySelectorAll('[data-gateway-player]').forEach((root) => {
     const audio = root.querySelector('[data-audio]');
     if (!audio) return;
 
     const playBtn = root.querySelector('[data-play]');
-    const playIcon = root.querySelector('[data-play-icon]');
-    const pauseIcon = root.querySelector('[data-pause-icon]');
+    const playCmdEl = root.querySelector('[data-play-cmd]');
     const scrub = root.querySelector('[data-scrub]');
-    const scrubProgress = root.querySelector('[data-scrub-progress]');
+    const scrubAscii = root.querySelector('[data-scrub-ascii]');
     const currentEl = root.querySelector('[data-current]');
     const durationEl = root.querySelector('[data-duration]');
     const speedSel = root.querySelector('[data-speed]');
     const volumeEl = root.querySelector('[data-volume]');
-    const volIcon = root.querySelector('[data-vol-icon]');
+    const volAscii = root.querySelector('[data-vol-ascii]');
     const canvasL = root.querySelector('[data-viz-l]');
     const canvasR = root.querySelector('[data-viz-r]');
     const techPanel = root.querySelector('.tech-panel');
@@ -283,8 +277,7 @@ const loadErrorMsg = t(locale, 'player.loadError');
     const setPlayerState = () => {
       const playing = !audio.paused && !audio.ended;
       root.dataset.state = playing ? 'playing' : audio.ended ? 'ended' : 'idle';
-      if (playIcon) playIcon.hidden = playing;
-      if (pauseIcon) pauseIcon.hidden = !playing;
+      if (playCmdEl) playCmdEl.textContent = playing ? pauseCmd : playCmd;
       const crt = window.__gatewayCrt;
       let crtOff = false;
       try {
@@ -302,14 +295,24 @@ const loadErrorMsg = t(locale, 'player.loadError');
       }
     };
 
+    const asciiVol = (pct, width = 10) => {
+      const n = Math.round((Math.max(0, Math.min(100, pct)) / 100) * width);
+      return `[${'#'.repeat(n)}${'-'.repeat(width - n)}]`;
+    };
+
+    const asciiTrack = (pct, width = 30) => {
+      const p = Math.max(0, Math.min(100, pct));
+      const pos = Math.round((p / 100) * (width - 1));
+      let s = '';
+      for (let i = 0; i < width; i++) s += i < pos ? '=' : i === pos ? '>' : '-';
+      return `[${s}]`;
+    };
+
     const applyVolume = (pct) => {
       const v = Math.max(0, Math.min(1, pct / 100));
       audio.volume = v;
       if (gainNode) gainNode.gain.value = v;
-      if (volIcon) {
-        volIcon.style.opacity = v === 0 ? '0.35' : '1';
-        volIcon.classList.toggle('is-muted', v === 0);
-      }
+      if (volAscii) volAscii.textContent = asciiVol(pct);
     };
 
     let ac = null;
@@ -340,11 +343,11 @@ const loadErrorMsg = t(locale, 'player.loadError');
     const PEAK_SMOOTH = 0.88;
     const BAND_SMOOTH = 0.86;
     const BAND_DEFS = [
-      { id: 'delta', lo: 1, hi: 4, fill: 'rgba(148, 163, 184, 0.1)', bar: 'rgba(148, 163, 184, 0.85)' },
-      { id: 'theta', lo: 4, hi: 8, fill: 'rgba(124, 58, 237, 0.1)', bar: 'rgba(124, 58, 237, 0.85)' },
-      { id: 'alpha', lo: 8, hi: 13, fill: 'rgba(0, 229, 192, 0.08)', bar: 'rgba(0, 229, 192, 0.85)' },
-      { id: 'beta', lo: 13, hi: 30, fill: 'rgba(59, 130, 246, 0.07)', bar: 'rgba(59, 130, 246, 0.85)' },
-      { id: 'gamma', lo: 30, hi: 150, fill: 'rgba(245, 158, 11, 0.06)', bar: 'rgba(245, 158, 11, 0.85)' },
+      { id: 'delta', lo: 1, hi: 4, fill: 'rgba(108, 255, 108, 0.03)' },
+      { id: 'theta', lo: 4, hi: 8, fill: 'rgba(108, 255, 108, 0.05)' },
+      { id: 'alpha', lo: 8, hi: 13, fill: 'rgba(108, 255, 108, 0.08)' },
+      { id: 'beta', lo: 13, hi: 30, fill: 'rgba(108, 255, 108, 0.05)' },
+      { id: 'gamma', lo: 30, hi: 150, fill: 'rgba(108, 255, 108, 0.03)' },
     ];
     const BRAIN_BANDS = BAND_DEFS;
     const logF = (hz) => Math.log10(hz);
@@ -540,7 +543,7 @@ const loadErrorMsg = t(locale, 'player.loadError');
       const usableH = h - top - axisH;
       const plotBottom = top + usableH;
 
-      ctx.fillStyle = 'rgba(5, 12, 18, 0.92)';
+      ctx.fillStyle = '#001000';
       ctx.fillRect(0, 0, w, h);
 
       for (const band of BRAIN_BANDS) {
@@ -550,7 +553,7 @@ const loadErrorMsg = t(locale, 'player.loadError');
         ctx.fillRect(x0, top, Math.max(1, x1 - x0), usableH);
       }
 
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+      ctx.strokeStyle = 'rgba(108, 255, 108, 0.22)';
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(padX, plotBottom);
@@ -559,15 +562,13 @@ const loadErrorMsg = t(locale, 'player.loadError');
 
       for (const hz of AXIS_TICKS) {
         const x = hzToX(hz, w, padX);
-        drawVLine(ctx, x, top, plotBottom, 'rgba(255, 255, 255, 0.06)', 1);
+        drawVLine(ctx, x, top, plotBottom, 'rgba(108, 255, 108, 0.12)', 1);
       }
 
       const bars = Math.min(120, Math.max(64, Math.floor(w / 3)));
       const barW = (w - padX * 2) / bars;
-      const barBase =
-        channel === 'r' ? 'rgba(124, 58, 237, 0.92)' : 'rgba(0, 229, 192, 0.92)';
-      const barGlow =
-        channel === 'r' ? 'rgba(167, 139, 250, 0.35)' : 'rgba(0, 229, 192, 0.35)';
+      const barBase = channel === 'r' ? 'rgba(90, 220, 90, 0.88)' : 'rgba(57, 255, 20, 0.92)';
+      const barGlow = 'rgba(57, 255, 20, 0.22)';
 
       for (let i = 0; i < bars; i++) {
         const f0 = hzAtT(i / bars);
@@ -593,20 +594,20 @@ const loadErrorMsg = t(locale, 'player.loadError');
 
       if (detectedHz != null && detectedHz >= F_LOW && detectedHz <= F_HIGH) {
         const x = hzToX(detectedHz, w, padX);
-        drawVLine(ctx, x, top, plotBottom, 'rgba(251, 191, 36, 0.92)', 2, [4, 3]);
-        ctx.fillStyle = 'rgba(251, 191, 36, 0.95)';
-        ctx.font = '10px JetBrains Mono, monospace';
+        drawVLine(ctx, x, top, plotBottom, 'rgba(180, 255, 180, 0.95)', 1, [3, 3]);
+        ctx.fillStyle = 'rgba(180, 255, 180, 0.95)';
+        ctx.font = '13px VT323, monospace';
         ctx.textAlign = 'center';
         ctx.fillText(fmtPeak(detectedHz).replace(' Hz', ''), x, top + 10);
       }
 
       if (carrierHz != null && carrierHz >= F_LOW && carrierHz <= F_HIGH) {
         const x = hzToX(carrierHz, w, padX);
-        drawVLine(ctx, x, top, plotBottom, 'rgba(167, 139, 250, 0.95)', 1.5);
+        drawVLine(ctx, x, top, plotBottom, 'rgba(108, 255, 108, 0.55)', 1);
       }
 
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-      ctx.font = '11px JetBrains Mono, monospace';
+      ctx.fillStyle = 'rgba(108, 255, 108, 0.55)';
+      ctx.font = '13px VT323, monospace';
       ctx.textAlign = 'center';
       const labelY = plotBottom + 16;
       for (const hz of AXIS_TICKS) {
@@ -709,7 +710,7 @@ const loadErrorMsg = t(locale, 'player.loadError');
       if (!scrub || !audio.duration) return;
       const pct = (audio.currentTime / audio.duration) * 100;
       scrub.value = String(Math.floor((audio.currentTime / audio.duration) * 1000));
-      if (scrubProgress) scrubProgress.style.width = `${pct}%`;
+      if (scrubAscii) scrubAscii.textContent = asciiTrack(pct);
     };
 
     audio.addEventListener('timeupdate', () => {
@@ -720,7 +721,7 @@ const loadErrorMsg = t(locale, 'player.loadError');
     scrub?.addEventListener('input', () => {
       if (!audio.duration) return;
       audio.currentTime = (Number(scrub.value) / 1000) * audio.duration;
-      if (scrubProgress) scrubProgress.style.width = `${(Number(scrub.value) / 1000) * 100}%`;
+      if (scrubAscii) scrubAscii.textContent = asciiTrack((Number(scrub.value) / 1000) * 100);
     });
 
     root.querySelectorAll('[data-skip]').forEach((btn) => {
@@ -759,22 +760,28 @@ const loadErrorMsg = t(locale, 'player.loadError');
 
 <style>
   .player-wrap {
-    padding: 1rem 1.1rem 1.15rem;
+    padding: 0.7rem 0.85rem 0.85rem;
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background:
-      radial-gradient(ellipse 120% 80% at 50% -20%, rgba(0, 229, 192, 0.07), transparent 55%),
-      rgba(8, 12, 22, 0.92);
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    gap: 0.45rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0;
+    background: #001000;
+    box-shadow: inset 0 0 0 1px rgba(108, 255, 108, 0.06);
   }
 
   .player-wrap[data-state='playing'] {
-    border-color: rgba(0, 229, 192, 0.28);
-    box-shadow:
-      0 0 0 1px rgba(0, 229, 192, 0.08),
-      0 12px 40px rgba(0, 0, 0, 0.35);
+    border-color: var(--accent);
+  }
+
+  .deck-banner {
+    margin: 0;
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stamp);
+    opacity: 0.8;
   }
 
   .sr-audio {
@@ -792,33 +799,33 @@ const loadErrorMsg = t(locale, 'player.loadError');
   .player-transport {
     display: flex;
     align-items: flex-start;
-    gap: 0.85rem;
+    gap: 0.75rem;
     min-width: 0;
   }
 
   .btn-play {
     flex-shrink: 0;
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 229, 192, 0.35);
-    background: linear-gradient(145deg, rgba(0, 229, 192, 0.22), rgba(124, 58, 237, 0.12));
+    min-width: 6.5rem;
+    min-height: 2.6rem;
+    padding: 0.25rem 0.45rem;
+    border-radius: 0;
+    border: 1px solid var(--accent);
+    background: transparent;
     color: var(--accent);
     cursor: pointer;
-    display: grid;
-    place-items: center;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    box-shadow: 0 4px 18px rgba(0, 229, 192, 0.12);
+    font-family: var(--font-terminal);
+    font-size: 1.15rem;
+    letter-spacing: 0.12em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15rem;
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.45);
   }
 
-  .btn-play:hover {
-    transform: scale(1.04);
-    box-shadow: 0 6px 22px rgba(0, 229, 192, 0.2);
-  }
-
-  .btn-play .icon {
-    width: 22px;
-    height: 22px;
+  .btn-play:hover,
+  .player-wrap[data-state='playing'] .btn-play {
+    background: rgba(57, 255, 20, 0.12);
   }
 
   .transport-main {
@@ -826,61 +833,35 @@ const loadErrorMsg = t(locale, 'player.loadError');
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.45rem;
-    padding-top: 0.35rem;
+    gap: 0.35rem;
   }
 
   .scrub-wrap {
     position: relative;
-    height: 22px;
+    min-height: 1.6rem;
     display: flex;
     align-items: center;
   }
 
-  .scrub-rail {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 5px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
+  .scrub-ascii {
+    display: block;
+    width: 100%;
+    font-size: clamp(0.8rem, 2.2vw, 1.05rem);
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    white-space: nowrap;
     overflow: hidden;
     pointer-events: none;
   }
 
-  .scrub-progress {
-    height: 100%;
-    width: 0%;
-    border-radius: 999px;
-    background: linear-gradient(90deg, rgba(0, 229, 192, 0.85), rgba(124, 58, 237, 0.75));
-    transition: width 0.08s linear;
-  }
-
   .scrub {
-    position: relative;
+    position: absolute;
+    inset: 0;
     z-index: 1;
     width: 100%;
     margin: 0;
-    background: transparent;
-    accent-color: transparent;
-    height: 22px;
+    opacity: 0;
     cursor: pointer;
-  }
-
-  .scrub::-webkit-slider-runnable-track {
-    height: 5px;
-    background: transparent;
-  }
-
-  .scrub::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 14px;
-    height: 14px;
-    margin-top: -4.5px;
-    border-radius: 50%;
-    background: var(--accent);
-    border: 2px solid rgba(5, 5, 16, 0.9);
-    box-shadow: 0 0 0 2px rgba(0, 229, 192, 0.25);
   }
 
   .transport-row {
@@ -888,174 +869,173 @@ const loadErrorMsg = t(locale, 'player.loadError');
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
+    gap: 0.4rem 0.75rem;
   }
 
   .time {
-    font-size: 0.78rem;
-    color: var(--text-muted);
+    font-size: 1rem;
+    color: var(--text);
   }
 
-  .time-sep { opacity: 0.45; }
+  .time-sep { opacity: 0.45; margin: 0 0.2rem; }
 
   .transport-tools {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.35rem 0.5rem;
+    gap: 0.35rem 0.55rem;
   }
 
-  .btn-icon {
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    background: rgba(0, 0, 0, 0.25);
+  .btn-icon,
+  .speed select {
+    font-family: var(--font-terminal);
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    min-height: 2.1rem;
+    padding: 0 0.45rem;
+    border: 1px solid var(--border);
+    border-radius: 0;
+    background: transparent;
     color: var(--text);
     cursor: pointer;
-    display: grid;
-    place-items: center;
+    appearance: none;
+    -webkit-appearance: none;
   }
 
-  .btn-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .btn-icon:hover {
-    border-color: rgba(0, 229, 192, 0.35);
+  .btn-icon:hover,
+  .speed select:hover {
+    border-color: var(--accent);
     color: var(--accent);
   }
 
-  .speed select {
-    font-size: 0.72rem;
-    min-height: 36px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text);
-    border-radius: 8px;
-    padding: 0.35rem 0.5rem;
+  .speed {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .ctl-k {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
   }
 
   .volume {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    min-width: 120px;
+    gap: 0.35rem;
+    position: relative;
+    min-width: 8.5rem;
   }
 
-  .vol-icon {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    opacity: 0.9;
-    transition: opacity 0.15s ease;
-  }
-
-  .vol-icon.is-muted {
-    opacity: 0.35;
+  .vol-ascii {
+    font-size: 1rem;
+    color: var(--accent);
+    pointer-events: none;
   }
 
   .vol-slider {
-    flex: 1;
-    min-width: 72px;
-    accent-color: var(--accent);
-    height: 4px;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
   }
 
   .player-targets {
-    padding: 0.75rem 0.85rem;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(0, 0, 0, 0.22);
+    padding: 0.45rem 0 0;
+    border-top: 1px dashed var(--border);
   }
 
   .player-targets-title {
-    margin: 0 0 0.55rem;
-    font-size: 0.68rem;
+    margin: 0 0 0.4rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     color: var(--text-muted);
   }
 
-  .target-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 0.45rem;
+  .telemetry {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
   }
 
-  .target-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    padding: 0.45rem 0.55rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    background: rgba(255, 255, 255, 0.02);
-    min-width: 0;
-  }
-
-  .target-card.target-wide {
-    grid-column: 1 / -1;
-  }
-
-  .target-card.target-beat.is-highlight {
-    border-color: rgba(0, 229, 192, 0.4);
-    background: rgba(0, 229, 192, 0.06);
-  }
-
-  .target-k {
-    font-size: 0.62rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
-  }
-
-  .target-v {
+  .telemetry th,
+  .telemetry td {
+    border: 1px solid var(--border);
+    padding: 0.35rem 0.45rem;
+    text-align: left;
+    vertical-align: top;
     font-size: 0.95rem;
-    font-weight: 600;
+  }
+
+  .telemetry th {
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  .telemetry td {
     color: var(--text);
   }
 
-  .target-live {
-    display: block;
-    margin-top: 0.2rem;
-    font-size: 0.85rem;
+  .telemetry-live td {
     color: var(--accent);
-    min-height: 1.1em;
+    font-size: 0.9rem;
+  }
+
+  .live-k {
+    display: block;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .band-line {
+    margin: 0.4rem 0 0;
+    padding: 0.3rem 0.45rem;
+    border: 1px solid var(--border);
+    font-size: 0.95rem;
   }
 
   .analysis-status {
-    margin: 0.5rem 0 0;
-    font-size: 0.78rem;
+    margin: 0.45rem 0 0;
+    font-size: 0.85rem;
+  }
+
+  .target-note,
+  .target-mss {
+    margin: 0.45rem 0 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    max-width: 72ch;
   }
 
   .target-warn {
-    margin: 0.55rem 0 0;
-    font-size: 0.72rem;
-    color: rgba(245, 158, 11, 0.95);
-  }
-
-  .target-mss {
-    margin: 0.65rem 0 0;
-    font-size: 0.78rem;
-    line-height: 1.45;
-    max-width: 70ch;
+    margin: 0.45rem 0 0;
+    font-size: 0.8rem;
+    color: var(--stamp);
   }
 
   .player-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-    padding-top: 0.15rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    gap: 0.35rem 1rem;
+    padding-top: 0.4rem;
+    border-top: 1px dashed var(--border);
   }
 
   .action-link {
-    font-size: 0.74rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
   .action-link:hover {
@@ -1065,13 +1045,13 @@ const loadErrorMsg = t(locale, 'player.loadError');
 
   .player-load-error {
     margin: 0.35rem 0 0;
-    font-size: 0.82rem;
-    color: rgba(245, 158, 11, 0.95);
+    font-size: 0.9rem;
+    color: var(--stamp);
   }
 
   .tech-panel {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 0.65rem;
+    border-top: 1px dashed var(--border);
+    padding-top: 0.35rem;
   }
 
   .tech-panel summary {
@@ -1083,132 +1063,102 @@ const loadErrorMsg = t(locale, 'player.loadError');
     align-items: baseline;
     justify-content: space-between;
     gap: 0.35rem 0.75rem;
-    padding: 0.35rem 0;
+    padding: 0.25rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
   .tech-panel summary::-webkit-details-marker { display: none; }
 
   .tech-summary-label {
-    font-size: 0.82rem;
-    font-weight: 600;
+    font-size: 0.95rem;
     color: var(--text);
   }
 
   .tech-summary-hint {
-    font-size: 0.68rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
   }
 
   .tech-panel-body {
-    padding-top: 0.65rem;
+    padding-top: 0.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
+    gap: 0.5rem;
   }
 
-  .spectrum-caption {
+  .spectrum-caption,
+  .detect-hint,
+  .brain-dist-hint {
     margin: 0;
-    font-size: 0.72rem;
+    font-size: 0.8rem;
     line-height: 1.4;
   }
 
   .live-stats {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.45rem;
+    gap: 0;
   }
 
   .stat-card {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
-    padding: 0.5rem 0.55rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(0, 0, 0, 0.25);
+    gap: 0.1rem;
+    padding: 0.35rem 0.45rem;
+    border: 1px solid var(--border);
+    border-radius: 0;
     min-width: 0;
   }
 
-  .stat-card.stat-l { border-left: 3px solid rgba(0, 229, 192, 0.75); }
-  .stat-card.stat-r { border-left: 3px solid rgba(124, 58, 237, 0.75); }
-  .stat-card.stat-beat { border-left: 3px solid rgba(251, 191, 36, 0.75); }
-
   .stat-k {
-    font-size: 0.62rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     color: var(--text-muted);
   }
 
   .stat-v {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .detect-hint {
-    margin: 0;
-    font-size: 0.68rem;
-    line-height: 1.35;
+    font-size: 1.05rem;
+    color: var(--accent);
   }
 
   .brain-legend-marks {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem 0.55rem;
-    align-items: center;
-    font-size: 0.68rem;
+    gap: 0.45rem 0.75rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
-  .brain-mark {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.12rem 0.4rem;
-    border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(0, 0, 0, 0.2);
-  }
-
-  .brain-mark.carrier::before {
+  .brain-mark.carrier::before,
+  .brain-mark.detected::before {
     content: '';
-    width: 10px;
+    display: inline-block;
+    width: 0.85rem;
     height: 2px;
-    background: rgba(167, 139, 250, 0.95);
-    border-radius: 1px;
+    margin-right: 0.35rem;
+    vertical-align: middle;
+    background: var(--accent);
   }
 
   .brain-mark.detected::before {
-    content: '';
-    width: 10px;
-    height: 2px;
-    background: rgba(251, 191, 36, 0.95);
-    border-radius: 1px;
+    background: rgba(180, 255, 180, 0.95);
   }
 
   .spectrum-row {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.55rem;
+    gap: 0.4rem;
   }
 
   .viz-block {
-    border-radius: 10px;
-    padding: 0.45rem 0.5rem 0.5rem;
+    padding: 0.3rem 0.4rem 0.4rem;
     min-width: 0;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(0, 0, 0, 0.35);
-  }
-
-  .viz-block.viz-l {
-    border-color: rgba(0, 229, 192, 0.18);
-    box-shadow: inset 0 1px 0 rgba(0, 229, 192, 0.08);
-  }
-
-  .viz-block.viz-r {
-    border-color: rgba(124, 58, 237, 0.22);
-    box-shadow: inset 0 1px 0 rgba(124, 58, 237, 0.08);
+    border: 1px solid var(--border);
+    background: #000800;
   }
 
   .viz-head {
@@ -1216,179 +1166,131 @@ const loadErrorMsg = t(locale, 'player.loadError');
     align-items: baseline;
     justify-content: space-between;
     gap: 0.5rem;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.25rem;
   }
 
   .viz-channel {
-    font-size: 0.65rem;
-    font-weight: 700;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: var(--text-muted);
   }
 
   .viz-peak {
-    font-size: 0.72rem;
-    color: rgba(251, 191, 36, 0.95);
-    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent);
   }
 
   .viz-canvas {
     display: block;
     width: 100%;
-    height: 168px;
-    min-height: 140px;
-    border-radius: 6px;
+    height: 148px;
+    min-height: 128px;
+    border-radius: 0;
   }
 
   .brain-dist {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
-    padding-top: 0.25rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    gap: 0.35rem;
+    padding-top: 0.35rem;
+    border-top: 1px dashed var(--border);
   }
 
   .brain-dist-title {
     margin: 0;
-    font-size: 0.68rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: var(--text-muted);
   }
 
   .brain-dist-meters {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.45rem;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.3rem;
   }
 
   .brain-band-meter {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
-    padding: 0.35rem 0.45rem 0.4rem;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(0, 0, 0, 0.22);
+    gap: 0.2rem;
+    padding: 0.25rem 0.35rem;
+    border: 1px solid var(--border);
+    border-radius: 0;
     min-width: 0;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
   .brain-band-meter.is-dominant {
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+    border-color: var(--accent);
   }
 
   .brain-band-head {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.2rem 0.35rem;
-    font-size: 0.68rem;
+    gap: 0.15rem 0.3rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
   }
 
   .brain-band-k {
-    font-weight: 700;
-    font-size: 0.72rem;
+    font-size: 0.95rem;
+    color: var(--text);
   }
 
   .brain-band-pct {
     margin-left: auto;
-    font-size: 0.78rem;
-    color: var(--text);
+    font-size: 0.9rem;
+    color: var(--accent);
   }
 
   .brain-band-track {
-    height: 5px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.06);
+    height: 6px;
+    background: rgba(108, 255, 108, 0.12);
     overflow: hidden;
   }
 
   .brain-band-fill {
     height: 100%;
     width: 0%;
-    border-radius: 999px;
-    transition: width 0.12s ease-out;
-  }
-
-  .brain-band-meter.delta { border-left: 3px solid rgba(148, 163, 184, 0.75); }
-  .brain-band-meter.delta .brain-band-fill { background: rgba(148, 163, 184, 0.85); }
-  .brain-band-meter.delta.is-dominant { border-color: rgba(148, 163, 184, 0.55); }
-
-  .brain-band-meter.theta { border-left: 3px solid rgba(124, 58, 237, 0.75); }
-  .brain-band-meter.theta .brain-band-fill { background: rgba(124, 58, 237, 0.85); }
-  .brain-band-meter.theta.is-dominant { border-color: rgba(124, 58, 237, 0.55); }
-
-  .brain-band-meter.alpha { border-left: 3px solid rgba(0, 229, 192, 0.75); }
-  .brain-band-meter.alpha .brain-band-fill { background: rgba(0, 229, 192, 0.85); }
-  .brain-band-meter.alpha.is-dominant { border-color: rgba(0, 229, 192, 0.55); }
-
-  .brain-band-meter.beta { border-left: 3px solid rgba(59, 130, 246, 0.75); }
-  .brain-band-meter.beta .brain-band-fill { background: rgba(59, 130, 246, 0.85); }
-  .brain-band-meter.beta.is-dominant { border-color: rgba(59, 130, 246, 0.55); }
-
-  .brain-band-meter.gamma { border-left: 3px solid rgba(245, 158, 11, 0.75); }
-  .brain-band-meter.gamma .brain-band-fill { background: rgba(245, 158, 11, 0.85); }
-  .brain-band-meter.gamma.is-dominant { border-color: rgba(245, 158, 11, 0.55); }
-
-  .brain-dist-hint {
-    margin: 0;
-    font-size: 0.65rem;
-    line-height: 1.35;
+    background: var(--accent);
   }
 
   @media (min-width: 900px) {
     .viz-canvas {
-      height: 200px;
-      min-height: 168px;
+      height: 180px;
+      min-height: 148px;
     }
   }
 
   @media (max-width: 640px) {
-    .player-wrap {
-      padding-left: 0.75rem;
-      padding-right: 0.75rem;
-    }
-
     .player-transport {
       flex-direction: column;
       align-items: stretch;
     }
 
     .btn-play {
-      align-self: center;
+      align-self: stretch;
     }
 
     .transport-tools {
       width: 100%;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .speed select,
-    .btn-icon {
-      width: 100%;
-      min-height: 44px;
     }
 
     .volume {
-      grid-column: 1 / -1;
       width: 100%;
       min-width: 0;
     }
 
-    .live-stats {
-      grid-template-columns: 1fr;
-    }
-
-    .spectrum-row {
-      grid-template-columns: 1fr;
-    }
-
+    .live-stats,
+    .spectrum-row,
     .brain-dist-meters {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
+    }
+
+    .telemetry {
+      font-size: 0.85rem;
     }
 
     .brain-band-range {

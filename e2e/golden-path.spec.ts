@@ -56,6 +56,7 @@ test.describe('Gateway CRT golden path', () => {
     }
 
     await expect(playBtn).toBeVisible();
+    await expect(playBtn).toContainText('PLAY');
     await page.locator('[data-gateway-player] [data-audio]').evaluate((el, src) => {
       const audio = el as HTMLAudioElement;
       audio.src = src;

@@ -95,6 +95,12 @@
   },
   "player": {
     "play": "Lecture / Pause",
+    "playCmd": "PLAY",
+    "pauseCmd": "PAUSE",
+    "rate": "VIT",
+    "vol": "VOL",
+    "leftHdr": "G-CAT",
+    "rightHdr": "D-CAT",
     "seek": "Position de lecture",
     "skipBack": "Reculer 10 secondes",
     "skipForward": "Avancer 10 secondes",

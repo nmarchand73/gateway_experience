@@ -95,6 +95,12 @@
   },
   "player": {
     "play": "Play / Pause",
+    "playCmd": "PLAY",
+    "pauseCmd": "PAUSE",
+    "rate": "RATE",
+    "vol": "VOL",
+    "leftHdr": "L-CAT",
+    "rightHdr": "R-CAT",
     "seek": "Playback position",
     "skipBack": "Back 10 seconds",
     "skipForward": "Forward 10 seconds",
