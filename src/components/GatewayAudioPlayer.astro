@@ -332,12 +332,36 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
     const fsElement = () =>
       document.fullscreenElement || document.webkitFullscreenElement || null;
 
+    let crtScreenHome = null;
+
+    const syncCrtOverlayToFullscreen = (active) => {
+      const screen = document.querySelector('[data-crt-screen]');
+      if (!screen || !liveStage) return;
+      if (active) {
+        if (!crtScreenHome) crtScreenHome = screen.parentElement;
+        if (screen.parentElement !== liveStage) liveStage.appendChild(screen);
+        screen.dataset.crtFs = '1';
+      } else if (screen.dataset.crtFs === '1') {
+        delete screen.dataset.crtFs;
+        const home = crtScreenHome || document.body;
+        if (screen.parentElement !== home) {
+          if (home === document.body || home === document.documentElement) {
+            document.body.prepend(screen);
+          } else {
+            home.appendChild(screen);
+          }
+        }
+        crtScreenHome = null;
+      }
+    };
+
     const syncLiveFullscreenUi = () => {
       if (!liveStage) return;
       const active =
         liveStage.classList.contains('is-fs') || fsElement() === liveStage;
       liveStage.classList.toggle('is-fs', active);
       root.classList.toggle('is-live-fs', active);
+      syncCrtOverlayToFullscreen(active);
       if (liveFsBtn) {
         liveFsBtn.setAttribute('aria-pressed', active ? 'true' : 'false');
         liveFsBtn.setAttribute(
@@ -1143,6 +1167,7 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
     background: #001000;
     border: 1px solid var(--accent);
     overflow: hidden;
+    position: relative;
   }
 
   .live-stage.is-fs {
@@ -1150,6 +1175,16 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
     inset: 0;
     z-index: 100000;
     pointer-events: auto;
+  }
+
+  /* CRT glass must live inside the fullscreen subtree to remain visible. */
+  .live-stage:fullscreen > .screen,
+  .live-stage:-webkit-full-screen > .screen,
+  .live-stage.is-fs > .screen {
+    position: absolute;
+    inset: 0;
+    z-index: 40;
+    pointer-events: none;
   }
 
   .live-stage.is-fs .live-fs-btn {
