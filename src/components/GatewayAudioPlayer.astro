@@ -34,6 +34,9 @@ const fmtHz = (v: number | null | undefined) =>
   v == null ? '—' : `${v.toFixed(v % 1 ? 1 : 0)} Hz`;
 
 const ciaReportUrl = resolvePdfUrl(CIA_GATEWAY_REPORT_PATH);
+const livePeakLabel = t(locale, 'player.livePeak');
+const analysisOffMsg = t(locale, 'player.analysisOff');
+const analysisSilentMsg = t(locale, 'player.analysisSilent');
 const loadErrorMsg = t(locale, 'player.loadError');
 ---
 
@@ -96,10 +99,12 @@ const loadErrorMsg = t(locale, 'player.loadError');
       <div class="target-card">
         <span class="target-k">{t(locale, 'session.left')}</span>
         <span class="target-v mono" data-freq-l>{fmtHz(leftHz)}</span>
+        <span class="target-live mono" data-live-l></span>
       </div>
       <div class="target-card">
         <span class="target-k">{t(locale, 'session.right')}</span>
         <span class="target-v mono" data-freq-r>{fmtHz(rightHz)}</span>
+        <span class="target-live mono" data-live-r></span>
       </div>
       <div class="target-card">
         <span class="target-k">{t(locale, 'session.focus')}</span>
@@ -111,7 +116,12 @@ const loadErrorMsg = t(locale, 'player.loadError');
           <span class="target-v">{bandLabel}</span>
         </div>
       )}
+      <div class="target-card target-wide target-live-beat">
+        <span class="target-k">{t(locale, 'player.liveBeat')}</span>
+        <span class="target-v mono" data-live-beat>—</span>
+      </div>
     </div>
+    <p class="analysis-status muted" data-analysis-status hidden></p>
     {!reviewed && <p class="target-warn">{t(locale, 'session.unreviewedShort')}</p>}
     <p class="target-mss muted">{t(locale, 'player.ciaReportBody')}</p>
   </div>
@@ -220,7 +230,7 @@ const loadErrorMsg = t(locale, 'player.loadError');
   </details>
 </section>
 
-<script define:vars={{ leftHz, rightHz, beatHz, loadErrorMsg }}>
+<script define:vars={{ leftHz, rightHz, beatHz, loadErrorMsg, livePeakLabel, analysisOffMsg, analysisSilentMsg }}>
   document.querySelectorAll('[data-gateway-player]').forEach((root) => {
     const audio = root.querySelector('[data-audio]');
     if (!audio) return;
@@ -243,6 +253,10 @@ const loadErrorMsg = t(locale, 'player.loadError');
     const detectBeat = root.querySelector('[data-detect-beat]');
     const peakLabelL = root.querySelector('[data-peak-l]');
     const peakLabelR = root.querySelector('[data-peak-r]');
+    const liveL = root.querySelector('[data-live-l]');
+    const liveR = root.querySelector('[data-live-r]');
+    const liveBeat = root.querySelector('[data-live-beat]');
+    const analysisStatus = root.querySelector('[data-analysis-status]');
     const bandMeters = root.querySelectorAll('.brain-band-meter');
     const bandPctEls = {
       delta: root.querySelector('[data-band-pct="delta"]'),
@@ -449,11 +463,18 @@ const loadErrorMsg = t(locale, 'player.loadError');
       if (detectBeat) detectBeat.textContent = bText;
       if (peakLabelL) peakLabelL.textContent = lText;
       if (peakLabelR) peakLabelR.textContent = rText;
+      if (liveL) liveL.textContent = playing && peakL != null ? `${livePeakLabel} ${fmtPeak(peakL)}` : '';
+      if (liveR) liveR.textContent = playing && peakR != null ? `${livePeakLabel} ${fmtPeak(peakR)}` : '';
+      if (liveBeat) liveBeat.textContent = bText;
       updateBandDistribution(playing);
     };
 
     const setupGraph = async () => {
-      if (ac) return;
+      if (ac) {
+        if (ac.state === 'suspended') await ac.resume();
+        startViz();
+        return;
+      }
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       if (!AudioCtx) return;
       ac = new AudioCtx();
@@ -603,8 +624,17 @@ const loadErrorMsg = t(locale, 'player.loadError');
       analyserR.getFloatFrequencyData(floatR);
       const peaks = detectPeaks();
       updateDetectUI(peaks);
-      drawSpectrum(canvasL, dataL, leftHz, peaks.peakL, 'l');
-      drawSpectrum(canvasR, dataR, rightHz, peaks.peakR, 'r');
+      if (analysisStatus) {
+        let max = 0;
+        for (let i = 0; i < dataL.length; i++) max = Math.max(max, dataL[i], dataR[i]);
+        const silent = max < 2;
+        analysisStatus.hidden = !silent || audio.paused;
+        analysisStatus.textContent = silent && !audio.paused ? analysisSilentMsg : '';
+      }
+      if (techPanel?.open) {
+        drawSpectrum(canvasL, dataL, leftHz, peaks.peakL, 'l');
+        drawSpectrum(canvasR, dataR, rightHz, peaks.peakR, 'r');
+      }
       raf = requestAnimationFrame(render);
     };
 
@@ -621,7 +651,6 @@ const loadErrorMsg = t(locale, 'player.loadError');
     };
 
     const ensureViz = async () => {
-      if (!techPanel?.open) return;
       await setupGraph();
     };
 
@@ -655,14 +684,21 @@ const loadErrorMsg = t(locale, 'player.loadError');
       smoothPeakR = null;
       smoothBeat = null;
       smoothBandPct = { delta: 0.2, theta: 0.2, alpha: 0.2, beta: 0.2, gamma: 0.2 };
+      setupGraph();
     });
     audio.addEventListener('pause', () => {
       setPlayerState();
       updateDetectUI({ peakL: null, peakR: null, beat: null });
+      if (analysisStatus) {
+        analysisStatus.hidden = true;
+        analysisStatus.textContent = '';
+      }
+      stopViz();
     });
     audio.addEventListener('ended', () => {
       setPlayerState();
       updateDetectUI({ peakL: null, peakR: null, beat: null });
+      stopViz();
     });
 
     audio.addEventListener('loadedmetadata', () => {
@@ -706,11 +742,10 @@ const loadErrorMsg = t(locale, 'player.loadError');
     setPlayerState();
 
     techPanel?.addEventListener('toggle', () => {
-      if (techPanel.open) ensureViz();
-      else stopViz();
+      if (techPanel.open && !audio.paused) ensureViz();
     });
 
-    if (techPanel?.open) ensureViz();
+    if (!audio.paused) ensureViz();
 
     window.addEventListener('resize', () => {
       if (analyserL && vizActive) {
@@ -983,10 +1018,17 @@ const loadErrorMsg = t(locale, 'player.loadError');
     color: var(--text);
   }
 
-  .target-note {
-    font-size: 0.62rem;
-    line-height: 1.35;
-    margin-top: 0.1rem;
+  .target-live {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.85rem;
+    color: var(--accent);
+    min-height: 1.1em;
+  }
+
+  .analysis-status {
+    margin: 0.5rem 0 0;
+    font-size: 0.78rem;
   }
 
   .target-warn {
