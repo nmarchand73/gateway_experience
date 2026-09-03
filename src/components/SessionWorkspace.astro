@@ -124,6 +124,8 @@ const mediaHosted = isMediaHosted();
         downloadHref={audioUrl}
         locale={locale}
         listenerMode
+        sessionTitle={sessionTitle(session, locale)}
+        sessionMeta={`Wave ${wave.roman} · ${String(session.index).padStart(2, '0')} · ${focusLabel}`}
         leftHz={session.frequencies.leftHz}
         rightHz={session.frequencies.rightHz}
         beatHz={session.frequencies.beatHz}

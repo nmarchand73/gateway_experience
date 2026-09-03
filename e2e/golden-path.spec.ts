@@ -72,6 +72,15 @@ test.describe('Gateway CRT golden path', () => {
     await expect(liveScope).toContainText(/Live analysis|Analyse live/i);
     await expect(liveScope.locator('[data-viz-l]')).toBeVisible();
     await expect(liveScope.locator('[data-viz-r]')).toBeVisible();
+    await expect(liveScope.locator('[data-live-fs]')).toBeVisible();
+    await liveScope.locator('[data-live-fs]').dispatchEvent('click');
+    await expect(liveScope).toHaveClass(/is-fs/);
+    await expect(liveScope.locator('[data-live-session]')).toBeVisible();
+    await expect(liveScope.locator('.live-scope-session-name')).not.toHaveText('');
+    await expect(liveScope.locator('[data-live-fs-label]')).toHaveText('EXIT');
+
+    await liveScope.locator('[data-live-fs]').dispatchEvent('click');
+    await expect(liveScope).not.toHaveClass(/is-fs/);
 
     await playBtn.click();
     await expect(page.locator('[data-gateway-player]')).not.toHaveAttribute('data-state', 'playing');

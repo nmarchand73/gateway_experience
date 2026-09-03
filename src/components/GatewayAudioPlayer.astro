@@ -9,6 +9,10 @@ interface Props {
   locale: Locale;
   /** Collapses spectrum / reference panel by default. */
   listenerMode?: boolean;
+  /** Session name shown at top of fullscreen live analysis. */
+  sessionTitle?: string;
+  /** Optional Wave · index · Focus line under the session title. */
+  sessionMeta?: string;
   leftHz?: number | null;
   rightHz?: number | null;
   beatHz?: number;
@@ -22,6 +26,8 @@ const {
   downloadHref,
   locale,
   listenerMode = false,
+  sessionTitle = '',
+  sessionMeta = '',
   leftHz = null,
   rightHz = null,
   beatHz,
@@ -41,6 +47,10 @@ const analysisMonoMsg = t(locale, 'player.analysisMono');
 const loadErrorMsg = t(locale, 'player.loadError');
 const playCmd = t(locale, 'player.playCmd');
 const pauseCmd = t(locale, 'player.pauseCmd');
+const fullscreenCmd = t(locale, 'player.fullscreenCmd');
+const fullscreenExitCmd = t(locale, 'player.fullscreenExitCmd');
+const fullscreenEnterLabel = t(locale, 'player.fullscreenEnter');
+const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
 ---
 
 <section class="player-wrap" data-gateway-player data-state="idle">
@@ -122,9 +132,23 @@ const pauseCmd = t(locale, 'player.pauseCmd');
   </div>
 
   <div class="live-scope" data-live-scope aria-hidden="true">
+    <header class="live-scope-session" data-live-session>
+      <p class="live-scope-session-name">{sessionTitle || t(locale, 'player.spectrumPanel')}</p>
+      {sessionMeta && <p class="live-scope-session-meta mono">{sessionMeta}</p>}
+    </header>
     <div class="live-scope-head">
       <span class="live-scope-title">{t(locale, 'player.spectrumPanel')}</span>
       <span class="live-scope-hint mono">{t(locale, 'player.spectrumRange')} · {t(locale, 'player.spectrumCaption')}</span>
+      <button
+        type="button"
+        class="btn-icon live-fs-btn"
+        data-live-fs
+        aria-pressed="false"
+        aria-label={t(locale, 'player.fullscreenEnter')}
+        title={t(locale, 'player.fullscreenEnter')}
+      >
+        <span data-live-fs-label>{t(locale, 'player.fullscreenCmd')}</span>
+      </button>
     </div>
     <p class="analysis-status muted" data-analysis-status hidden></p>
     <div class="live-stats" data-live-detect aria-live="polite">
@@ -227,7 +251,7 @@ const pauseCmd = t(locale, 'player.pauseCmd');
   </details>
 </section>
 
-<script define:vars={{ leftHz, rightHz, beatHz, loadErrorMsg, livePeakLabel, analysisOffMsg, analysisSilentMsg, analysisMonoMsg, playCmd, pauseCmd }}>
+<script define:vars={{ leftHz, rightHz, beatHz, loadErrorMsg, livePeakLabel, analysisOffMsg, analysisSilentMsg, analysisMonoMsg, playCmd, pauseCmd, fullscreenCmd, fullscreenExitCmd, fullscreenEnterLabel, fullscreenExitLabel }}>
   document.querySelectorAll('[data-gateway-player]').forEach((root) => {
     const audio = root.querySelector('[data-audio]');
     if (!audio) return;
@@ -244,6 +268,9 @@ const pauseCmd = t(locale, 'player.pauseCmd');
     const canvasL = root.querySelector('[data-viz-l]');
     const canvasR = root.querySelector('[data-viz-r]');
     const techPanel = root.querySelector('.tech-panel');
+    const liveScope = root.querySelector('[data-live-scope]');
+    const liveFsBtn = root.querySelector('[data-live-fs]');
+    const liveFsLabel = root.querySelector('[data-live-fs-label]');
     const detectL = root.querySelector('[data-detect-l]');
     const detectR = root.querySelector('[data-detect-r]');
     const detectBeat = root.querySelector('[data-detect-beat]');
@@ -276,12 +303,72 @@ const pauseCmd = t(locale, 'player.pauseCmd');
       return `${m}:${String(ss).padStart(2, '0')}`;
     };
 
+    const fsElement = () =>
+      document.fullscreenElement || document.webkitFullscreenElement || null;
+
+    const syncLiveFullscreenUi = () => {
+      if (!liveScope) return;
+      const active =
+        liveScope.classList.contains('is-fs') || fsElement() === liveScope;
+      liveScope.classList.toggle('is-fs', active);
+      if (liveFsBtn) {
+        liveFsBtn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        liveFsBtn.setAttribute(
+          'aria-label',
+          active ? fullscreenExitLabel : fullscreenEnterLabel,
+        );
+        liveFsBtn.title = active ? fullscreenExitLabel : fullscreenEnterLabel;
+      }
+      if (liveFsLabel) {
+        liveFsLabel.textContent = active ? fullscreenExitCmd : fullscreenCmd;
+      }
+    };
+
+    const enterLiveFullscreen = async () => {
+      if (!liveScope) return;
+      // Playwright / automation: native Fullscreen API is flaky; use CSS overlay.
+      if (navigator.webdriver) {
+        liveScope.classList.add('is-fs');
+        syncLiveFullscreenUi();
+        return;
+      }
+      try {
+        if (liveScope.requestFullscreen) await liveScope.requestFullscreen();
+        else if (liveScope.webkitRequestFullscreen) liveScope.webkitRequestFullscreen();
+        else liveScope.classList.add('is-fs');
+      } catch (_) {
+        liveScope.classList.add('is-fs');
+      }
+      syncLiveFullscreenUi();
+    };
+
+    const exitLiveFullscreen = async () => {
+      if (!liveScope) return;
+      liveScope.classList.remove('is-fs');
+      try {
+        const cur = fsElement();
+        if (cur === liveScope) {
+          if (document.exitFullscreen) await document.exitFullscreen();
+          else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+        }
+      } catch (_) {}
+      syncLiveFullscreenUi();
+    };
+
+    const toggleLiveFullscreen = async () => {
+      if (!liveScope) return;
+      const active =
+        liveScope.classList.contains('is-fs') || fsElement() === liveScope;
+      if (active) await exitLiveFullscreen();
+      else await enterLiveFullscreen();
+    };
+
     const setPlayerState = () => {
       const playing = !audio.paused && !audio.ended;
       root.dataset.state = playing ? 'playing' : audio.ended ? 'ended' : 'idle';
       if (playCmdEl) playCmdEl.textContent = playing ? pauseCmd : playCmd;
-      const liveScope = root.querySelector('[data-live-scope]');
       if (liveScope) liveScope.setAttribute('aria-hidden', playing ? 'false' : 'true');
+      if (!playing) exitLiveFullscreen();
       const crt = window.__gatewayCrt;
       let crtOff = false;
       try {
@@ -830,6 +917,19 @@ const pauseCmd = t(locale, 'player.pauseCmd');
 
     applyVolume(volumeEl ? Number(volumeEl.value) : 100);
     setPlayerState();
+    syncLiveFullscreenUi();
+
+    liveFsBtn?.addEventListener('click', () => {
+      toggleLiveFullscreen();
+    });
+
+    document.addEventListener('fullscreenchange', syncLiveFullscreenUi);
+    document.addEventListener('webkitfullscreenchange', syncLiveFullscreenUi);
+    document.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Escape' && liveScope?.classList.contains('is-fs')) {
+        exitLiveFullscreen();
+      }
+    });
 
     techPanel?.addEventListener('toggle', () => {
       if (techPanel.open && !audio.paused) ensureViz();
@@ -886,9 +986,92 @@ const pauseCmd = t(locale, 'player.pauseCmd');
   .live-scope-head {
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     gap: 0.25rem 0.75rem;
+  }
+
+  .live-scope-session {
+    display: none;
+    margin: 0 0 0.35rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .live-scope-session-name {
+    margin: 0;
+    font-size: clamp(1.35rem, 3.5vw, 2.1rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.35);
+    line-height: 1.15;
+  }
+
+  .live-scope-session-meta {
+    margin: 0.25rem 0 0;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .live-fs-btn {
+    margin-left: auto;
+    min-width: 4.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .live-scope:fullscreen,
+  .live-scope:-webkit-full-screen,
+  .live-scope.is-fs {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 1.1rem 1.25rem 1.25rem;
+    background: #001000;
+    border: 1px solid var(--accent);
+    overflow: auto;
+  }
+
+  .live-scope.is-fs {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    pointer-events: auto;
+  }
+
+  .live-scope.is-fs .live-fs-btn {
+    position: relative;
+    z-index: 2;
+  }
+
+  .live-scope:fullscreen .live-scope-session,
+  .live-scope:-webkit-full-screen .live-scope-session,
+  .live-scope.is-fs .live-scope-session {
+    display: block;
+  }
+
+  .live-scope:fullscreen .viz-canvas,
+  .live-scope:-webkit-full-screen .viz-canvas,
+  .live-scope.is-fs .viz-canvas {
+    height: min(42vh, 360px);
+    min-height: 220px;
+  }
+
+  .live-scope:fullscreen .stat-v,
+  .live-scope:-webkit-full-screen .stat-v,
+  .live-scope.is-fs .stat-v {
+    font-size: 1.55rem;
+  }
+
+  .live-scope:fullscreen .brain-band-track,
+  .live-scope:-webkit-full-screen .brain-band-track,
+  .live-scope.is-fs .brain-band-track {
+    height: 14px;
   }
 
   .live-scope-title {
