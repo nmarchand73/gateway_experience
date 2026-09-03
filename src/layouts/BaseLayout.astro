@@ -346,6 +346,101 @@ const navLinks = [
     letter-spacing: 0.03em;
     text-transform: uppercase;
   }
+
+  /* Home title: terminal type-in + phosphor glitch (1983 vibe) */
+  .hero-crt-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0;
+    animation: heroPhosphorGlitch 9s steps(1, end) 2.6s infinite;
+  }
+
+  .hero-crt-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 0;
+    vertical-align: bottom;
+  }
+
+  body:not(.crt-boot-open) .hero-crt-text {
+    animation: heroTypeIn 1.75s steps(18, end) 0.2s forwards;
+  }
+
+  body.crt-boot-open .hero-crt-text {
+    max-width: 0;
+  }
+
+  .hero-crt-cursor {
+    display: inline-block;
+    margin-left: 0.08em;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.55);
+    animation: heroCursorBlink 0.85s step-end infinite;
+    transform: translateY(0.04em);
+  }
+
+  @keyframes heroTypeIn {
+    from { max-width: 0; }
+    to { max-width: 22ch; }
+  }
+
+  @keyframes heroCursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @keyframes heroPhosphorGlitch {
+    0%, 91%, 100% {
+      transform: none;
+      filter: none;
+    }
+    92% {
+      transform: translate(2px, -1px);
+      filter: brightness(1.15);
+      text-shadow:
+        2px 0 rgba(255, 80, 40, 0.35),
+        -2px 0 rgba(40, 180, 255, 0.3),
+        0 0 12px rgba(108, 255, 108, 0.55);
+    }
+    93% {
+      transform: translate(-3px, 1px) skewX(-0.6deg);
+    }
+    94% {
+      transform: translate(1px, 0);
+      filter: brightness(1.05);
+    }
+    95% {
+      transform: none;
+      filter: none;
+    }
+  }
+
+  html[data-crt='off'] .hero-crt-title,
+  html[data-crt='listen'] .hero-crt-title {
+    animation: none;
+  }
+
+  html[data-crt='off'] .hero-crt-cursor {
+    opacity: 0.55;
+    animation: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body:not(.crt-boot-open) .hero-crt-text {
+      animation: none;
+      max-width: 22ch;
+    }
+    .hero-crt-title {
+      animation: none;
+    }
+    .hero-crt-cursor {
+      animation: none;
+      opacity: 0.7;
+    }
+  }
+
   .lede {
     color: rgba(200, 255, 200, 0.85);
     max-width: 60ch;

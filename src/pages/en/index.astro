@@ -15,9 +15,11 @@ const supplementCount =
 <BaseLayout title={t(locale, 'home.title')} locale={locale}>
   <CrtBoot locale={locale} />
   <p class="dossier-banner">SOURCE DOC · CIA GATEWAY PROCESS · 1983</p>
-  <header class="hero">
+  <header class="hero hero-home">
     <p class="eyebrow">{t(locale, 'home.eyebrow')}</p>
-    <h1>{t(locale, 'home.title')}</h1>
+    <h1 class="hero-crt-title">
+      <span class="hero-crt-text">{t(locale, 'home.title')}</span><span class="hero-crt-cursor" aria-hidden="true">█</span>
+    </h1>
     <p class="lede">{t(locale, 'home.subtitle')}</p>
     <div class="btn-row">
       {v2 ? (
