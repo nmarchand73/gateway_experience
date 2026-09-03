@@ -126,7 +126,7 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
       </div>
       <div class="stat-card stat-r">
         <span class="stat-k">{t(locale, 'player.detectR')}</span>
-        <span class="stat-v mono phosphor-amber" data-detect-r>—</span>
+        <span class="stat-v mono" data-detect-r>—</span>
       </div>
       <div class="stat-card stat-beat">
         <span class="stat-k">{t(locale, 'player.detectBeat')}</span>
@@ -148,7 +148,7 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
       <div class="viz-block viz-r">
         <div class="viz-head">
           <span class="viz-channel">{t(locale, 'player.spectrumR')}</span>
-          <span class="viz-peak mono phosphor-amber" data-peak-r>—</span>
+          <span class="viz-peak mono" data-peak-r>—</span>
         </div>
         <canvas class="viz-canvas" data-viz-r width="960" height="280" role="img" aria-label={t(locale, 'player.spectrumR')}></canvas>
       </div>
@@ -773,16 +773,13 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
       const usableH = h - top - axisH;
       const plotBottom = top + usableH;
 
-      const isR = channel === 'r';
-      const grid = isR ? 'rgba(255, 176, 0, 0.18)' : 'rgba(108, 255, 108, 0.22)';
-      const gridSoft = isR ? 'rgba(255, 176, 0, 0.1)' : 'rgba(108, 255, 108, 0.12)';
-      const axisInk = isR ? 'rgba(255, 176, 0, 0.65)' : 'rgba(108, 255, 108, 0.55)';
-      const carrierInk = isR ? 'rgba(255, 210, 120, 0.7)' : 'rgba(108, 255, 108, 0.55)';
-      const barBase = isR ? 'rgba(255, 176, 0, 0.9)' : 'rgba(57, 255, 20, 0.92)';
-      const barGlow = isR ? 'rgba(255, 176, 0, 0.22)' : 'rgba(57, 255, 20, 0.22)';
-      const holdColor = isR ? 'rgba(255, 210, 120, 0.98)' : 'rgba(255, 176, 0, 0.95)';
+      const barBase = 'rgba(57, 255, 20, 0.92)';
+      const barGlow = 'rgba(57, 255, 20, 0.22)';
+      const holdColor = 'rgba(232, 184, 74, 0.95)';
+      const detectInk = 'rgba(232, 184, 74, 0.95)';
+      const detectLabel = 'rgba(245, 210, 130, 0.98)';
 
-      ctx.fillStyle = isR ? '#100800' : '#001000';
+      ctx.fillStyle = '#001000';
       ctx.fillRect(0, 0, w, h);
 
       for (const band of BRAIN_BANDS) {
@@ -792,7 +789,7 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
         ctx.fillRect(x0, top, Math.max(1, x1 - x0), usableH);
       }
 
-      ctx.strokeStyle = grid;
+      ctx.strokeStyle = 'rgba(108, 255, 108, 0.22)';
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(padX, plotBottom);
@@ -801,7 +798,7 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
 
       for (const hz of AXIS_TICKS) {
         const x = hzToX(hz, w, padX);
-        drawVLine(ctx, x, top, plotBottom, gridSoft, 1);
+        drawVLine(ctx, x, top, plotBottom, 'rgba(108, 255, 108, 0.12)', 1);
       }
 
       const bars = Math.min(120, Math.max(64, Math.floor(w / 3)));
@@ -856,8 +853,8 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
 
       if (detectedHz != null && detectedHz >= F_LOW && detectedHz <= F_HIGH) {
         const x = hzToX(detectedHz, w, padX);
-        drawVLine(ctx, x, top, plotBottom, 'rgba(255, 176, 0, 0.95)', 1, [3, 3]);
-        ctx.fillStyle = 'rgba(255, 210, 120, 0.98)';
+        drawVLine(ctx, x, top, plotBottom, detectInk, 1, [3, 3]);
+        ctx.fillStyle = detectLabel;
         ctx.font = '13px VT323, monospace';
         ctx.textAlign = 'center';
         ctx.fillText(fmtPeak(detectedHz).replace(' Hz', ''), x, top + 10);
@@ -865,10 +862,10 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
 
       if (carrierHz != null && carrierHz >= F_LOW && carrierHz <= F_HIGH) {
         const x = hzToX(carrierHz, w, padX);
-        drawVLine(ctx, x, top, plotBottom, carrierInk, 1);
+        drawVLine(ctx, x, top, plotBottom, 'rgba(108, 255, 108, 0.55)', 1);
       }
 
-      ctx.fillStyle = axisInk;
+      ctx.fillStyle = 'rgba(108, 255, 108, 0.55)';
       ctx.font = '13px VT323, monospace';
       ctx.textAlign = 'center';
       const labelY = plotBottom + 16;
@@ -1086,7 +1083,7 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
     flex-direction: column;
     gap: 0.45rem;
     padding: 0.5rem 0 0.15rem;
-    border-top: 1px dashed var(--amber);
+    border-top: 1px dashed rgba(232, 184, 74, 0.4);
   }
 
   .player-wrap[data-state='playing'] .live-scope {
@@ -1561,7 +1558,7 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
   }
 
   .telemetry-live td {
-    color: var(--amber);
+    color: var(--accent);
     font-size: 0.9rem;
   }
 
@@ -1570,21 +1567,8 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
     text-shadow: 0 0 8px var(--amber-glow);
   }
 
-  .stat-card.stat-r {
-    border-color: rgba(255, 176, 0, 0.35);
-  }
-
   .stat-card.stat-beat {
-    border-color: rgba(255, 176, 0, 0.45);
-  }
-
-  .viz-block.viz-r {
-    border-color: rgba(255, 176, 0, 0.28);
-    background: #100800;
-  }
-
-  .viz-block.viz-r .viz-peak {
-    color: var(--amber);
+    border-color: rgba(232, 184, 74, 0.4);
   }
 
   .live-k {
@@ -1826,10 +1810,6 @@ const fullscreenExitLabel = t(locale, 'player.fullscreenExit');
 
   .brain-band-meter.is-dominant {
     border-color: var(--amber);
-  }
-
-  .brain-band-meter.gamma .brain-band-fill {
-    background: linear-gradient(to top, rgba(255, 176, 0, 0.25), var(--amber));
   }
 
   .brain-band-head {
