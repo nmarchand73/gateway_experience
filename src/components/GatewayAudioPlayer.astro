@@ -37,6 +37,7 @@ const ciaReportUrl = resolvePdfUrl(CIA_GATEWAY_REPORT_PATH);
 const livePeakLabel = t(locale, 'player.livePeak');
 const analysisOffMsg = t(locale, 'player.analysisOff');
 const analysisSilentMsg = t(locale, 'player.analysisSilent');
+const analysisMonoMsg = t(locale, 'player.analysisMono');
 const loadErrorMsg = t(locale, 'player.loadError');
 const playCmd = t(locale, 'player.playCmd');
 const pauseCmd = t(locale, 'player.pauseCmd');
@@ -226,7 +227,7 @@ const pauseCmd = t(locale, 'player.pauseCmd');
   </details>
 </section>
 
-<script define:vars={{ leftHz, rightHz, beatHz, loadErrorMsg, livePeakLabel, analysisOffMsg, analysisSilentMsg, playCmd, pauseCmd }}>
+<script define:vars={{ leftHz, rightHz, beatHz, loadErrorMsg, livePeakLabel, analysisOffMsg, analysisSilentMsg, analysisMonoMsg, playCmd, pauseCmd }}>
   document.querySelectorAll('[data-gateway-player]').forEach((root) => {
     const audio = root.querySelector('[data-audio]');
     if (!audio) return;
@@ -327,15 +328,21 @@ const pauseCmd = t(locale, 'player.pauseCmd');
     let dataR = null;
     let floatL = null;
     let floatR = null;
+    let uniqueL = null;
+    let uniqueR = null;
+    let timeL = null;
+    let timeR = null;
     let startBin = 0;
     let endBin = 0;
-    let binHz = 5.38330078125;
+    let binHz = 1.346;
     let raf = 0;
     let vizActive = false;
     let smoothPeakL = null;
     let smoothPeakR = null;
     let smoothBeat = null;
     let smoothBandPct = { delta: 0.2, theta: 0.2, alpha: 0.2, beta: 0.2, gamma: 0.2 };
+    let stereoLikely = true;
+    let stereoFrames = 0;
 
     const F_LOW = 1;
     const F_HIGH = 4000;
@@ -398,9 +405,49 @@ const pauseCmd = t(locale, 'player.pauseCmd');
       return (bestBin + delta) * binHz;
     };
 
+    /**
+     * Ear-unique spectrum: max(0, magMine − magOther) in dB.
+     * Cancels guided voice / music that is common to both ears so L and R
+     * carriers can be read independently.
+     */
+    const fillUniqueSpectrum = (mineDb, otherDb, outDb) => {
+      for (let k = 0; k < mineDb.length; k++) {
+        const a = 10 ** (mineDb[k] / 20);
+        const b = 10 ** (otherDb[k] / 20);
+        const u = Math.max(0, a - b);
+        outDb[k] = u > 1e-12 ? 20 * Math.log10(u) : -120;
+      }
+    };
+
+    const sampleStereoLikelihood = () => {
+      if (!analyserL || !analyserR || !timeL || !timeR) return;
+      analyserL.getFloatTimeDomainData(timeL);
+      analyserR.getFloatTimeDomainData(timeR);
+      let sumDiff = 0;
+      let sumPow = 0;
+      for (let i = 0; i < timeL.length; i++) {
+        const d = timeL[i] - timeR[i];
+        sumDiff += d * d;
+        sumPow += timeL[i] * timeL[i] + timeR[i] * timeR[i];
+      }
+      const sideRatio = Math.sqrt(sumDiff) / (Math.sqrt(sumPow) + 1e-12);
+      // True mono (or duplicated L→R) sits near 0; stereo Hemi-Sync has a side image.
+      stereoLikely = sideRatio > 0.02;
+    };
+
     const detectPeaks = () => {
-      const rawL = findPeakInRange(floatL, CARRIER_LO, CARRIER_HI);
-      const rawR = findPeakInRange(floatR, CARRIER_LO, CARRIER_HI);
+      if (!floatL || !floatR || !uniqueL || !uniqueR) {
+        return { peakL: null, peakR: null, beat: null };
+      }
+      fillUniqueSpectrum(floatL, floatR, uniqueL);
+      fillUniqueSpectrum(floatR, floatL, uniqueR);
+
+      // Prefer ear-unique carriers; fall back to raw peak if unique is silent.
+      let rawL = findPeakInRange(uniqueL, CARRIER_LO, CARRIER_HI, -85);
+      let rawR = findPeakInRange(uniqueR, CARRIER_LO, CARRIER_HI, -85);
+      if (rawL == null) rawL = findPeakInRange(floatL, CARRIER_LO, CARRIER_HI);
+      if (rawR == null) rawR = findPeakInRange(floatR, CARRIER_LO, CARRIER_HI);
+
       if (rawL != null) smoothPeakL = smoothVal(smoothPeakL, rawL);
       if (rawR != null) smoothPeakR = smoothVal(smoothPeakR, rawR);
       if (smoothPeakL != null && smoothPeakR != null) {
@@ -488,20 +535,45 @@ const pauseCmd = t(locale, 'player.pauseCmd');
       gainNode.gain.value = volumeEl ? Number(volumeEl.value) / 100 : 1;
 
       const source = ac.createMediaElementSource(audio);
+      // Force discrete stereo so ChannelSplitter does not upmix/downmix L into R.
+      try {
+        source.channelCount = 2;
+        source.channelCountMode = 'explicit';
+        source.channelInterpretation = 'discrete';
+      } catch (_) {}
+
       splitter = ac.createChannelSplitter(2);
+      try {
+        splitter.channelCount = 2;
+        splitter.channelCountMode = 'explicit';
+        splitter.channelInterpretation = 'discrete';
+      } catch (_) {}
+
       analyserL = ac.createAnalyser();
       analyserR = ac.createAnalyser();
-      analyserL.fftSize = 8192;
-      analyserR.fftSize = 8192;
-      analyserL.smoothingTimeConstant = 0.82;
-      analyserR.smoothingTimeConstant = 0.82;
+      // Max Web Audio FFT → ~1.3 Hz bins at 44.1 kHz (was ~5.4 Hz at 8192).
+      const FFT = 32768;
+      analyserL.fftSize = FFT;
+      analyserR.fftSize = FFT;
+      analyserL.smoothingTimeConstant = 0.75;
+      analyserR.smoothingTimeConstant = 0.75;
+      try {
+        analyserL.channelCount = 1;
+        analyserR.channelCount = 1;
+        analyserL.channelCountMode = 'explicit';
+        analyserR.channelCountMode = 'explicit';
+      } catch (_) {}
+
       dataL = new Uint8Array(analyserL.frequencyBinCount);
       dataR = new Uint8Array(analyserR.frequencyBinCount);
       floatL = new Float32Array(analyserL.frequencyBinCount);
       floatR = new Float32Array(analyserR.frequencyBinCount);
+      uniqueL = new Float32Array(analyserL.frequencyBinCount);
+      uniqueR = new Float32Array(analyserR.frequencyBinCount);
+      timeL = new Float32Array(analyserL.fftSize);
+      timeR = new Float32Array(analyserR.fftSize);
 
-      const nyquist = ac.sampleRate / 2;
-      binHz = nyquist / analyserL.frequencyBinCount;
+      binHz = ac.sampleRate / analyserL.fftSize;
       startBin = Math.max(0, Math.floor(F_LOW / binHz));
       endBin = Math.min(analyserL.frequencyBinCount, Math.ceil(F_HIGH / binHz));
 
@@ -510,6 +582,9 @@ const pauseCmd = t(locale, 'player.pauseCmd');
       splitter.connect(analyserR, 1);
       source.connect(gainNode);
       gainNode.connect(ac.destination);
+
+      stereoLikely = true;
+      stereoFrames = 0;
 
       if (ac.state === 'suspended') await ac.resume();
       startViz();
@@ -629,12 +704,22 @@ const pauseCmd = t(locale, 'player.pauseCmd');
       analyserR.getFloatFrequencyData(floatR);
       const peaks = detectPeaks();
       updateDetectUI(peaks);
+      stereoFrames += 1;
+      if (stereoFrames === 12 || stereoFrames % 90 === 0) sampleStereoLikelihood();
       if (analysisStatus) {
         let max = 0;
         for (let i = 0; i < dataL.length; i++) max = Math.max(max, dataL[i], dataR[i]);
         const silent = max < 2;
-        analysisStatus.hidden = !silent || audio.paused;
-        analysisStatus.textContent = silent && !audio.paused ? analysisSilentMsg : '';
+        if (silent && !audio.paused) {
+          analysisStatus.hidden = false;
+          analysisStatus.textContent = analysisSilentMsg;
+        } else if (!audio.paused && !stereoLikely) {
+          analysisStatus.hidden = false;
+          analysisStatus.textContent = analysisMonoMsg;
+        } else {
+          analysisStatus.hidden = true;
+          analysisStatus.textContent = '';
+        }
       }
       drawSpectrum(canvasL, dataL, leftHz, peaks.peakL, 'l');
       drawSpectrum(canvasR, dataR, rightHz, peaks.peakR, 'r');
@@ -687,6 +772,8 @@ const pauseCmd = t(locale, 'player.pauseCmd');
       smoothPeakR = null;
       smoothBeat = null;
       smoothBandPct = { delta: 0.2, theta: 0.2, alpha: 0.2, beta: 0.2, gamma: 0.2 };
+      stereoLikely = true;
+      stereoFrames = 0;
       setupGraph();
     });
     audio.addEventListener('pause', () => {
